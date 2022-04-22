@@ -68,7 +68,7 @@ namespace Laboratori1.Controllers
         [HttpPut]
         public JsonResult Put(Shteti shtetet)
         {
-            string query = @"update Shteti set Emri= @Emri where Shteti = @ShtetiID";
+            string query = @"update Shteti set Emri= @Emri where ShtetiID = @ShtetiID";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("SMISAppCon");
             SqlDataReader myReader;

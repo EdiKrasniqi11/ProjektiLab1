@@ -14,7 +14,7 @@ function App(){
       <div id={HeaderCSS.navBar}>
         <img src={image} id={HeaderCSS.universityLogo} />
         <ul id={HeaderCSS.navList}>
-          <li >
+          <li>
             <NavLink to="/home">HOME</NavLink></li>
           <li>
             <NavLink to="/lajmet">LAJMET</NavLink></li>
