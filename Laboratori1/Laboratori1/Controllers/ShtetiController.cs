@@ -88,7 +88,7 @@ namespace Laboratori1.Controllers
             return new JsonResult("Successful Update");
         }
         [HttpDelete("{id}")]
-        public JsonResult Delete(int ShtetiID)
+        public JsonResult Delete(int id)
         {
             string query = @"delete from Shteti where ShtetiID = @ShtetiID";
             DataTable table = new DataTable();
@@ -99,7 +99,7 @@ namespace Laboratori1.Controllers
                 myCon.Open();
                 using (SqlCommand myCommand = new SqlCommand(query, myCon))
                 {
-                    myCommand.Parameters.AddWithValue("@ShtetiID", ShtetiID);
+                    myCommand.Parameters.AddWithValue("@ShtetiID", id);
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
                     myReader.Close();
