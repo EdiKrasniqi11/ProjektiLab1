@@ -23,6 +23,19 @@ table td{
 
 button{
     color:red;
-    border:1px grey;
+    border:1px #808080;
     margin: 5px;
+    font-family: 'Playfair Display', serif;
+}
+#formShteti{
+    text-align: center;
+}
+#inputText{
+
+}
+#emriShtetit{
+
+}
+#inputShteti{
+
 }
