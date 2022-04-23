@@ -1,0 +1,28 @@
+body{
+    font-family: 'Playfair Display', serif;
+}
+table{ 
+    margin-top:3%;
+    margin-right: auto;
+    margin-left: auto;
+    width: 85%;
+    font-size: 100%;
+    border: 1px solid grey;
+}
+table th{
+    border-top:1px solid grey;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+table td{
+    border-top: 1px solid grey;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    text-align: center;
+}
+
+button{
+    color:red;
+    border:1px grey;
+    margin: 5px;
+}
