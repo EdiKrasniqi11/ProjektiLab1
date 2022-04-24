@@ -1,3 +1,7 @@
+*{
+    text-align: center;
+}
+
 body{
     font-family: 'Playfair Display', serif;
 }
@@ -29,13 +33,4 @@ button{
 }
 #formShteti{
     text-align: center;
-}
-#inputText{
-
-}
-#emriShtetit{
-
-}
-#inputShteti{
-
 }
