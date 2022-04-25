@@ -117,3 +117,4 @@ C:\Users\adeli\Source\Repos\ProjektiLab1\Laboratori1\Laboratori1\obj\Debug\net5.
 C:\Users\adeli\Source\Repos\ProjektiLab1\Laboratori1\Laboratori1\obj\Debug\net5.0\ref\Laboratori1.dll
 C:\Users\adeli\Source\Repos\ProjektiLab1\Laboratori1\Laboratori1\obj\Debug\net5.0\Laboratori1.pdb
 C:\Users\adeli\Source\Repos\ProjektiLab1\Laboratori1\Laboratori1\obj\Debug\net5.0\Laboratori1.genruntimeconfig.cache
+E:\Edi_Krasniqi\Viti 2\Semestri 4\Lab1\project-lab1\Laboratori1\Laboratori1\bin\Debug\net5.0\libman.json

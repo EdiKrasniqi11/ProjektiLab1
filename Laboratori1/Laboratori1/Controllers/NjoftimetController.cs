@@ -90,7 +90,7 @@ namespace Laborator1.Controllers
             return new JsonResult("Successful Update");
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("{NjoftimiID}")]
         public JsonResult Delete(int NjoftimiID)
         {
             string query = @"delete from Njoftimet where NjoftimiID = @NjoftimiID";

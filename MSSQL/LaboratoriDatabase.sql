@@ -19,6 +19,7 @@ create table Shteti(
 	ShtetiID int identity(1,1) primary key,
 	Emri varchar(20) not null
 )
-SET IDENTITY_INSERT Shteti ON;  
 
-insert into Shteti(ShtetiID,Emri) values(1,'Kosova');
+DBCC CHECKIDENT ('Njoftimet', RESEED, 0);
+DBCC CHECKIDENT ('Lajmet', RESEED, 0);
+DBCC CHECKIDENT ('Shteti', RESEED, 0);
