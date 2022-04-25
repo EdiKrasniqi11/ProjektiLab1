@@ -8,7 +8,8 @@ using System.Data;
 using System.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using Laboratori1.Objects;
-
+using Microsoft.AspNetCore.Hosting;
+using System.IO;
 
 namespace Laboratori1.Controllers
 {
@@ -17,9 +18,12 @@ namespace Laboratori1.Controllers
     public class LajmetController : ControllerBase
     {
         private readonly IConfiguration _configuration;
-        public LajmetController(IConfiguration configuration)
+        private readonly IWebHostEnvironment _env;
+
+        public LajmetController(IConfiguration configuration, IWebHostEnvironment env)
         {
             _configuration = configuration;
+            _env = env;
         }
         [HttpGet]
         public JsonResult Get()
@@ -111,6 +115,32 @@ namespace Laboratori1.Controllers
             }
             return new JsonResult("Successful Deletion");
         }
+
+        [Route("SaveFile")]
+        [HttpPost]
+        public JsonResult SaveFile()
+        {
+            try
+            {
+                var httpRequest = Request.Form;
+                var postedFile = httpRequest.Files[0];
+                string filename = postedFile.FileName;
+                var physicalPath = _env.ContentRootPath + "/Photos/" + filename;
+
+                using (var stream = new FileStream(physicalPath, FileMode.Create))
+                {
+                    postedFile.CopyTo(stream);
+                }
+
+                return new JsonResult(filename);
+            }
+            catch (Exception)
+            {
+
+                return new JsonResult("anonymous.png");
+            }
+        }
+
 
 
     }

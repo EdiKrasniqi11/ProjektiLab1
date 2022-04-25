@@ -20,6 +20,15 @@ create table Shteti(
 	Emri varchar(20) not null
 )
 
+<<<<<<< HEAD
 DBCC CHECKIDENT ('Njoftimet', RESEED, 0);
 DBCC CHECKIDENT ('Lajmet', RESEED, 0);
 DBCC CHECKIDENT ('Shteti', RESEED, 0);
+=======
+insert into Shteti(ShtetiID,Emri) values(1,'Kosova');
+
+
+SET IDENTITY_INSERT Lajmet ON;  
+
+insert into Lajmet(LajmiID,Titulli,Pershkrimi,Foto) values(1,'Lajmi1','Lajmi','anonymous.png');
+>>>>>>> 123e493c368cbe69536913b0132d9f64aea9d8ed
