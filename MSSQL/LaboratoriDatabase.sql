@@ -22,3 +22,8 @@ create table Shteti(
 SET IDENTITY_INSERT Shteti ON;  
 
 insert into Shteti(ShtetiID,Emri) values(1,'Kosova');
+
+
+SET IDENTITY_INSERT Lajmet ON;  
+
+insert into Lajmet(LajmiID,Titulli,Pershkrimi,Foto) values(1,'Lajmi1','Lajmi','anonymous.png');

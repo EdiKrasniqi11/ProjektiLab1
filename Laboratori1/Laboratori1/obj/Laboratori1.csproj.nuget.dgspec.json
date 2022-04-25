@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Lab1\\Laboratori1\\Laboratori1\\Laboratori1.csproj": {}
+    "C:\\Users\\adeli\\source\\repos\\ProjektiLab1\\Laboratori1\\Laboratori1\\Laboratori1.csproj": {}
   },
   "projects": {
-    "E:\\Lab1\\Laboratori1\\Laboratori1\\Laboratori1.csproj": {
+    "C:\\Users\\adeli\\source\\repos\\ProjektiLab1\\Laboratori1\\Laboratori1\\Laboratori1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Lab1\\Laboratori1\\Laboratori1\\Laboratori1.csproj",
+        "projectUniqueName": "C:\\Users\\adeli\\source\\repos\\ProjektiLab1\\Laboratori1\\Laboratori1\\Laboratori1.csproj",
         "projectName": "Laboratori1",
-        "projectPath": "E:\\Lab1\\Laboratori1\\Laboratori1\\Laboratori1.csproj",
-        "packagesPath": "C:\\Users\\R.R\\.nuget\\packages\\",
-        "outputPath": "E:\\Lab1\\Laboratori1\\Laboratori1\\obj\\",
+        "projectPath": "C:\\Users\\adeli\\source\\repos\\ProjektiLab1\\Laboratori1\\Laboratori1\\Laboratori1.csproj",
+        "packagesPath": "C:\\Users\\adeli\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\adeli\\source\\repos\\ProjektiLab1\\Laboratori1\\Laboratori1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\R.R\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\adeli\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -42,7 +42,7 @@
           "dependencies": {
             "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
               "target": "Package",
-              "version": "[3.1.16, )"
+              "version": "[5.0.7, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
