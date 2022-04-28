@@ -48,7 +48,7 @@ namespace Laboratori1.Controllers
         [HttpPost]
         public JsonResult Post(Lajmet lajmet)
         {
-            string query = @"insert into Lajmet values(@Foto, @Titulli, @Pershkrimi)";
+            string query = @"insert into Lajmet values( @Titulli, @Pershkrimi, @Foto)";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("SMISAppCon");
             SqlDataReader myReader;
@@ -95,7 +95,7 @@ namespace Laboratori1.Controllers
         }
 
         [HttpDelete("{id}")]
-        public JsonResult Delete(int LajmiID)
+        public JsonResult Delete(int id)
         {
             string query = @"delete from Lajmet where LajmiID = @LajmiID";
             DataTable table = new DataTable();
@@ -106,7 +106,7 @@ namespace Laboratori1.Controllers
                 myCon.Open();
                 using (SqlCommand myCommand = new SqlCommand(query, myCon))
                 {
-                    myCommand.Parameters.AddWithValue("@LajmiID", LajmiID);
+                    myCommand.Parameters.AddWithValue("@LajmiID", id);
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
                     myReader.Close();

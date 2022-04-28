@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Edi_Krasniqi\\Viti 2\\Semestri 4\\Lab1\\project-lab1\\Laboratori1\\Laboratori1\\Laboratori1.csproj": {}
+    "C:\\Users\\adeli\\source\\repos\\ProjektiLab1\\Laboratori1\\Laboratori1\\Laboratori1.csproj": {}
   },
   "projects": {
-    "E:\\Edi_Krasniqi\\Viti 2\\Semestri 4\\Lab1\\project-lab1\\Laboratori1\\Laboratori1\\Laboratori1.csproj": {
+    "C:\\Users\\adeli\\source\\repos\\ProjektiLab1\\Laboratori1\\Laboratori1\\Laboratori1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Edi_Krasniqi\\Viti 2\\Semestri 4\\Lab1\\project-lab1\\Laboratori1\\Laboratori1\\Laboratori1.csproj",
+        "projectUniqueName": "C:\\Users\\adeli\\source\\repos\\ProjektiLab1\\Laboratori1\\Laboratori1\\Laboratori1.csproj",
         "projectName": "Laboratori1",
-        "projectPath": "E:\\Edi_Krasniqi\\Viti 2\\Semestri 4\\Lab1\\project-lab1\\Laboratori1\\Laboratori1\\Laboratori1.csproj",
-        "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-        "outputPath": "E:\\Edi_Krasniqi\\Viti 2\\Semestri 4\\Lab1\\project-lab1\\Laboratori1\\Laboratori1\\obj\\",
+        "projectPath": "C:\\Users\\adeli\\source\\repos\\ProjektiLab1\\Laboratori1\\Laboratori1\\Laboratori1.csproj",
+        "packagesPath": "C:\\Users\\adeli\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\adeli\\source\\repos\\ProjektiLab1\\Laboratori1\\Laboratori1\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\adeli\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
