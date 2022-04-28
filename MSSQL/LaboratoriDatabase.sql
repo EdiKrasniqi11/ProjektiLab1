@@ -20,6 +20,13 @@ create table Shteti(
 	Emri varchar(20) not null
 )
 
+create table Qyteti(
+	QytetiID int identity(1,1) primary key,
+	Shteti int not null,
+	Emri varchar(255) not null
+)
+
 DBCC CHECKIDENT ('Njoftimet', RESEED, 0);
 DBCC CHECKIDENT ('Lajmet', RESEED, 0);
 DBCC CHECKIDENT ('Shteti', RESEED, 0);
+DBCC CHECKIDENT ('Qyteti', RESEED, 0);
