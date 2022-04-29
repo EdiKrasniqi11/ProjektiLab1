@@ -9,6 +9,7 @@ export class Qytetet extends Component{
         super(props);
         
         this.state={
+            shtete:[],
             qytete:[],
             modalTitle:"",
             Emri:"",
@@ -23,6 +24,15 @@ export class Qytetet extends Component{
             this.setState({qytete:data});
         });
     }
+    
+    refreshList(){
+        fetch(variables.API_URL+'shteti')
+        .then(response=>response.json())
+        .then(data=>{
+            this.setState({shtete:data});
+        });
+    }
+    
     componentDidMount(){
         this.refreshList();
     }
@@ -32,6 +42,8 @@ export class Qytetet extends Component{
     changeShteti = (e)=>{
         this.setState({Shteti:e.target.value});
     }
+    
+    
     createClick(){
         fetch(variables.API_URL+'qyteti',{
             method:'POST',
@@ -113,6 +125,7 @@ export class Qytetet extends Component{
         render(){
             const{
                 qytete,
+                shtete,
                 modalTitle,
                 QytetiID,
                 Emri,
@@ -178,7 +191,16 @@ export class Qytetet extends Component{
                     <div id={QytetiCSS.formShteti}>
                         <span id={QytetiCSS.inputText}>Qyteti</span>
                       <div id={QytetiCSS.inputShteti}><input type="text" id={QytetiCSS.emriQytetit} value={Emri} onChange={this.changeEmri}/>
-                      <input type="number" id={QytetiCSS.emriQytetit} value={Shteti} onChange={this.changeShteti}/></div>
+                      
+                      <select className="form-select"
+            onChange={this.changeShteti}
+            value={Shteti}>
+                {shtete.map(shtetet=><option key={shtetet.ShtetiID}>
+                    {shtetet.Emri}
+                </option>)}
+            </select>
+            </div>
+
                         {QytetiID ==0?
                         <button type="button" id={QytetiCSS.button1} onClick={()=>this.createClick()}>Create</button>
                         :null}
