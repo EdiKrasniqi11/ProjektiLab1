@@ -12,6 +12,7 @@ function Header() {
         <li><NavLink to="/lajmet">LAJMET</NavLink></li>
         <li><NavLink to="/njoftimet">NJOFTIMET</NavLink></li>
         <li><NavLink to="/shtetet">SHTETET</NavLink></li>
+        <li><NavLink to="/qytetet">QYTETET</NavLink></li>
       </ul>
     </div>
   );

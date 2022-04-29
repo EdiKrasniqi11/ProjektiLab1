@@ -1,0 +1,36 @@
+*{
+    text-align: center;
+}
+
+body{
+    font-family: 'Playfair Display', serif;
+}
+table{ 
+    margin-top:3%;
+    margin-right: auto;
+    margin-left: auto;
+    width: 85%;
+    font-size: 100%;
+    border: 1px solid grey;
+}
+table th{
+    border-top:1px solid grey;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+table td{
+    border-top: 1px solid grey;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    text-align: center;
+}
+
+button{
+    color:red;
+    border:1px #808080;
+    margin: 5px;
+    font-family: 'Playfair Display', serif;
+}
+#formQyteti{
+    text-align: center;
+}

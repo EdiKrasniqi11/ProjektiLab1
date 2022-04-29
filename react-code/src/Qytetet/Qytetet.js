@@ -1,25 +1,26 @@
 import React, { Component } from "react";
 import variables  from "../Variables";
-import ShtetiCSS from "../Shtetet/Shtetet.module.css";
+import QytetiCSS from "../Qytetet/Qytetet.module.css";
 import  render  from "react-dom";
 
-export class Shtetet extends Component{
+export class Qytetet extends Component{
 
     constructor(props){
         super(props);
         
         this.state={
-            shtete:[],
+            qytete:[],
             modalTitle:"",
             Emri:"",
-            ShtetiID:0
+            Shteti:0,
+            QytetiID:0
         }
     }
     refreshList(){
-        fetch(variables.API_URL+'shteti')
+        fetch(variables.API_URL+'qyteti')
         .then(response=>response.json())
         .then(data=>{
-            this.setState({shtete:data});
+            this.setState({qytete:data});
         });
     }
     componentDidMount(){
@@ -28,8 +29,11 @@ export class Shtetet extends Component{
     changeEmri = (e)=>{
         this.setState({Emri:e.target.value});
     }
+    changeShteti = (e)=>{
+        this.setState({Shteti:e.target.value});
+    }
     createClick(){
-        fetch(variables.API_URL+'shteti',{
+        fetch(variables.API_URL+'qyteti',{
             method:'POST',
             headers:{
                 'Accept':'application/json',
@@ -51,13 +55,14 @@ export class Shtetet extends Component{
     addClick() {
         this.setState({
           modalTitle: "Shto Shtetin",
-          ShtetiID: 0,
-          Emri: ""
+          QytetiID: 0,
+          Emri: "",
+          Shteti:0
         });
       }
     deleteClick(id){
         if(window.confirm('Are you sure?')){
-        fetch(variables.API_URL+'shteti/'+id,{
+        fetch(variables.API_URL+'qyteti/'+id,{
             method:'DELETE',
             headers:{
                 'Accept':'application/json',
@@ -75,15 +80,16 @@ export class Shtetet extends Component{
     }
     }
     updateClick(){
-        fetch(variables.API_URL+'shteti',{
+        fetch(variables.API_URL+'qyteti',{
             method:'PUT',
             headers:{
                 'Accept':'application/json',
                 'Content-Type':'application/json'
             },
             body:JSON.stringify({
-                ShtetiID:this.state.ShtetiID,
-                Emri:this.state.Emri
+                QytetiID:this.state.QytetiID,
+                Emri:this.state.Emri,
+                Shteti:this.state.Shteti
             })
         })
             .then(res=>res.json())
@@ -95,39 +101,44 @@ export class Shtetet extends Component{
             
         })
     }
-    editClick(shtetet){
+    editClick(qytetet){
         this.setState({
             modalTitle:"Edit Emri",
-            ShtetiID:shtetet.ShtetiID,
-            Emri:shtetet.Emri
+            QytetiID:qytetet.QytetiID,
+            Emri:qytetet.Emri,
+            Shteti:qytetet.Shteti
         });
     }
 
         render(){
             const{
-                shtete,
+                qytete,
                 modalTitle,
-                ShtetiID,
-                Emri
+                QytetiID,
+                Emri,
+                Shteti
             }=this.state;
 
     return(
-        <div id={ShtetiCSS.shtetetDiv}>
+        <div id={QytetiCSS.qytetetDiv}>
              <button
           type="button"
           data-bs-toggle="modal"
           data-bs-target="#exampleModal"
           onClick={() => this.addClick()}>
-          Shto Shtetin
+          Shto Qytetin
         </button>
             <table>
                 <thead>
                 <tr>
                     <th>
-                        ShtetiID
+                        QytetiID
                     </th>
                     <th>
                         Emri
+                    </th>
+                    <th>
+                        Shteti
                     </th>
                     <th>
                         Options
@@ -135,15 +146,16 @@ export class Shtetet extends Component{
                 </tr>
 </thead>
 <tbody>
-                {shtete.map(shtetet=>
-                    <tr key={shtetet.ShtetiID}>
-                        <td>{shtetet.ShtetiID}</td>
-                        <td>{shtetet.Emri}</td>
+                {qytete.map(qytetet=>
+                    <tr key={qytetet.QytetiID}>
+                        <td>{qytetet.QytetiID}</td>
+                        <td>{qytetet.Emri}</td>
+                        <td>{qytetet.Shteti}</td>
                         <td>
-                            <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={()=>this.editClick(shtetet)}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                            <button type="button" onClick={()=>this.editClick(qytetet)}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor">
   <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
 </svg></button>
-                            <button type="button" onClick={()=>this.deleteClick(shtetet.ShtetiID)}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                            <button type="button" onClick={()=>this.deleteClick(qytetet.QytetiID)}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
   <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
   <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
 </svg></button>
@@ -156,21 +168,22 @@ export class Shtetet extends Component{
                         <div>
                             <div>
                                 <div>
-                                    <h5 className="modal-title">{modalTitle}</h5>
-                                    <button type="button" id={ShtetiCSS.button} data-bs-dismiss="modal" aria-label="Close"></button>
+                                    <h5>{modalTitle}</h5>
+                                    <button type="button" id={QytetiCSS.button} data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                           
                             </div>
                         </div>
                     </div>
-                    <div id={ShtetiCSS.formShteti}>
-                        <span id={ShtetiCSS.inputText}>Shteti</span>
-                      <div id={ShtetiCSS.inputShteti}><input type="text" id={ShtetiCSS.emriShtetit} value={Emri} onChange={this.changeEmri}/></div>
-                        {ShtetiID ==0?
-                        <button type="button" id={ShtetiCSS.button1} onClick={()=>this.createClick()}>Create</button>
+                    <div id={QytetiCSS.formShteti}>
+                        <span id={QytetiCSS.inputText}>Qyteti</span>
+                      <div id={QytetiCSS.inputShteti}><input type="text" id={QytetiCSS.emriQytetit} value={Emri} onChange={this.changeEmri}/>
+                      <input type="number" id={QytetiCSS.emriQytetit} value={Shteti} onChange={this.changeShteti}/></div>
+                        {QytetiID ==0?
+                        <button type="button" id={QytetiCSS.button1} onClick={()=>this.createClick()}>Create</button>
                         :null}
-                        {ShtetiID !=0?
-                        <button type="button" id={ShtetiCSS.button1} onClick={()=>this.updateClick()}>Update</button>
+                        {QytetiID !=0?
+                        <button type="button" id={QytetiCSS.button1} onClick={()=>this.updateClick()}>Update</button>
                         :null}
 
                     </div>
@@ -178,4 +191,4 @@ export class Shtetet extends Component{
     )
 }
 }
-export default Shtetet;
+export default Qytetet;
