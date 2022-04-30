@@ -36,7 +36,7 @@ export class Lajmet extends Component{
     }
     addClick() {
         this.setState({
-          modalTitle: "Shto lajmet",
+          modalTitle: "",
           LajmiID: 0,
           Titulli: "",
           Pershkrimi: "",
@@ -201,7 +201,6 @@ export class Lajmet extends Component{
                             <div className="modal-content">
                                 <div className="modal-header">
                                     <h5 className="modal-title">{modalTitle}</h5>
-                                    <button type="button" id={stylist.button} data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                           
                             </div>
