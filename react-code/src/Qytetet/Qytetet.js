@@ -65,7 +65,7 @@ export class Qytetet extends Component{
     }
     addClick() {
         this.setState({
-          modalTitle: "Shto Qytetin",
+          modalTitle: "",
           QytetiID: 0,
           Emri: "",
           Shteti:""
@@ -181,7 +181,6 @@ export class Qytetet extends Component{
                             <div>
                                 <div>
                                     <h5>{modalTitle}</h5>
-                                    <button type="button" id={QytetiCSS.button} data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                           
                             </div>

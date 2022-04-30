@@ -46,7 +46,7 @@ namespace Laboratori1.Controllers
         [HttpPost]
         public JsonResult Post(Qyteti qytetet)
         {
-            string query = @"insert into Qyteti values(@Shteti, @Emri)";
+            string query = @"insert into Qyteti values(@Emri,@Shteti)";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("SMISAppCon");
             SqlDataReader myReader;

@@ -27,9 +27,14 @@ table td{
 
 button{
     color:red;
-    border:1px #808080;
+    background-color: white;
+    border:1px solid #b6b6b6;
     margin: 5px;
     font-family: 'Playfair Display', serif;
+    padding: 8px 10px 8px 10px;
+    border-radius:2px;
+    cursor: pointer;
+    box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
 }
 #formQyteti{
     text-align: center;
