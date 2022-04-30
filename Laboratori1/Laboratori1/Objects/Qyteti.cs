@@ -17,7 +17,7 @@ namespace Laboratori1.Objects
             get;
             set;
         }
-        public int Shteti
+        public string Shteti
         {
             get;
             set;

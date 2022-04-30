@@ -13,7 +13,7 @@ export class Qytetet extends Component{
             qytete:[],
             modalTitle:"",
             Emri:"",
-            Shteti:0,
+            Shteti:"",
             QytetiID:0
         }
     }
@@ -23,9 +23,7 @@ export class Qytetet extends Component{
         .then(data=>{
             this.setState({qytete:data});
         });
-    }
     
-    refreshList(){
         fetch(variables.API_URL+'shteti')
         .then(response=>response.json())
         .then(data=>{
@@ -52,7 +50,8 @@ export class Qytetet extends Component{
                 'Content-Type':'application/json'
             },
             body:JSON.stringify({
-                Emri:this.state.Emri
+                Emri:this.state.Emri,
+                Shteti:this.state.Shteti
             })
         })
             .then(res=>res.json())
@@ -66,10 +65,10 @@ export class Qytetet extends Component{
     }
     addClick() {
         this.setState({
-          modalTitle: "Shto Shtetin",
+          modalTitle: "Shto Qytetin",
           QytetiID: 0,
           Emri: "",
-          Shteti:0
+          Shteti:""
         });
       }
     deleteClick(id){
