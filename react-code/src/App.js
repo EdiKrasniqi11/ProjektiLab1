@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "./Header/Header";
+import Footer from "./Footer/Footer";
 import Shtetet from "../src/Shtetet/Shtetet";
 import Qytetet from "../src/Qytetet/Qytetet";
 import Lajmet from "../src/Lajmet/Lajmet";
@@ -14,11 +15,11 @@ import {
 
 function App() {
   return (
+    <div>
     <Router>
       <div className="headerDiv">
         <Header />
         <Routes>
-          <Route path="/home" element={<Home />} />
           <Route path="/lajmet" element={<Lajmet />} />
           <Route path="/njoftimet" element={<Njoftimet />} />
           <Route path="/shtetet" element={<Shtetet />} />
@@ -26,6 +27,8 @@ function App() {
         </Routes>
       </div>
     </Router>
+    <Footer />
+    </div>
   );
 }
 export default App;

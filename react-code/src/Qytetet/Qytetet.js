@@ -132,7 +132,7 @@ export class Qytetet extends Component{
             }=this.state;
 
     return(
-        <div id={QytetiCSS.qytetetDiv}>
+        <div className={QytetiCSS.qytetetDiv}>
              <button
           type="button"
           data-bs-toggle="modal"
@@ -175,17 +175,6 @@ export class Qytetet extends Component{
                     </tr>
                     )}</tbody>
                     </table>
-
-                    <div>
-                        <div>
-                            <div>
-                                <div>
-                                    <h5>{modalTitle}</h5>
-                                </div>
-                          
-                            </div>
-                        </div>
-                    </div>
                     <div id={QytetiCSS.formShteti}>
                         <span id={QytetiCSS.inputText}>Qyteti</span>
                       <div id={QytetiCSS.inputShteti}><input type="text" id={QytetiCSS.emriQytetit} value={Emri} onChange={this.changeEmri}/>

@@ -18,6 +18,9 @@ table td{
     padding-bottom: 1%;
     text-align:center;
 }
+.njoftimetDiv{
+    min-height:80vh;
+}
 .njoftimetDiv button{
     color:red;
     background-color: white;

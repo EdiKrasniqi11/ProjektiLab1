@@ -151,18 +151,6 @@ export class Shtetet extends Component{
                     </tr>
                     )}</tbody>
                     </table>
-
-                    <div>
-                        <div>
-                            <div>
-                                <div>
-                                    <h5 className="modal-title">{modalTitle}</h5>
-                                    <button type="button" id={ShtetiCSS.button} data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                          
-                            </div>
-                        </div>
-                    </div>
                     <div id={ShtetiCSS.formShteti}>
                         <span id={ShtetiCSS.inputText}>Shteti</span>
                       <div id={ShtetiCSS.inputShteti}><input type="text" id={ShtetiCSS.emriShtetit} value={Emri} onChange={this.changeEmri}/></div>
@@ -172,7 +160,6 @@ export class Shtetet extends Component{
                         {ShtetiID !=0?
                         <button type="button" id={ShtetiCSS.button1} onClick={()=>this.updateClick()}>Update</button>
                         :null}
-
                     </div>
         </div>
     )

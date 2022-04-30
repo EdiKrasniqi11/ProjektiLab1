@@ -8,7 +8,6 @@ function Header() {
     <div id={HeaderCSS.navBar}>
       <img src={image} id={HeaderCSS.universityLogo} />
       <ul id={HeaderCSS.navList}>
-        <li><NavLink to="/home">HOME</NavLink></li>
         <li><NavLink to="/lajmet">LAJMET</NavLink></li>
         <li><NavLink to="/njoftimet">NJOFTIMET</NavLink></li>
         <li><NavLink to="/shtetet">SHTETET</NavLink></li>
