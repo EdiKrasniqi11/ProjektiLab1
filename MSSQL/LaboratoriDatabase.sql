@@ -22,8 +22,9 @@ create table Shteti(
  
  create table Qyteti(
 	QytetiID int identity(1,1) primary key,
-	Shteti varchar(255) not null,
-	Emri varchar(255) not null
+	Emri varchar(255) not null,
+	Shteti varchar(255) not null
+	
 )
 
 DBCC CHECKIDENT ('Njoftimet', RESEED, 0);
