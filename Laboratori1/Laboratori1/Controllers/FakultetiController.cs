@@ -13,10 +13,10 @@ namespace Laboratori1.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class QytetiController : ControllerBase
+    public class FakultetiController : ControllerBase
     {
         private readonly IConfiguration _configuration;
-        public QytetiController(IConfiguration configuration)
+        public FakultetiController(IConfiguration configuration)
         {
             _configuration = configuration;
         }
@@ -25,7 +25,7 @@ namespace Laboratori1.Controllers
 
         public JsonResult Get()
         {
-            string query = @"select * from Qyteti";
+            string query = @"select * from Fakulteti";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("SMISAppCon");
             SqlDataReader myReader;
@@ -44,9 +44,9 @@ namespace Laboratori1.Controllers
         }
 
         [HttpPost]
-        public JsonResult Post(Qyteti qytetet)
+        public JsonResult Post(Fakulteti fakultetet)
         {
-            string query = @"insert into Qyteti values(@Emri,@Shteti)";
+            string query = @"insert into Fakulteti values(@Emri,@Shteti)";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("SMISAppCon");
             SqlDataReader myReader;
@@ -55,8 +55,8 @@ namespace Laboratori1.Controllers
                 myCon.Open();
                 using (SqlCommand myCommand = new SqlCommand(query, myCon))
                 {
-                    myCommand.Parameters.AddWithValue("@Emri", qytetet.Emri);
-                    myCommand.Parameters.AddWithValue("@Shteti", qytetet.Shteti);
+                    myCommand.Parameters.AddWithValue("@Emri", fakultetet.Emri);
+                    myCommand.Parameters.AddWithValue("@Shteti", fakultetet.Shteti);
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
                     myReader.Close();
@@ -67,9 +67,9 @@ namespace Laboratori1.Controllers
         }
 
         [HttpPut]
-        public JsonResult Put(Qyteti qytetet)
+        public JsonResult Put(Fakulteti fakultetet)
         {
-            string query = @"update Qyteti set Emri = @Emri, Shteti = @Shteti where QytetiID = @QytetiID";
+            string query = @"update Fakulteti set Emri = @Emri, Shteti = @Shteti where FakultetiID = @FakultetiID";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("SMISAppCon");
             SqlDataReader myReader;
@@ -78,9 +78,9 @@ namespace Laboratori1.Controllers
                 myCon.Open();
                 using (SqlCommand myCommand = new SqlCommand(query, myCon))
                 {
-                    myCommand.Parameters.AddWithValue("@QytetiID", qytetet.QytetiID);
-                    myCommand.Parameters.AddWithValue("@Shteti", qytetet.Shteti);
-                    myCommand.Parameters.AddWithValue("@Emri", qytetet.Emri);
+                    myCommand.Parameters.AddWithValue("@FakultetiID", fakultetet.FakultetiID);
+                    myCommand.Parameters.AddWithValue("@Shteti", fakultetet.Shteti);
+                    myCommand.Parameters.AddWithValue("@Emri", fakultetet.Emri);
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
                     myReader.Close();
@@ -93,7 +93,7 @@ namespace Laboratori1.Controllers
         [HttpDelete("{id}")]
         public JsonResult Delete(int id)
         {
-            string query = @"delete from Qyteti where QytetiID = @QytetiID";
+            string query = @"delete from Fakulteti where FakultetiID = @FakultetiID";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("SMISAppCon");
             SqlDataReader myReader;
@@ -102,7 +102,7 @@ namespace Laboratori1.Controllers
                 myCon.Open();
                 using (SqlCommand myCommand = new SqlCommand(query, myCon))
                 {
-                    myCommand.Parameters.AddWithValue("@QytetiID", id);
+                    myCommand.Parameters.AddWithValue("@FakultetiID", id);
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
                     myReader.Close();
@@ -111,6 +111,5 @@ namespace Laboratori1.Controllers
             }
             return new JsonResult("Successful Deletion");
         }
-
     }
 }

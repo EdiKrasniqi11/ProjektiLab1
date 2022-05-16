@@ -189,7 +189,7 @@ export class Njoftimet extends Component {
               <div className="modal-body">
                 <div id={stylist.insertionDivs}>
                   <div>
-                    <span className="input-group-text">Titulli</span>
+                    <span>Titulli</span>
                     <br></br>
                     <input
                       type="text"

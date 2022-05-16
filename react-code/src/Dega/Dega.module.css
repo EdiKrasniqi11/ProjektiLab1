@@ -1,0 +1,17 @@
+.degaDiv{
+    min-height: 80vh;
+}
+.inputDiv{
+    display: flex;
+    justify-content: center;
+}
+#qytetiInputDiv{
+    margin-right:2%;
+}
+#qytetiInputDiv select{
+    width:250px;
+}
+#fakultetiInputDiv select{
+    width:250px;
+    height:21px;
+}

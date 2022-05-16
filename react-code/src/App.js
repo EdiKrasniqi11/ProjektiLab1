@@ -4,8 +4,9 @@ import Footer from "./Footer/Footer";
 import Shtetet from "../src/Shtetet/Shtetet";
 import Qytetet from "../src/Qytetet/Qytetet";
 import Lajmet from "../src/Lajmet/Lajmet";
-import Home from "../src/Home/Home";
-import Njoftimet from "../src/Njoftimet/Njoftimet";
+import Njoftimet from "./Njoftimet/Njoftimet";
+import Fakulteti from "./Fakulteti/Fakulteti";
+import Dega from "./Dega/Dega";
 import {
   BrowserRouter as Router,
   Route,
@@ -24,6 +25,8 @@ function App() {
           <Route path="/njoftimet" element={<Njoftimet />} />
           <Route path="/shtetet" element={<Shtetet />} />
           <Route path="/qytetet" element={<Qytetet />} />
+          <Route path="/fakultetet" element={<Fakulteti />} />
+          <Route path="/deget" element={<Dega />} />
         </Routes>
       </div>
     </Router>

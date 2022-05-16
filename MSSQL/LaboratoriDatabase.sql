@@ -25,8 +25,21 @@ create table Shteti(
 	Emri varchar(255) not null,
 	Shteti varchar(255) not null
 )
+create table Fakulteti(
+	FakultetiID int identity(1,1) primary key,
+	Emri varchar(255) not null,
+	Shteti int not null foreign key references Shteti(ShtetiID)
+)
+
+create table Dega(
+	DegaID int identity(1,1) primary key,
+	Qyteti int foreign key references Qyteti(QytetiID),
+	Fakulteti int foreign key references Fakulteti(FakultetiID)
+)
 
 DBCC CHECKIDENT ('Njoftimet', RESEED, 0);
 DBCC CHECKIDENT ('Lajmet', RESEED, 0);
 DBCC CHECKIDENT ('Shteti', RESEED, 0);
 DBCC CHECKIDENT ('Qyteti', RESEED, 0);
+DBCC CHECKIDENT ('Fakulteti', RESEED, 0);
+DBCC CHECKIDENT ('Dega', RESEED, 0);
