@@ -12,8 +12,8 @@ export class Dega extends Component{
             fakultetet:[],
             shtetet:[],
             qytetet:[],
-            Qyteti:0,
-            Fakulteti:0,
+            Qyteti:1,
+            Fakulteti:1,
             DegaID:0,
             Shteti:""
         }
@@ -107,8 +107,8 @@ export class Dega extends Component{
     addClick() {
         this.setState({
           DegaID: 0,
-          Qyteti: "",
-          Fakulteti:0,
+          Qyteti: 1,
+          Fakulteti:1,
           Shteti:""
         });
     }
@@ -138,7 +138,7 @@ export class Dega extends Component{
         }=this.state;
         return(
             <div className={stylist.degaDiv}>
-                <button type="button" onClick={() => this.addClick()}>Shto Degen</button>
+                <button type="button" onClick={() => this.addClick()} id={stylist.addButton}>Shto Degen</button>
                 <table>
                     <tr>
                         <th>DegaID</th>

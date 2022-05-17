@@ -118,7 +118,7 @@ export class Fakulteti extends Component{
         }=this.state;
         return(
             <div className={stylist.fakultetiDiv}>
-                <button type="button" onClick={() => this.addClick()}>Shto Fakultetin</button>
+                <button type="button" onClick={() => this.addClick()} id={stylist.addButton}>Shto Fakultetin</button>
                 <table>
                     <tr>
                         <th>FakultetiID</th>

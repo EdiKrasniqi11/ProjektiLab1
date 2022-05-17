@@ -120,7 +120,7 @@ export class Njoftimet extends Component {
       <div className={stylist.njoftimetDiv}>
         <button
           type="button"
-          id={stylist.shtoNjoftimin}
+          id={stylist.addButton}
           data-bs-toggle="modal"
           data-bs-target="#exampleModal"
           onClick={() => this.addClick()}>
