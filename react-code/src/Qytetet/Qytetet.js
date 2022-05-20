@@ -9,11 +9,11 @@ export class Qytetet extends Component{
         super(props);
         
         this.state={
-            shtete:[],
+            shtetet:[],
             qytete:[],
             modalTitle:"",
             Emri:"",
-            Shteti:"",
+            Shteti:1,
             QytetiID:0
         }
     }
@@ -27,7 +27,7 @@ export class Qytetet extends Component{
         fetch(variables.API_URL+'shteti')
         .then(response=>response.json())
         .then(data=>{
-            this.setState({shtete:data});
+            this.setState({shtetet:data});
         });
     }
     
@@ -68,7 +68,7 @@ export class Qytetet extends Component{
           modalTitle: "",
           QytetiID: 0,
           Emri: "",
-          Shteti:""
+          Shteti:1
         });
       }
     deleteClick(id){
@@ -120,11 +120,17 @@ export class Qytetet extends Component{
             Shteti:qytetet.Shteti
         });
     }
-
+    selectShteti(shtetet, id){
+        for(let i=0;i<shtetet.length;i++){
+            if(shtetet[i].ShtetiID === id){
+                return shtetet[i].Emri;
+            }
+        }
+    }
         render(){
             const{
                 qytete,
-                shtete,
+                shtetet,
                 modalTitle,
                 QytetiID,
                 Emri,
@@ -162,7 +168,7 @@ export class Qytetet extends Component{
                     <tr key={qytetet.QytetiID}>
                         <td>{qytetet.QytetiID}</td>
                         <td>{qytetet.Emri}</td>
-                        <td>{qytetet.Shteti}</td>
+                        <td>{this.selectShteti(shtetet, qytetet.Shteti)}</td>
                         <td>
                             <button type="button" onClick={()=>this.editClick(qytetet)}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor">
   <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
@@ -182,7 +188,7 @@ export class Qytetet extends Component{
                       <select className="form-select"
             onChange={this.changeShteti}
             value={Shteti}>
-                {shtete.map(shtetet=><option key={shtetet.ShtetiID}>
+                {shtetet.map(shtetet=><option value={shtetet.ShtetiID}>
                     {shtetet.Emri}
                 </option>)}
             </select>
@@ -194,7 +200,6 @@ export class Qytetet extends Component{
                         {QytetiID !=0?
                         <button type="button" id={QytetiCSS.button1} onClick={()=>this.updateClick()}>Update</button>
                         :null}
-
                     </div>
         </div>
     )
