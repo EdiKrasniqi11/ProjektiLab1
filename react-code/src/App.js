@@ -7,6 +7,7 @@ import Lajmet from "../src/Lajmet/Lajmet";
 import Njoftimet from "./Njoftimet/Njoftimet";
 import Fakulteti from "./Fakulteti/Fakulteti";
 import Dega from "./Dega/Dega";
+import Drejtimi from "./Drejtimi/Drejtimi";
 import {
   BrowserRouter as Router,
   Route,
@@ -27,6 +28,7 @@ function App() {
           <Route path="/qytetet" element={<Qytetet />} />
           <Route path="/fakultetet" element={<Fakulteti />} />
           <Route path="/deget" element={<Dega />} />
+          <Route path="/drejtimet" element={<Drejtimi />} />
         </Routes>
       </div>
     </Router>
