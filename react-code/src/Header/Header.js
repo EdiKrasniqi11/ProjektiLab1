@@ -15,6 +15,7 @@ function Header() {
         <li><NavLink to="/fakultetet">FAKULTETET</NavLink></li>
         <li><NavLink to="/deget">DEGET</NavLink></li>
         <li><NavLink to="/drejtimet">DREJTIMET</NavLink></li>
+        <li><NavLink to="/vendbanimet">VENDBANIMET</NavLink></li>
       </ul>
     </div>
   );
