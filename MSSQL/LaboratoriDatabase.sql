@@ -48,6 +48,7 @@ create table Vendbanimi(
 	Adresa varchar(255) not null
 )
 
+
 DBCC CHECKIDENT ('Njoftimet', RESEED, 0);
 DBCC CHECKIDENT ('Lajmet', RESEED, 0);
 DBCC CHECKIDENT ('Shteti', RESEED, 0);
