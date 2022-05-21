@@ -1,5 +1,6 @@
 .degaDiv{
     min-height: 80vh;
+    padding-bottom:3%;
 }
 .inputDiv{
     display: flex;
@@ -13,7 +14,7 @@
 }
 #fakultetiInputDiv select{
     width:250px;
-    height:21px;
+    height:19px;
 }
 #addButton{
     margin-top:2%;

@@ -1,7 +1,8 @@
 import React, { Component } from "react";
+import { useState} from 'react';
 import stylist from "./Dega.module.css";
 import variables from "../Variables";
-import Fakulteti from "../Fakulteti/Fakulteti";
+import Modal from "../AnyUseComponents/Modal";
 
 export class Dega extends Component{
     constructor(props){
@@ -12,10 +13,12 @@ export class Dega extends Component{
             fakultetet:[],
             shtetet:[],
             qytetet:[],
+            filterQyteti: [],
             Qyteti:1,
             Fakulteti:1,
             DegaID:0,
-            Shteti:""
+            Shteti:"",
+            openModal:false
         }
     }
     refreshList(){
@@ -23,7 +26,7 @@ export class Dega extends Component{
         .then(data=>{this.setState({fakultetet:data});});
 
         fetch(variables.API_URL+'qyteti').then(response=>response.json())
-        .then(data=>{this.setState({qytetet:data});});
+        .then(data=>{this.setState({qytetet:data}); this.setState({filterQyteti:data});});
 
         fetch(variables.API_URL+'shteti').then(response=>response.json())
         .then(data=>{this.setState({shtetet:data});});
@@ -39,6 +42,10 @@ export class Dega extends Component{
     }
     changeFakulteti = (e) =>{
         this.setState({Fakulteti:e.target.value});
+        
+        var shteti = this.state.fakultetet.find(element => element.FakultetiID == e.target.value).Shteti
+        var selQyteti = this.state.qytetet.filter(item => item.Shteti === shteti)
+        this.setState({filterQyteti: selQyteti})
     }
     createClick(){
         fetch(variables.API_URL+'dega',{
@@ -58,6 +65,9 @@ export class Dega extends Component{
                 this.refreshList();
             },(error)=>{
                 alert('Failed');  
+        })
+        this.setState({
+            openModal:false
         })
     }
     deleteClick(id){
@@ -96,12 +106,16 @@ export class Dega extends Component{
             },(error)=>{
                 alert('Failed');
         })
+        this.setState({
+            openModal:false
+        })
     }
     editClick(deget){
         this.setState({
             DegaID:deget.DegaID,
             Qyteti:deget.Qyteti,
-            Fakulteti:deget.Fakulteti
+            Fakulteti:deget.Fakulteti,
+            openModal:true
         });
     }
     addClick() {
@@ -109,7 +123,8 @@ export class Dega extends Component{
           DegaID: 0,
           Qyteti: 1,
           Fakulteti:1,
-          Shteti:""
+          Shteti:"",
+          openModal:true
         });
     }
     selectQyteti(qytetet, id){
@@ -131,10 +146,12 @@ export class Dega extends Component{
             deget,
             fakultetet,
             qytetet,
+            filterQyteti,
             Qyteti,
             Fakulteti,
             Shteti,
-            DegaID
+            DegaID,
+            openModal
         }=this.state;
         return(
             <div className={stylist.degaDiv}>
@@ -163,21 +180,21 @@ export class Dega extends Component{
                     </tr>
                     )}
                 </table>
-                <div>
+                {openModal && <Modal modalSwitch={()=>this.setState({openModal:false})}>
                     <div className={stylist.inputDiv}>
-                        <div id={stylist.qytetiInputDiv}>
-                            <span>Qyteti</span><br></br>
-                            <select className="form-select" onChange={this.changeQyteti} value={Qyteti}>
-                                {qytetet.map(qytetet=><option value={qytetet.QytetiID}>
-                                    {qytetet.Emri}
-                                </option>)}
-                            </select>
-                        </div>
                         <div id={stylist.fakultetiInputDiv}>
                             <span>Fakulteti</span><br></br>
                             <select className="form-select" onChange={this.changeFakulteti} value={Fakulteti}>
                                 {fakultetet.map(fakultetet=><option value={fakultetet.FakultetiID}>
                                     {fakultetet.Emri}
+                                </option>)}
+                            </select>
+                        </div>
+                        <div id={stylist.qytetiInputDiv}>
+                            <span>Qyteti</span><br></br>
+                            <select className="form-select" onChange={this.changeQyteti} value={Qyteti}>
+                                {filterQyteti.map(qytetet=><option value={qytetet.QytetiID}>
+                                    {qytetet.Emri}
                                 </option>)}
                             </select>
                         </div>
@@ -188,7 +205,7 @@ export class Dega extends Component{
                     {DegaID !=0?
                     <button type="button" onClick={()=>this.updateClick()}>Update</button>
                     :null}
-                </div>
+                </Modal>}
             </div>
         )
     }
