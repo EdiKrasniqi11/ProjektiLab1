@@ -47,7 +47,12 @@ create table Vendbanimi(
 	Qyteti int foreign key references Qyteti(QytetiID),
 	Adresa varchar(255) not null
 )
-
+create table Specializimi(
+	SpecializimiID int identity(1,1) primary key,
+	Fakulteti int not null foreign key references Fakulteti(FakultetiID),
+	Drejtimi int not null foreign key references Drejtimi(DrejtimiID),
+	EmriSpecializimit varchar(255)
+)
 
 DBCC CHECKIDENT ('Njoftimet', RESEED, 0);
 DBCC CHECKIDENT ('Lajmet', RESEED, 0);
@@ -57,3 +62,4 @@ DBCC CHECKIDENT ('Fakulteti', RESEED, 0);
 DBCC CHECKIDENT ('Dega', RESEED, 0);
 DBCC CHECKIDENT ('Drejtimi', RESEED, 0);
 DBCC CHECKIDENT ('Vendbanimi', RESEED, 0);
+DBCC CHECKIDENT ('Specializimi', RESEED, 0);

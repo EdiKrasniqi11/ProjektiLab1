@@ -851,11 +851,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\adeli\\source\\repos\\ProjektiLab\\Laboratori1\\Laboratori1\\Laboratori1.csproj",
+      "projectUniqueName": "C:\\Users\\adeli\\source\\repos\\ProjektiLab1\\Laboratori1\\Laboratori1\\Laboratori1.csproj",
       "projectName": "Laboratori1",
-      "projectPath": "C:\\Users\\adeli\\source\\repos\\ProjektiLab\\Laboratori1\\Laboratori1\\Laboratori1.csproj",
+      "projectPath": "C:\\Users\\adeli\\source\\repos\\ProjektiLab1\\Laboratori1\\Laboratori1\\Laboratori1.csproj",
       "packagesPath": "C:\\Users\\adeli\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\adeli\\source\\repos\\ProjektiLab\\Laboratori1\\Laboratori1\\obj\\",
+      "outputPath": "C:\\Users\\adeli\\source\\repos\\ProjektiLab1\\Laboratori1\\Laboratori1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\adeli\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kR86Jm0QmDhzHwm/rk28Vr+tsPAg43qs7hNeG1JxcaRiXye4ORrYg5KpzxryIaXIZA+iFFYKL8b79kbZTBHADg==",
+  "dgSpecHash": "/JtQZT1sNieJQge23CJP0s2iQGlmsXt6Pa8XK32BmsCXvx3a2yRbB7T7+9b9lkRV84WdHuNTgp+DajOukzIY7Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\adeli\\source\\repos\\ProjektiLab\\Laboratori1\\Laboratori1\\Laboratori1.csproj",
+  "projectFilePath": "C:\\Users\\adeli\\source\\repos\\ProjektiLab1\\Laboratori1\\Laboratori1\\Laboratori1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\adeli\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\5.0.7\\microsoft.aspnetcore.jsonpatch.5.0.7.nupkg.sha512",
     "C:\\Users\\adeli\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\5.0.7\\microsoft.aspnetcore.mvc.newtonsoftjson.5.0.7.nupkg.sha512",

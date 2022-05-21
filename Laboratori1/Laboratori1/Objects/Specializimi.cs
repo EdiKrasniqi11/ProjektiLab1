@@ -1,29 +1,29 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace Laboratori1.Objects
 {
-    public class Vendbanimi
+    public class Specializimi
     {
-        public int VendbanimiID
+        public int SpecializimiID
         {
             get;
             set;
         }
-        public int Shteti
+        
+        public int Fakulteti
         {
             get;
             set;
         }
-        public int Qyteti
+        public int Drejtimi
         {
             get;
             set;
         }
-        public string Adresa
+        public string EmriSpecializimit
         {
             get;
             set;

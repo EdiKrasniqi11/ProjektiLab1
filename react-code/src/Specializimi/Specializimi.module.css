@@ -1,0 +1,20 @@
+.fakultetiDiv{
+    min-height: 80vh;
+}
+.inputDiv{
+    display: flex;
+    justify-content: center;
+}
+#nameInputDiv{
+    margin-right:2%;
+}
+#nameInputDiv input{
+    width:170px;
+}
+#drejtimiInputDiv select{
+    width:170px;
+    height:21px;
+}
+#addButton{
+    margin-top:2%;
+}

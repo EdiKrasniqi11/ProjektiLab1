@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Laboratori1",
+    "\\Laboratori1\\Laboratori1",
+    "\\Laboratori1\\Laboratori1\\Controllers"
   ],
-  "SelectedNode": "\\Laboratori1.sln",
+  "SelectedNode": "\\Laboratori1\\Laboratori1.sln",
   "PreviewInSolutionExplorer": false
 }
