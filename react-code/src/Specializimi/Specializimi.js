@@ -10,6 +10,7 @@ export class Specializimi extends Component{
             specializimet:[],
             fakultetet:[],
             drejtimet:[],
+            filterDrejtimi:[],
             Drejtimi:1,
             Fakulteti:1,
             SpecializimiID:0,
@@ -21,7 +22,7 @@ export class Specializimi extends Component{
         .then(data=>{this.setState({fakultetet:data});});
 
         fetch(variables.API_URL+'drejtimi').then(response=>response.json())
-        .then(data=>{this.setState({drejtimet:data});});
+        .then(data=>{this.setState({drejtimet:data}); this.setState({filterDrejtimi:data});});
 
         fetch(variables.API_URL+'specializimi').then(response=>response.json())
         .then(data=>{this.setState({specializimet:data});});
@@ -34,6 +35,9 @@ export class Specializimi extends Component{
     }
     changeFakulteti = (e) =>{
         this.setState({Fakulteti:e.target.value});
+
+        var selDrejtimi = this.state.drejtimet.filter(item => item.Fakulteti == e.target.value)
+        this.setState({filterDrejtimi: selDrejtimi})
     }
     changeEmriSpecializimit = (e) =>{
         this.setState({EmriSpecializimit:e.target.value});
@@ -134,6 +138,7 @@ export class Specializimi extends Component{
             specializimet,
             fakultetet,
             drejtimet,
+            filterDrejtimi,
             Drejtimi,
             Fakulteti,
             EmriSpecializimit,
@@ -183,7 +188,7 @@ export class Specializimi extends Component{
                             <div id={stylist.drejtimiInputDiv}>
                             <span>Drejtimi</span><br></br>
                             <select className="form-select" onChange={this.changeDrejtimi} value={Drejtimi}>
-                                {drejtimet.map(drejtimet=><option value={drejtimet.DrejtimiID}>
+                                {filterDrejtimi.map(drejtimet=><option value={drejtimet.DrejtimiID}>
                                     {drejtimet.Emri}
                                 </option>)}
                             </select>

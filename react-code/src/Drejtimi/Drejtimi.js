@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import stylist from "./Drejtimi.module.css";
 import variables from "../Variables";
 
-export class Drejtimi extends Component{
+export class Drejtimi extends Component{cd
     constructor(props){
         super(props);
 
@@ -10,7 +10,7 @@ export class Drejtimi extends Component{
             drejtimet:[],
             fakultetet:[],
             Emri:"",
-            Fakulteti:0,
+            Fakulteti:1,
             DrejtimiID:0
         }
     }
@@ -54,7 +54,7 @@ export class Drejtimi extends Component{
         this.setState({
           DrejtimiID: 0,
           Emri: "",
-          Fakulteti:0
+          Fakulteti:1
         });
     }
     deleteClick(id){

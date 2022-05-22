@@ -10,7 +10,7 @@ export class Fakulteti extends Component{
             fakultetet:[],
             shtetet:[],
             Emri:"",
-            Shteti:0,
+            Shteti:1,
             FakultetiID:0
         }
     }
@@ -54,7 +54,7 @@ export class Fakulteti extends Component{
         this.setState({
           FakultetiID: 0,
           Emri: "",
-          Shteti:0
+          Shteti:1
         });
     }
     deleteClick(id){

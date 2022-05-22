@@ -10,9 +10,10 @@ export class Vendbanimi extends Component{
             vendbanimet:[],
             shtetet:[],
             qytetet:[],
+            filterQyteti: [],
             Adresa:"",
-            ShtetiID:0,
-            QytetiID:0,
+            ShtetiID:1,
+            QytetiID:1,
             VendbanimiID:0
         }
     }
@@ -24,7 +25,7 @@ export class Vendbanimi extends Component{
         .then(data=>{this.setState({shtetet:data});});
 
         fetch(variables.API_URL+'qyteti').then(response=>response.json())
-        .then(data=>{this.setState({qytetet:data});});
+        .then(data=>{this.setState({qytetet:data}); this.setState({filterQyteti:data});});
 
         
     }
@@ -33,6 +34,10 @@ export class Vendbanimi extends Component{
     }
     changeShteti = (e) =>{
         this.setState({Shteti:e.target.value});
+
+        var shteti = this.state.shtetet.find(element => element.ShtetiID == e.target.value).ShtetiID
+        var selQyteti = this.state.qytetet.filter(item => item.Shteti === shteti)
+        this.setState({filterQyteti: selQyteti})
     }
     changeQyteti = (e) =>{
         this.setState({Qyteti:e.target.value});
@@ -64,8 +69,8 @@ export class Vendbanimi extends Component{
     addClick() {
         this.setState({
           VendbanimiID: 0,
-          Shteti:0,
-          Qyteti:0,
+          Shteti:1,
+          Qyteti:1,
           Adresa:""
           
         });
@@ -135,6 +140,7 @@ export class Vendbanimi extends Component{
             vendbanimet,
             shtetet,
             qytetet,
+            filterQyteti,
             VendbanimiID,
             Shteti,
             Qyteti,
@@ -184,7 +190,7 @@ export class Vendbanimi extends Component{
                     <div id={stylist.qytetiInputDiv}>
                             <span>Qyteti</span><br></br>
                             <select className="form-select" onChange={this.changeQyteti} value={Qyteti}>
-                                {qytetet.map(qytetet=><option value={qytetet.QytetiID}>
+                                {filterQyteti.map(qytetet=><option value={qytetet.QytetiID}>
                                     {qytetet.Emri}
                                 </option>)}
                             </select>
