@@ -18,6 +18,7 @@ function Header() {
         <li><NavLink to="/vendbanimet">VENDBANIMET</NavLink></li>
         <li><NavLink to="/specializimet">SPECIALIZIMET</NavLink></li>
         <li><NavLink to="/studentet">STUDENTET</NavLink></li>
+        <li><NavLink to="/galerite">GALERIA</NavLink></li>
       </ul>
     </div>
   );

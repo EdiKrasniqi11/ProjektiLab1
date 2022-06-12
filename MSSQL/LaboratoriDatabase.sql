@@ -66,6 +66,12 @@ create table Studenti(
 	Drejtimi int not null,
 	Specializimi int not null
 )
+create table Galeria(
+	GaleriaID int identity(1,1) primary key,
+	Pershkrimi varchar(255) not null,
+	Foto varchar(255) not null
+)
+drop table Galeria
 
 DBCC CHECKIDENT ('Njoftimet', RESEED, 0);
 DBCC CHECKIDENT ('Lajmet', RESEED, 0);
@@ -77,3 +83,4 @@ DBCC CHECKIDENT ('Drejtimi', RESEED, 0);
 DBCC CHECKIDENT ('Vendbanimi', RESEED, 0);
 DBCC CHECKIDENT ('Specializimi', RESEED, 0);
 DBCC CHECKIDENT ('Studenti', RESEED, 20210000);
+DBCC CHECKIDENT ('Galeria', RESEED, 0);
