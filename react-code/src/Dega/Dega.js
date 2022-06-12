@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { useState} from 'react';
 import stylist from "./Dega.module.css";
 import variables from "../Variables";
 import Modal from "../AnyUseComponents/Modal";
@@ -14,8 +13,8 @@ export class Dega extends Component{
             shtetet:[],
             qytetet:[],
             filterQyteti: [],
-            Qyteti:1,
-            Fakulteti:1,
+            Qyteti: 1,
+            Fakulteti:0,
             DegaID:0,
             Shteti:"",
             openModal:false
@@ -121,8 +120,8 @@ export class Dega extends Component{
     addClick() {
         this.setState({
           DegaID: 0,
-          Qyteti: 1,
-          Fakulteti:1,
+          Qyteti: 0,
+          Fakulteti:0,
           Shteti:"",
           openModal:true
         });
@@ -185,6 +184,7 @@ export class Dega extends Component{
                         <div id={stylist.fakultetiInputDiv}>
                             <span>Fakulteti</span><br></br>
                             <select className="form-select" onChange={this.changeFakulteti} value={Fakulteti}>
+                                <option value="0">Selekto Fakultetin</option>
                                 {fakultetet.map(fakultetet=><option value={fakultetet.FakultetiID}>
                                     {fakultetet.Emri}
                                 </option>)}
@@ -193,6 +193,7 @@ export class Dega extends Component{
                         <div id={stylist.qytetiInputDiv}>
                             <span>Qyteti</span><br></br>
                             <select className="form-select" onChange={this.changeQyteti} value={Qyteti}>
+                                <option value="0">Selekto Qytetin</option>
                                 {filterQyteti.map(qytetet=><option value={qytetet.QytetiID}>
                                     {qytetet.Emri}
                                 </option>)}

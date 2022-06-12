@@ -6,6 +6,7 @@ table{
     font-size: 150%;
     font-family: monospace;
     border: 1px solid #dee2e6;
+    color: rgb(86, 0, 14);
 }
 table th{
     border-top: 1px solid #dee2e6;
@@ -19,6 +20,7 @@ table td{
     text-align:center;
 }
 .njoftimetDiv{
+    background-color: #f7fafc;
     min-height:80vh;
 }
 .njoftimetDiv button{

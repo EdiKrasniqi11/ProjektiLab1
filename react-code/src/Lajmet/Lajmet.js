@@ -43,7 +43,6 @@ export class Lajmet extends Component{
           Foto:""
         });
       }
-
     createClick(){
         fetch(variables.API_URL+'lajmet',{
             method:'POST',
@@ -111,7 +110,7 @@ export class Lajmet extends Component{
     }
     editClick(lajmet){
         this.setState({
-            modalTitle:"Edit lajmetn",
+            modalTitle:"",
             LajmiID:lajmet.LajmiID,
             Titulli:lajmet.Titulli,
             Pershkrimi:lajmet.Pershkrimi,
@@ -196,16 +195,6 @@ export class Lajmet extends Component{
                     )}</tbody>
                     </table>
 
-                    <div className="modal fade" id="exampleModal" tabIndex="-1" aria-hidden="true">
-                        <div className="modal-dialog modal-lg modal-dialog-centered">
-                            <div className="modal-content">
-                                <div className="modal-header">
-                                    <h5 className="modal-title">{modalTitle}</h5>
-                                </div>
-                          
-                            </div>
-                        </div>
-                    </div>
                     <div id={stylist.formLajmi}>
                         <span id={stylist.inputText}>Lajmi</span>
                       <div id={stylist.inputLajmi}><input type="text" id={stylist.Titulli} value={Titulli} onChange={this.changeTitulli}/></div>

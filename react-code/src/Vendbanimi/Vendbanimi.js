@@ -38,6 +38,7 @@ export class Vendbanimi extends Component{
         var shteti = this.state.shtetet.find(element => element.ShtetiID == e.target.value).ShtetiID
         var selQyteti = this.state.qytetet.filter(item => item.Shteti === shteti)
         this.setState({filterQyteti: selQyteti})
+        this.setState({QytetiID: selQyteti[0].QytetiID})
     }
     changeQyteti = (e) =>{
         this.setState({Qyteti:e.target.value});
@@ -189,7 +190,7 @@ export class Vendbanimi extends Component{
 
                     <div id={stylist.qytetiInputDiv}>
                             <span>Qyteti</span><br></br>
-                            <select className="form-select" onChange={this.changeQyteti} value={Qyteti}>
+                            <select id="qytetiSelectTag" onChange={this.changeQyteti} value={Qyteti}>
                                 {filterQyteti.map(qytetet=><option value={qytetet.QytetiID}>
                                     {qytetet.Emri}
                                 </option>)}

@@ -2,19 +2,24 @@
     min-height: 80vh;
     padding-bottom:3%;
 }
-.inputDiv{
-    display: flex;
-    justify-content: center;
-}
 #qytetiInputDiv{
     margin-right:2%;
 }
 #qytetiInputDiv select{
     width:250px;
+    height:25px;
+    border-radius:5px;
+    border: 1px solid rgb(186, 186, 186);
+    box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
+    margin-bottom: 5%;
 }
 #fakultetiInputDiv select{
     width:250px;
-    height:19px;
+    height:25px;
+    border-radius:5px;
+    border: 1px solid rgb(186, 186, 186);
+    box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
+    margin-bottom: 5%;
 }
 #addButton{
     margin-top:2%;
