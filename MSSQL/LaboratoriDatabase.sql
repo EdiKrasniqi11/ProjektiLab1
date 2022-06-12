@@ -71,7 +71,6 @@ create table Galeria(
 	Pershkrimi varchar(255) not null,
 	Foto varchar(255) not null
 )
-drop table Galeria
 
 	create table Profesori(
 	ProfesoriID int identity(1,1) primary  key,
@@ -87,7 +86,13 @@ drop table Galeria
 	Vendbanimi int not null,
 	
 )
-drop table Profesori
+create table Lenda(	
+	LendaID int identity(1,1) primary key,
+	Profesori int not null foreign key references Profesori(ProfesoriID) on delete cascade,
+	Emri varchar(255) not null,
+	Drejtimi int not null foreign key references Drejtimi(DrejtimiID) on delete cascade,
+	ECTS varchar(255) not null
+)
 
 DBCC CHECKIDENT ('Njoftimet', RESEED, 0);
 DBCC CHECKIDENT ('Lajmet', RESEED, 0);
@@ -101,3 +106,4 @@ DBCC CHECKIDENT ('Specializimi', RESEED, 0);
 DBCC CHECKIDENT ('Studenti', RESEED, 20210000);
 DBCC CHECKIDENT ('Galeria', RESEED, 0);
 DBCC CHECKIDENT ('Profesori', RESEED, 0);
+DBCC CHECKIDENT ('Lenda', RESEED, 0);
