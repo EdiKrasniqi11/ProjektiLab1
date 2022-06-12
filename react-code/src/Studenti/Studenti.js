@@ -18,10 +18,10 @@ export class Studenti extends Component{
             vendbanimet:[],
             StudentiID:0,
             Emri:"",
+            Mbiemri:"",
             Dita:0,
             Muaji:0,
             Viti:0,
-            Datelindja:"",
             Gjinia: '',
             Vendbanimi: 0,
             Fakulteti:0,
@@ -46,7 +46,8 @@ export class Studenti extends Component{
         .then(data=>{this.setState({drejtimet:data});});
 
         fetch(variables.API_URL+'specializimi').then(response=>response.json())
-        .then(data=>{this.setState({specializimet:data});});
+        .then(data=>{
+            this.setState({specializimet:data});});
 
         fetch(variables.API_URL+'qyteti').then(response=>response.json())
         .then(data=>{this.setState({qytetet:data}); this.setState({filterQyteti:data});});
@@ -63,9 +64,8 @@ export class Studenti extends Component{
     changeEmri = (e) =>{
         this.setState({Emri:e.target.value});
     }
-    changeDatelindja(){
-        this.setState({Datelindja: "1"});
-        console.log(this.state.Datelindja);
+    changeMbiemri= (e) =>{
+        this.setState({Mbiemri:e.target.value});
     }
     changeDita = (e) =>{
         this.setState({Dita:e.target.value});
@@ -95,7 +95,8 @@ export class Studenti extends Component{
         this.setState({Specializimi:e.target.value});
     }
     createClick(){
-        this.setState({Datelindja: this.state.Dita+"/"+this.state.Muaji+"/"+this.state.Viti});
+        var emri = this.state.Emri+" "+this.state.Mbiemri;
+        var ditelindja = this.state.Dita+"/"+this.state.Muaji+"/"+this.state.Viti
         fetch(variables.API_URL+'studenti',{
             method:'POST',
             headers:{
@@ -103,8 +104,8 @@ export class Studenti extends Component{
                 'Content-Type':'application/json'
             },
             body:JSON.stringify({
-                Emri:this.state.Emri,
-                Datelindja:this.state.Datelindja,
+                Emri:emri,
+                Datelindja:ditelindja,
                 Gjinia:this.state.Gjinia,
                 Vendbanimi:this.state.Vendbanimi,
                 Fakulteti:this.state.Fakulteti,
@@ -123,7 +124,8 @@ export class Studenti extends Component{
         })
     }
     updateClick(){
-        var Data = new Date(this.state.Viti,this.state.Muaji,this.state.Dita).toISOString().slice(0, 19).replace('T', ' ');
+        var emri = this.state.Emri+" "+this.state.Mbiemri;
+        var ditelindja = this.state.Dita+"/"+this.state.Muaji+"/"+this.state.Viti
         fetch(variables.API_URL+'studenti',{
             method:'PUT',
             headers:{
@@ -132,8 +134,8 @@ export class Studenti extends Component{
             },
             body:JSON.stringify({
                 StudentiID:this.state.StudentiID,
-                Emri:this.state.Emri,
-                Datelindja:Data,
+                Emri:emri,
+                Datelindja:ditelindja,
                 Gjinia:this.state.Gjinia,
                 Vendbanimi:this.state.Vendbanimi,
                 Fakulteti:this.state.Fakulteti,
@@ -168,9 +170,13 @@ export class Studenti extends Component{
         }
     }
     editClick(studentet){
+        let fullname = this.state.Emri.split(" ");
+        let emri = fullname[0];
+        let mbiemri = fullname[1];
         this.setState({
             StudentiID:studentet.StudentiID,
-            Emri:studentet.Emri,
+            Emri:emri,
+            Mbiemri:mbiemri,
             Datelindja:studentet.Datelindja,
             Gjinia:studentet.Gjinia,
             Vendbanimi:studentet.Vendbanimi,
@@ -185,6 +191,7 @@ export class Studenti extends Component{
         this.setState({
             StudentiID:0,
             Emri:"",
+            Mbiemri:"",
             Dita:0,
             Muaji:0,
             Viti:0,
@@ -216,10 +223,10 @@ export class Studenti extends Component{
             vendbanimet,
             StudentiID,
             Emri,
+            Mbiemri,
             Dita,
             Muaji,
             Viti,
-            Datelindja,
             Gjinia,
             Vendbanimi,
             Fakulteti,
@@ -239,13 +246,14 @@ export class Studenti extends Component{
         }
         return(
             <div className={stylist.studentiDiv}>
-                <button type="button" onClick={() => this.addClick()} id={stylist.addButton}>Shto Studentin</button>
+                <div id={stylist.buttonDiv}>
+                    <button type="button" onClick={() => this.addClick()} id={stylist.addButton}><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 12"><path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/></svg></button>
+                </div>
                 <table>
                     <tr>
                         <th>StudentID</th>
                         <th>Emri</th>
                         <th>Datelindja</th>
-                        <th>Tjera</th>
                         <th>Options</th>
                     </tr>
                     {studentet.map(studentet=>
@@ -253,8 +261,11 @@ export class Studenti extends Component{
                             <td>{studentet.StudentiID}</td>
                             <td>{studentet.Emri}</td>
                             <td>{this.formatDate(studentet.Datelindja)}</td>
-                            <td id={stylist.extraButton}>...</td>
                             <td>
+                            <button type="button" onClick={()=>this.viewData()}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+                                <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
+                                <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
+                            </svg></button>
                             <button type="button" onClick={()=>this.editClick(studentet)}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor">
                                 <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
                             </svg></button>
@@ -271,6 +282,7 @@ export class Studenti extends Component{
                         <h2>Studenti</h2>
                         <div id={stylist.emriInputDiv}>
                             <input type="text" value={Emri} onChange={this.changeEmri} placeholder="Emri"/>
+                            <input type="text" value={Mbiemri} onChange={this.changeMbiemri} placeholder="Mbiemri"/>
                         </div>
                         <div id={stylist.date}>
                             <select id="dayInput" onChange={this.changeDita} value={Dita}>
@@ -312,11 +324,11 @@ export class Studenti extends Component{
                                     )}
                             </select>
                         </div>
-                        <div id={stylist.fakultetiInputDiv}>
-                            <select onChnage={this.changeFakulteti} value={Fakulteti}>
+                        <div id={stylist.vendbanimiInputDiv}>
+                            <select onChange={this.changeFakulteti} value={Fakulteti}>
                                 <option value="0">Fakulteti</option>
-                                {fakultetet.map(fakultetet =>
-                                    <option value={fakultetet.FakultetiID}>{fakultetet.Emri}</option>
+                                {fakultetet.map(fakulteti =>
+                                    <option value={fakulteti.FakultetiID}>{fakulteti.Emri}</option>
                                     )}
                             </select>
                         </div>
@@ -336,11 +348,11 @@ export class Studenti extends Component{
                                     )}
                             </select>
                         </div>
-                        <div id={stylist.specializimiInputDiv}>
-                            <select onChnage={this.changeSpecializimi} value={Specializimi}>
+                        <div id={stylist.drejtimiInputDiv}>
+                            <select onChange={this.changeSpecializimi} value={Specializimi}>
                                 <option value="0">Specializimi</option>
-                                {specializimet.map(specializimet =>
-                                    <option value={specializimet.SpecializimiID}>{specializimet.EmriSpecializimit}</option>
+                                {specializimet.map(specializimi =>
+                                    <option value={specializimi.SpecializimiID}>{specializimi.EmriSpecializimit}</option>
                                     )}
                             </select>
                         </div>

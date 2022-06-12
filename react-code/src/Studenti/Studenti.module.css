@@ -1,3 +1,6 @@
+.studentiDiv{
+    height:80vh;
+}
 #extraButton{
     cursor:pointer
 }
@@ -6,8 +9,12 @@
     color:rgb(72, 72, 72);
     margin-bottom:2%;
 }
+#emriInputDiv{
+    display:flex;
+    justify-content:space-between
+}
 #emriInputDiv input{
-    width:236px;
+    width:110px;
     height:25px;
     border-radius:5px;
     text-align: left;
@@ -76,4 +83,12 @@
     border: 1px solid rgb(186, 186, 186);
     box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
     margin-bottom: 5%;
+}
+#buttonDiv {
+    text-align: right;
+    padding-right: 8%;
+}
+#addButton{
+    margin-top:2%;
+    /* text-align: right; */
 }

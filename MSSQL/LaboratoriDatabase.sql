@@ -60,11 +60,11 @@ create table Studenti(
 	Datelindja Date not null,
 	Gjinia char not null,
 	check (Gjinia in ('M','F')),
-	Vendbanimi int not null,
-	Fakulteti int not null,
-	Dega int not null,
-	Drejtimi int not null,
-	Specializimi int not null
+	Vendbanimi int not null foreign key references Vendbanimi(VendbanimiID),
+	Fakulteti int not null foreign key references Fakulteti(FakultetiID),
+	Dega int not null foreign key references Dega(DegaID),
+	Drejtimi int not null foreign key references Drejtimi(DrejtimiID),
+	Specializimi int not null foreign key references Specializimi(SpecializimiID)
 )
 create table Galeria(
 	GaleriaID int identity(1,1) primary key,
@@ -84,7 +84,6 @@ create table Galeria(
 	NrTelefonit varchar(30) unique,
 	Email varchar(255),
 	Vendbanimi int not null,
-	
 )
 create table Lenda(	
 	LendaID int identity(1,1) primary key,
