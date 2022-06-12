@@ -24,7 +24,7 @@ create table Shteti(
 	Emri varchar(255) not null,
 	Shteti int not null foreign key references Shteti(ShtetiID) on delete cascade
 )
-drop table Qyteti
+
 create table Fakulteti(
 	FakultetiID int identity(1,1) primary key,
 	Emri varchar(255) not null,
@@ -43,8 +43,8 @@ create table Drejtimi(
 )
 create table Vendbanimi(
 	VendbanimiID int identity(1,1) primary key,
-	Shteti int not null foreign key references Shteti(ShtetiID) on delete cascade,
-	Qyteti int foreign key references Qyteti(QytetiID) on update cascade,
+	Shteti int not null foreign key references Shteti(ShtetiID),
+	Qyteti int foreign key references Qyteti(QytetiID),
 	Adresa varchar(255) not null
 )
 create table Specializimi(
@@ -74,21 +74,22 @@ create table Galeria(
 	create table Profesori(
 	ProfesoriID int identity(1,1) primary  key,
 	Emri varchar(255),
-	Mbiemri varchar(255),
 	Datelindja date,
 	Gjinia char not null,
 	check (Gjinia in ('M','F')),
 	GradaAkademike varchar(255),
-	Drejtimi int not null foreign key references Drejtimi(DrejtimiID) on delete cascade,
+	Drejtimi int not null foreign key references Drejtimi(DrejtimiID),
 	NrTelefonit varchar(30) unique,
 	Email varchar(255),
-	Vendbanimi int not null foreign key references Vendbanimi(VendbanimiID) on delete cascade,
-)
+	Vendbanimi int not null foreign key references Vendbanimi(VendbanimiID)
+	)
+	
+
 create table Lenda(	
 	LendaID int identity(1,1) primary key,
 	Profesori int not null foreign key references Profesori(ProfesoriID) on delete cascade,
 	Emri varchar(255) not null,
-	Drejtimi int not null foreign key references Drejtimi(DrejtimiID) on delete cascade,
+	Drejtimi int not null foreign key references Drejtimi(DrejtimiID),
 	ECTS varchar(255) not null
 )
 

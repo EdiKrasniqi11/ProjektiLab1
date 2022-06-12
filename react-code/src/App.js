@@ -14,6 +14,7 @@ import Studenti from "./Studenti/Studenti";
 import Galeria from "./Galeria/Galeria";
 import Profesori from "./Profesori/Profesori";
 import Lenda from "./Lenda/Lenda";
+import Provimi from "./Provimi/Provimi";
 
 import {
   BrowserRouter as Router,
@@ -42,6 +43,7 @@ function App() {
           <Route path="/galerite" element={<Galeria />} />
           <Route path="/profesoret" element={<Profesori />} />
           <Route path="/lendet" element={<Lenda />} />
+          <Route path="/provimet" element={<Provimi />} />
 
         </Routes>
       </div>

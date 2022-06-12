@@ -169,8 +169,8 @@ export class Lenda extends Component{
                 <table>
                     <tr>
                         <th>LendaID</th>
-			            <th>Profesori</th>
-                        <th>Emri</th>
+			            <th>Emri</th>
+                        <th>Profesori</th>
                         <th>Drejtimi</th>
                         <th>ECTS</th>
                         <th>Options</th>
@@ -178,8 +178,8 @@ export class Lenda extends Component{
                     {lendet.map(lendet=>
                         <tr key={lendet.LendaID}>
                             <td>{lendet.LendaID}</td>
-			                <td>{this.selectProfesori(profesoret, lendet.Profesori)}</td>
-                            <td>{lendet.Emri}</td>
+			                <td>{lendet.Emri}</td>
+                            <td>{this.selectProfesori(profesoret, lendet.Profesori)}</td>
 			                <td>{this.selectDrejtimi(drejtimet, lendet.Drejtimi)}</td>
                             <td>{lendet.ECTS}</td>
                             <button type="button" onClick={()=>this.editClick(lendet)}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor">

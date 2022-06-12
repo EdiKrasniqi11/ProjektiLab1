@@ -21,6 +21,7 @@ function Header() {
         <li><NavLink to="/galerite">GALERIA</NavLink></li>
         <li><NavLink to="/profesoret">PROFESORET</NavLink></li>
         <li><NavLink to="/lendet">LENDET</NavLink></li>
+        <li><NavLink to="/provimet">PROVIMET</NavLink></li>
 
       </ul>
     </div>

@@ -151,6 +151,7 @@ export class Fakulteti extends Component{
                         </div>
                         <div id={stylist.shtetiInputDiv}>
                             <span>Shteti</span><br></br>
+                            <option value="0">Shteti</option>
                             <select className="form-select" onChange={this.changeShteti} value={Shteti}>
                                 {shtetet.map(shtetet=><option value={shtetet.ShtetiID}>
                                     {shtetet.Emri}

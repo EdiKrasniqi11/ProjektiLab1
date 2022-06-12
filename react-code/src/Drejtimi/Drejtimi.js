@@ -152,6 +152,7 @@ export class Drejtimi extends Component{cd
                         <div id={stylist.fakultetiInputDiv}>
                             <span>Fakulteti</span><br></br>
                             <select className="form-select" onChange={this.changeFakulteti} value={Fakulteti}>
+                            <option value="0">Fakulteti</option>
                                 {fakultetet.map(fakultetet=><option value={fakultetet.FakultetiID}>
                                     {fakultetet.Emri}
                                 </option>)}

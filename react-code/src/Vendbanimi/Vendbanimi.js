@@ -191,6 +191,7 @@ export class Vendbanimi extends Component{
                     <div id={stylist.qytetiInputDiv}>
                             <span>Qyteti</span><br></br>
                             <select id="qytetiSelectTag" onChange={this.changeQyteti} value={Qyteti}>
+                                <option value="0">Qyteti</option>
                                 {filterQyteti.map(qytetet=><option value={qytetet.QytetiID}>
                                     {qytetet.Emri}
                                 </option>)}
