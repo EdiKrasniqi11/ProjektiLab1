@@ -12,6 +12,7 @@ export class Lenda extends Component{
             profesoret:[],
             Emri:"",
             drejtimet:[],
+            filterProfesori:[],
             ECTS:"",
             LendaID:0,
             Profesori: 0,
@@ -29,7 +30,7 @@ export class Lenda extends Component{
         .then(data=>{this.setState({profesoret:data});});
 
         fetch(variables.API_URL+'drejtimi').then(response=>response.json())
-        .then(data=>{this.setState({drejtimet:data});});
+        .then(data=>{this.setState({drejtimet:data}); this.setState({filterProfesori:data});});
     }
     componentDidMount(){
         this.refreshList();
@@ -42,6 +43,9 @@ export class Lenda extends Component{
     }
     changeDrejtimi = (e) =>{
         this.setState({Drejtimi:e.target.value});
+
+        var selProfesori = this.state.profesoret.filter(item => item.Drejtimi == e.target.value)
+        this.setState({filterProfesori: selProfesori})
     }
     changeECTS = (e) =>{
         this.setState({ECTS:e.target.value});
@@ -130,6 +134,20 @@ export class Lenda extends Component{
         });
     }
     
+    selectDrejtimi(drejtimet, id){
+        for(let i=0;i<drejtimet.length;i++){
+            if(drejtimet[i].DrejtimiID === id){
+                return drejtimet[i].Emri;
+            }
+        }
+    }
+    selectProfesori(profesoret, id){
+        for(let i=0;i<profesoret.length;i++){
+            if(profesoret[i].ProfesoriID === id){
+                return profesoret[i].Emri;
+            }
+        }
+    }
     render(){
         const{
             lendet,
@@ -137,6 +155,7 @@ export class Lenda extends Component{
             drejtimet,
             LendaID,
 	        Profesori,
+            filterProfesori,
             Emri,
             ECTS,
             Drejtimi,
@@ -159,9 +178,9 @@ export class Lenda extends Component{
                     {lendet.map(lendet=>
                         <tr key={lendet.LendaID}>
                             <td>{lendet.LendaID}</td>
-			                <td>{lendet.Profesori}</td>
+			                <td>{this.selectProfesori(profesoret, lendet.Profesori)}</td>
                             <td>{lendet.Emri}</td>
-			                <td>{lendet.Drejtimi}</td>
+			                <td>{this.selectDrejtimi(drejtimet, lendet.Drejtimi)}</td>
                             <td>{lendet.ECTS}</td>
                             <button type="button" onClick={()=>this.editClick(lendet)}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor">
                                 <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
@@ -187,7 +206,7 @@ export class Lenda extends Component{
                         <div id={stylist.ProfesoriInputDiv}>
                             <select onChange={this.changeProfesori} value={Profesori}>
                                 <option value="0">Profesori</option>
-                                       {profesoret.map(profesoret =>
+                                       {filterProfesori.map(profesoret =>
                                     <option value={profesoret.ProfesoriID}>{profesoret.Emri}</option>
                            )}
                             </select>
