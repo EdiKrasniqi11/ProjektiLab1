@@ -20,11 +20,7 @@ namespace Laboratori1.Objects
             get;
             set;
         }
-        public string Mbiemri
-        {
-            get;
-            set;
-        }
+        
         public string Datelindja
         {
             get;

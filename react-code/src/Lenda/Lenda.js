@@ -202,7 +202,14 @@ export class Lenda extends Component{
                         <div id={stylist.emriInputDiv}>
                             <input type="text" value={ECTS} onChange={this.changeECTS} placeholder="ECTS"/>
                         </div>
-                        
+                         <div id={stylist.drejtimiInputDiv}>
+                            <select onChange={this.changeDrejtimi} value={Drejtimi}>
+                                <option value="0">Drejtimi</option>
+                                {drejtimet.map(drejtimet =>
+                                    <option value={drejtimet.DrejtimiID}>{drejtimet.Emri}</option>
+                                    )}
+                            </select>
+                        </div>
                         <div id={stylist.ProfesoriInputDiv}>
                             <select onChange={this.changeProfesori} value={Profesori}>
                                 <option value="0">Profesori</option>
@@ -211,14 +218,7 @@ export class Lenda extends Component{
                            )}
                             </select>
                         </div>
-                        <div id={stylist.drejtimiInputDiv}>
-                            <select onChange={this.changeDrejtimi} value={Drejtimi}>
-                                <option value="0">Drejtimi</option>
-                                {drejtimet.map(drejtimet =>
-                                    <option value={drejtimet.DrejtimiID}>{drejtimet.Emri}</option>
-                                    )}
-                            </select>
-                        </div>
+                       
                     </div>
                     {LendaID ==0?
                     <button type="button" onClick={()=>this.createClick()}>Create</button>

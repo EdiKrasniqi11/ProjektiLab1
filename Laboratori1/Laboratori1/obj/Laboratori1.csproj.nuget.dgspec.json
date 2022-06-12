@@ -1,24 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Edi_Krasniqi\\Viti 2\\Semestri 4\\Lab1\\project-lab1\\Laboratori1\\Laboratori1\\Laboratori1.csproj": {}
+    "C:\\Users\\adeli\\Desktop\\lab1\\Laboratori1\\Laboratori1\\Laboratori1.csproj": {}
   },
   "projects": {
-    "E:\\Edi_Krasniqi\\Viti 2\\Semestri 4\\Lab1\\project-lab1\\Laboratori1\\Laboratori1\\Laboratori1.csproj": {
+    "C:\\Users\\adeli\\Desktop\\lab1\\Laboratori1\\Laboratori1\\Laboratori1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Edi_Krasniqi\\Viti 2\\Semestri 4\\Lab1\\project-lab1\\Laboratori1\\Laboratori1\\Laboratori1.csproj",
+        "projectUniqueName": "C:\\Users\\adeli\\Desktop\\lab1\\Laboratori1\\Laboratori1\\Laboratori1.csproj",
         "projectName": "Laboratori1",
-        "projectPath": "E:\\Edi_Krasniqi\\Viti 2\\Semestri 4\\Lab1\\project-lab1\\Laboratori1\\Laboratori1\\Laboratori1.csproj",
-        "packagesPath": "C:\\Users\\Acer\\.nuget\\packages\\",
-        "outputPath": "E:\\Edi_Krasniqi\\Viti 2\\Semestri 4\\Lab1\\project-lab1\\Laboratori1\\Laboratori1\\obj\\",
+        "projectPath": "C:\\Users\\adeli\\Desktop\\lab1\\Laboratori1\\Laboratori1\\Laboratori1.csproj",
+        "packagesPath": "C:\\Users\\adeli\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\adeli\\Desktop\\lab1\\Laboratori1\\Laboratori1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\adeli\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -76,7 +75,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.407\\RuntimeIdentifierGraph.json"
         }
       }
     }

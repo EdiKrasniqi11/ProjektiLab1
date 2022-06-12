@@ -45,7 +45,6 @@ namespace Laboratori1.Controllers
         public JsonResult Post(Profesori profesoret)
         {
             string query = @"insert into Profesori values(@Emri,
-														@Mbiemri,
 														CONVERT(DATE,@Datelindja,103),
 														@Gjinia,
 														@GradaAkademike,
@@ -63,7 +62,6 @@ namespace Laboratori1.Controllers
                 using (SqlCommand myCommand = new SqlCommand(query, myCon))
                 {
                     myCommand.Parameters.AddWithValue("@Emri", profesoret.Emri);
-                    myCommand.Parameters.AddWithValue("@Mbiemri", profesoret.Mbiemri);
                     myCommand.Parameters.AddWithValue("@Datelindja", profesoret.Datelindja);
                     myCommand.Parameters.AddWithValue("@Gjinia", profesoret.Gjinia);
                     myCommand.Parameters.AddWithValue("@GradaAkademike", profesoret.GradaAkademike);
@@ -84,7 +82,7 @@ namespace Laboratori1.Controllers
         [HttpPut]
         public JsonResult Put(Profesori profesoret)
         {
-            string query = @"update Profesori set Emri = @Emri,@Mbiemri=@Mbiemri, Datelindja = CONVERT(DATE,@Datelindja,103),
+            string query = @"update Profesori set Emri = @Emri, Datelindja = CONVERT(DATE,@Datelindja,103),
 			Gjinia = @Gjinia, GradaAkademike=@GradaAkademike, Drejtimi = @Drejtimi,
 			NrTelefonit=@NrTelefonit, Email=@Email, Vendbanimi = @Vendbanimi  where ProfesoriID = @ProfesoriID";
             DataTable table = new DataTable();
@@ -97,7 +95,6 @@ namespace Laboratori1.Controllers
                 {
                     myCommand.Parameters.AddWithValue("@ProfesoriID", profesoret.ProfesoriID);
                     myCommand.Parameters.AddWithValue("@Emri", profesoret.Emri);
-                    myCommand.Parameters.AddWithValue("@Mbiemri", profesoret.Mbiemri);
                     myCommand.Parameters.AddWithValue("@Datelindja", profesoret.Datelindja);
                     myCommand.Parameters.AddWithValue("@Gjinia", profesoret.Gjinia);
                     myCommand.Parameters.AddWithValue("@GradaAkademike", profesoret.GradaAkademike);

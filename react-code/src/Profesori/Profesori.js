@@ -89,7 +89,9 @@ export class Profesori extends Component{
     }
     
     createClick(){
-        this.setState({Datelindja: this.state.Dita+"/"+this.state.Muaji+"/"+this.state.Viti});
+        var emri = this.state.Emri+" "+this.state.Mbiemri;
+        var ditelindja = this.state.Dita+"/"+this.state.Muaji+"/"+this.state.Viti
+
         fetch(variables.API_URL+'profesori',{
             method:'POST',
             headers:{
@@ -97,9 +99,8 @@ export class Profesori extends Component{
                 'Content-Type':'application/json'
             },
             body:JSON.stringify({
-                Emri:this.state.Emri,
-                Mbiemri:this.state.Mbiemri,
-                Datelindja:this.state.Datelindja,
+                Emri:emri,
+                Datelindja:ditelindja,
                 Gjinia:this.state.Gjinia,
                 GradaAkademike:this.state.GradaAkademike,
                 Drejtimi:this.state.Drejtimi,
@@ -118,7 +119,8 @@ export class Profesori extends Component{
         })
     }
     updateClick(){
-        var Data = new Date(this.state.Viti,this.state.Muaji,this.state.Dita).toISOString().slice(0, 19).replace('T', ' ');
+        var emri = this.state.Emri+" "+this.state.Mbiemri;
+        var ditelindja = this.state.Dita+"/"+this.state.Muaji+"/"+this.state.Viti
         fetch(variables.API_URL+'profesori',{
             method:'PUT',
             headers:{
@@ -127,9 +129,9 @@ export class Profesori extends Component{
             },
             body:JSON.stringify({
                 ProfesoriID:this.state.ProfesoriID,
-                Emri:this.state.Emri,
+                Emri:emri,
                 Mbiemri:this.state.Mbiemri,
-                Datelindja:this.state.Datelindja,
+                Datelindja:ditelindja,
                 Gjinia:this.state.Gjinia,
                 GradaAkademike:this.state.GradaAkademike,
                 Drejtimi:this.state.Drejtimi,
@@ -240,7 +242,6 @@ export class Profesori extends Component{
                     <tr>
                         <th>ProfesoriID</th>
                         <th>Emri</th>
-                        <th>Mbiemri</th>
                         <th>Datelindja</th>
                         <th>Tjera</th>
                         <th>Options</th>
@@ -249,7 +250,6 @@ export class Profesori extends Component{
                         <tr key={profesoret.ProfesoriID}>
                             <td>{profesoret.ProfesoriID}</td>
                             <td>{profesoret.Emri}</td>
-                            <td>{profesoret.Mbiemri}</td>
                             <td>{this.formatDate(profesoret.Datelindja)}</td>
                             <td id={stylist.extraButton}>...</td>
                             <td>

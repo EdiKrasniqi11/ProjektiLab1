@@ -1,5 +1,4 @@
 create database Laboratori1
-
 use Laboratori1
 
 create table Njoftimet(
@@ -45,7 +44,7 @@ create table Drejtimi(
 create table Vendbanimi(
 	VendbanimiID int identity(1,1) primary key,
 	Shteti int not null foreign key references Shteti(ShtetiID) on delete cascade,
-	Qyteti int foreign key references Qyteti(QytetiID) on delete cascade,
+	Qyteti int foreign key references Qyteti(QytetiID) on update cascade,
 	Adresa varchar(255) not null
 )
 create table Specializimi(
@@ -80,10 +79,10 @@ create table Galeria(
 	Gjinia char not null,
 	check (Gjinia in ('M','F')),
 	GradaAkademike varchar(255),
-	Drejtimi int not null,
+	Drejtimi int not null foreign key references Drejtimi(DrejtimiID) on delete cascade,
 	NrTelefonit varchar(30) unique,
 	Email varchar(255),
-	Vendbanimi int not null,
+	Vendbanimi int not null foreign key references Vendbanimi(VendbanimiID) on delete cascade,
 )
 create table Lenda(	
 	LendaID int identity(1,1) primary key,
