@@ -1,0 +1,74 @@
+#extraButton{
+    cursor:pointer
+}
+#inputDiv h2{
+    font-family: 'Playfair Display', serif;
+    color:rgb(72, 72, 72);
+    margin-bottom:2%;
+}
+#emriInputDiv input{
+    width:236px;
+    height:25px;
+    border-radius:5px;
+    text-align: left;
+    padding-left:5%;
+    border: 1px solid rgb(186, 186, 186);
+    box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
+    margin-bottom: 5%;
+}
+#date select{
+    width:75px;
+    height:25px;
+    border-radius:5px;
+    border: 1px solid rgb(186, 186, 186);
+    box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
+    margin-bottom: 5%;
+}
+#mbiemriInputDiv input{
+    width:236px;
+    height:25px;
+    border-radius:5px;
+    text-align: left;
+    padding-left:5%;
+    border: 1px solid rgb(186, 186, 186);
+    box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
+    margin-bottom: 5%;
+}
+#date{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+}
+#gjiniaInputDiv select{
+    width:250px;
+    height:25px;
+    border-radius:5px;
+    border: 1px solid rgb(186, 186, 186);
+    box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
+    margin-bottom: 5%;
+}
+#vendbanimiInputDiv select{
+    width:250px;
+    height:25px;
+    border-radius:5px;
+    border: 1px solid rgb(186, 186, 186);
+    box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
+    margin-bottom: 5%;
+}
+#gradaInputDiv select{
+    width:250px;
+    height:25px;
+    border-radius:5px;
+    border: 1px solid rgb(186, 186, 186);
+    box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
+    margin-bottom: 5%;
+}
+
+#drejtimiInputDiv select{
+    width:250px;
+    height:25px;
+    border-radius:5px;
+    border: 1px solid rgb(186, 186, 186);
+    box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
+    margin-bottom: 5%;
+}

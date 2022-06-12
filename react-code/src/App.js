@@ -12,6 +12,7 @@ import Vendbanimi from "./Vendbanimi/Vendbanimi";
 import Specializimi from "./Specializimi/Specializimi";
 import Studenti from "./Studenti/Studenti";
 import Galeria from "./Galeria/Galeria";
+import Profesori from "./Profesori/Profesori";
 
 import {
   BrowserRouter as Router,
@@ -38,6 +39,8 @@ function App() {
           <Route path="/specializimet" element={<Specializimi />} />
           <Route path="/studentet" element={<Studenti />} />
           <Route path="/galerite" element={<Galeria />} />
+          <Route path="/profesoret" element={<Profesori />} />
+
         </Routes>
       </div>
     </Router>

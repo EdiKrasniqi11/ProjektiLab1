@@ -73,6 +73,22 @@ create table Galeria(
 )
 drop table Galeria
 
+	create table Profesori(
+	ProfesoriID int identity(1,1) primary  key,
+	Emri varchar(255),
+	Mbiemri varchar(255),
+	Datelindja date,
+	Gjinia char not null,
+	check (Gjinia in ('M','F')),
+	GradaAkademike varchar(255),
+	Drejtimi int not null,
+	NrTelefonit varchar(30) unique,
+	Email varchar(255),
+	Vendbanimi int not null,
+	
+)
+drop table Profesori
+
 DBCC CHECKIDENT ('Njoftimet', RESEED, 0);
 DBCC CHECKIDENT ('Lajmet', RESEED, 0);
 DBCC CHECKIDENT ('Shteti', RESEED, 0);
@@ -84,3 +100,4 @@ DBCC CHECKIDENT ('Vendbanimi', RESEED, 0);
 DBCC CHECKIDENT ('Specializimi', RESEED, 0);
 DBCC CHECKIDENT ('Studenti', RESEED, 20210000);
 DBCC CHECKIDENT ('Galeria', RESEED, 0);
+DBCC CHECKIDENT ('Profesori', RESEED, 0);
