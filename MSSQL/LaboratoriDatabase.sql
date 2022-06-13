@@ -83,6 +83,7 @@ create table Galeria(
 	Drejtimi int not null foreign key references Drejtimi(DrejtimiID),
 	NrTelefonit varchar(30) unique,
 	Email varchar(255),
+	Password varchar(20) not null,
 	Vendbanimi int not null foreign key references Vendbanimi(VendbanimiID)
 	)
 	

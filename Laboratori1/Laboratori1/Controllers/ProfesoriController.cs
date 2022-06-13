@@ -51,6 +51,7 @@ namespace Laboratori1.Controllers
 														@Drejtimi,
 														@NrTelefonit,
 														@Email,
+                                                        @Password,
 														@Vendbanimi
 														)";
             DataTable table = new DataTable();
@@ -68,6 +69,7 @@ namespace Laboratori1.Controllers
                     myCommand.Parameters.AddWithValue("@Drejtimi", profesoret.Drejtimi);
                     myCommand.Parameters.AddWithValue("@NrTelefonit", profesoret.NrTelefonit);
                     myCommand.Parameters.AddWithValue("@Email", profesoret.Email);
+                    myCommand.Parameters.AddWithValue("@Password", profesoret.Password);
                     myCommand.Parameters.AddWithValue("@Vendbanimi", profesoret.Vendbanimi);
 
                     myReader = myCommand.ExecuteReader();
@@ -84,7 +86,7 @@ namespace Laboratori1.Controllers
         {
             string query = @"update Profesori set Emri = @Emri, Datelindja = CONVERT(DATE,@Datelindja,103),
 			Gjinia = @Gjinia, GradaAkademike=@GradaAkademike, Drejtimi = @Drejtimi,
-			NrTelefonit=@NrTelefonit, Email=@Email, Vendbanimi = @Vendbanimi  where ProfesoriID = @ProfesoriID";
+			NrTelefonit=@NrTelefonit, Email=@Email, Password=@Password, Vendbanimi = @Vendbanimi  where ProfesoriID = @ProfesoriID";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("SMISAppCon");
             SqlDataReader myReader;
@@ -101,6 +103,7 @@ namespace Laboratori1.Controllers
                     myCommand.Parameters.AddWithValue("@Drejtimi", profesoret.Drejtimi);
                     myCommand.Parameters.AddWithValue("@NrTelefonit", profesoret.NrTelefonit);
                     myCommand.Parameters.AddWithValue("@Email", profesoret.Email);
+                    myCommand.Parameters.AddWithValue("@Password", profesoret.Password);
                     myCommand.Parameters.AddWithValue("@Vendbanimi", profesoret.Vendbanimi);
 
                     myReader = myCommand.ExecuteReader();

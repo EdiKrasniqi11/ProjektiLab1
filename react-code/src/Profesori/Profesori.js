@@ -13,6 +13,9 @@ export class Profesori extends Component{
             shtetet:[],
             qytetet:[],
             vendbanimet:[],
+            qytetetFilter:[],
+            vendbanimetFilter:[],
+            drejtimetFilter:[],
             ProfesoriID:0,
             Emri:"",
             Mbiemri:"",
@@ -25,10 +28,14 @@ export class Profesori extends Component{
             Drejtimi:0,
             NrTelefonit:"",
             Email:"",
+            Password:"",
+            Shteti:0,
+            Qyteti:0,
             Vendbanimi: 0,
-            
             insertModal:false,
-            dataModal:false
+            dataModal:false,
+            passwordShown:false
+
         }
     }
     refreshList(){
@@ -36,16 +43,16 @@ export class Profesori extends Component{
         .then(data=>{this.setState({profesoret:data});});
 
         fetch(variables.API_URL+'drejtimi').then(response=>response.json())
-        .then(data=>{this.setState({drejtimet:data});});
+        .then(data=>{this.setState({drejtimet:data}); this.setState({drejtimetFilter:data});});
 
         fetch(variables.API_URL+'qyteti').then(response=>response.json())
-        .then(data=>{this.setState({qytetet:data}); this.setState({filterQyteti:data});});
+        .then(data=>{this.setState({qytetet:data}); this.setState({qytetetFilter:data});});
 
         fetch(variables.API_URL+'shteti').then(response=>response.json())
         .then(data=>{this.setState({shtetet:data});});
 
         fetch(variables.API_URL+'vendbanimi').then(response=>response.json())
-        .then(data=>{this.setState({vendbanimet:data});});
+        .then(data=>{this.setState({vendbanimet:data}); this.setState({vendbanimetFilter:data});});
     }
     componentDidMount(){
         this.refreshList();
@@ -84,6 +91,21 @@ export class Profesori extends Component{
     changeEmail = (e) =>{
         this.setState({Email:e.target.value});
     }
+    changePassword = (e) =>{
+        this.setState({Password:e.target.value});
+    }
+    changeShteti = (e) =>{
+        this.setState({Shteti:e.target.value});
+
+        var selQyteti = this.state.qytetet.filter(qyteti => qyteti.Shteti == e.target.value);
+        this.setState({qytetetFilter: selQyteti});
+    }
+    changeQyteti = (e) =>{
+        this.setState({Qyteti: e.target.value});
+
+        var selVendbanimi = this.state.vendbanimet.filter(vendbanimi => vendbanimi.Qyteti == e.target.value);
+        this.setState({vendbanimetFilter: selVendbanimi})
+    }
     changeVendbanimi = (e) =>{
         this.setState({Vendbanimi:e.target.value});
     }
@@ -91,7 +113,11 @@ export class Profesori extends Component{
     createClick(){
         var emri = this.state.Emri+" "+this.state.Mbiemri;
         var ditelindja = this.state.Dita+"/"+this.state.Muaji+"/"+this.state.Viti
-
+        let digitRegex = /[1-9]/;
+        if(!this.state.Email.endsWith('@ubt-uni.net')){
+            return alert("Email must end in @ubt-uni.net");
+        }else
+        {
         fetch(variables.API_URL+'profesori',{
             method:'POST',
             headers:{
@@ -106,6 +132,7 @@ export class Profesori extends Component{
                 Drejtimi:this.state.Drejtimi,
                 NrTelefonit:this.state.NrTelefonit,
                 Email:this.state.Email,
+                Password:this.state.Password,
                 Vendbanimi:this.state.Vendbanimi
             })
         })
@@ -115,12 +142,18 @@ export class Profesori extends Component{
                 this.refreshList();
             })
         this.setState({
-            insertModal:false
+            insertModal:false,
+            passwordShown:false
         })
     }
+}
     updateClick(){
         var emri = this.state.Emri+" "+this.state.Mbiemri;
         var ditelindja = this.state.Dita+"/"+this.state.Muaji+"/"+this.state.Viti
+        if(!this.state.Email.endsWith('@ubt-uni.net')){
+            return alert("Email must end in @ubt-uni.net");
+        }else
+        {
         fetch(variables.API_URL+'profesori',{
             method:'PUT',
             headers:{
@@ -137,6 +170,7 @@ export class Profesori extends Component{
                 Drejtimi:this.state.Drejtimi,
                 NrTelefonit:this.state.NrTelefonit,
                 Email:this.state.Email,
+                Password:this.state.Password,
                 Vendbanimi:this.state.Vendbanimi
             })
         }).then(res=>res.json())
@@ -145,9 +179,11 @@ export class Profesori extends Component{
                 this.refreshList();
             })
         this.setState({
-            insertModal:false
+            insertModal:false,
+            passwordShown:false
         })
     }
+}
     deleteClick(id){
         if(window.confirm('Are you sure?')){
             fetch(variables.API_URL+'profesori/'+id,{
@@ -166,6 +202,9 @@ export class Profesori extends Component{
         }
     }
     editClick(profesoret){
+        let fullname = profesoret.Emri.split(" ");
+        let emri = fullname[0];
+        let mbiemri = fullname[1];
         this.setState({
             ProfesoriID:profesoret.ProfesoriID,
             Emri:profesoret.Emri,
@@ -176,6 +215,9 @@ export class Profesori extends Component{
             Drejtimi:profesoret.Drejtimi,
             NrTelefonit:profesoret.NrTelefonit,
             Email:profesoret.Email,
+            Password:profesoret.Password,
+            Shteti:0,
+            Qyteti:0,
             Vendbanimi:profesoret.Vendbanimi,
             insertModal:true
         });
@@ -194,8 +236,12 @@ export class Profesori extends Component{
             Drejtimi:0,
             NrTelefonit:"",
             Email:"",
+            Password:"",
+            Shteti:0,
+            Qyteti:0,
             Vendbanimi: 0,
-            insertModal:true
+            insertModal:true,
+            passwordShown:false
         });
     }
     formatDate(date){
@@ -211,6 +257,8 @@ export class Profesori extends Component{
             shtetet,
             qytetet,
             vendbanimet,
+            qytetetFilter,
+            vendbanimetFilter,
             ProfesoriID,
             Emri,
             Mbiemri,
@@ -223,9 +271,13 @@ export class Profesori extends Component{
             Drejtimi,
             NrTelefonit,
             Email,
+            Password,
+            Shteti,
+            Qyteti,
             Vendbanimi,
             insertModal,
-            dataModal
+            dataModal,
+            passwordShown
         }=this.state;
         let years=[];
         for(let i=2022;i>1957;i--){
@@ -267,15 +319,15 @@ export class Profesori extends Component{
                 {insertModal && <Modal modalSwitch={()=>this.setState({insertModal:false})}>
                     <div id={stylist.inputDiv}>
                         <h2>Profesori</h2>
+                        
                         <div id={stylist.emriInputDiv}>
                             <input type="text" value={Emri} onChange={this.changeEmri} placeholder="Emri"/>
-                        </div>
-
-                        <div id={stylist.mbiemriInputDiv}>
                             <input type="text" value={Mbiemri} onChange={this.changeMbiemri} placeholder="Mbiemri"/>
                         </div>
-zz
+
+                        <p>Datelindja</p>
                         <div id={stylist.date}>
+                        
                             <select id="dayInput" onChange={this.changeDita} value={Dita}>
                                 <option value="0">Dita</option>
                                 {days}
@@ -308,7 +360,7 @@ zz
                             </select>
                         </div>
 
-                        <div id={stylist.gradaInputDiv}>
+                         <div id={stylist.gradaInputDiv}>
                             <select onChange={this.changeGradaAkademike} value={GradaAkademike}>
                                 <option value="0">GradaAkademike</option>
                                 <option value="Bsc">Bsc</option>
@@ -319,13 +371,13 @@ zz
 
                         <div id={stylist.drejtimiInputDiv}>
                             <select onChange={this.changeDrejtimi} value={Drejtimi}>
-                                <option value="0">Drejtimi</option>
+                                <option value="0">Drejtimi ne te cilin ka studiuar</option>
                                 {drejtimet.map(drejtimet =>
                                     <option value={drejtimet.DrejtimiID}>{drejtimet.Emri}</option>
                                     )}
                             </select>
                         </div>
-                            
+
                         <div id={stylist.nrTelefonitInputDiv}>
                             <input type="text" value={NrTelefonit} onChange={this.changeNrTelefonit} placeholder="NrTelefonit"/>
                         </div>
@@ -333,15 +385,36 @@ zz
                         <div id={stylist.emailInputDiv}>
                             <input type="text" value={Email} onChange={this.changeEmail} placeholder="Email"/>
                         </div>
-                        
+
+                        <div id={stylist.passwordInputDiv}>
+                        <input type={passwordShown? "text" : "password"} 
+                        value={Password} onChange={this.changePassword} placeholder="Password" id="passwordID"/><svg id={stylist.showPassword} onClick={() => {if(this.state.passwordShown){this.setState({passwordShown: false})}else{this.setState({passwordShown: true})}}} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16  "><path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/><path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/></svg>
+                        </div>
+
+                        <div id={stylist.shtetiInputDiv}>
+                            <select onChange={this.changeShteti} value={Shteti}>
+                                <option value="0">Shteti</option>
+                                {shtetet.map(shteti=>
+                                    <option value={shteti.ShtetiID}>{shteti.Emri}</option>
+                                    )}
+                            </select>
+                            <select onChange={this.changeQyteti} value={Qyteti}>
+                                <option value="0">Qyteti</option>
+                                {qytetetFilter.map(qyteti=>
+                                    <option value={qyteti.QytetiID}>{qyteti.Emri}</option>
+                                    )}
+                            </select>
+                        </div>
                         <div id={stylist.vendbanimiInputDiv}>
                             <select onChange={this.changeVendbanimi} value={Vendbanimi}>
                                 <option value="0">Vendbanimi</option>
-                                {vendbanimet.map(vendbanimet =>
+                                {vendbanimetFilter.map(vendbanimet =>
                                     <option value={vendbanimet.VendbanimiID}>{vendbanimet.Adresa}</option>
                                     )}
                             </select>
                         </div>
+
+
                     </div>
                     {ProfesoriID ==0?
                     <button type="button" onClick={()=>this.createClick()}>Create</button>
