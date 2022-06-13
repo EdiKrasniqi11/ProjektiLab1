@@ -274,7 +274,7 @@ export class Profesori extends Component{
                         <div id={stylist.mbiemriInputDiv}>
                             <input type="text" value={Mbiemri} onChange={this.changeMbiemri} placeholder="Mbiemri"/>
                         </div>
-
+zz
                         <div id={stylist.date}>
                             <select id="dayInput" onChange={this.changeDita} value={Dita}>
                                 <option value="0">Dita</option>
@@ -311,9 +311,9 @@ export class Profesori extends Component{
                         <div id={stylist.gradaInputDiv}>
                             <select onChange={this.changeGradaAkademike} value={GradaAkademike}>
                                 <option value="0">GradaAkademike</option>
-                                <option value="M">Bsc</option>
-                                <option value="F">Msc</option>
-                                <option value="F">Phd</option>
+                                <option value="Bsc">Bsc</option>
+                                <option value="Msc">Msc</option>
+                                <option value="Phd">Phd</option>
                             </select>
                         </div>
 
@@ -329,11 +329,11 @@ export class Profesori extends Component{
                         <div id={stylist.nrTelefonitInputDiv}>
                             <input type="text" value={NrTelefonit} onChange={this.changeNrTelefonit} placeholder="NrTelefonit"/>
                         </div>
-                            
+
                         <div id={stylist.emailInputDiv}>
                             <input type="text" value={Email} onChange={this.changeEmail} placeholder="Email"/>
                         </div>
-
+                        
                         <div id={stylist.vendbanimiInputDiv}>
                             <select onChange={this.changeVendbanimi} value={Vendbanimi}>
                                 <option value="0">Vendbanimi</option>
@@ -342,9 +342,6 @@ export class Profesori extends Component{
                                     )}
                             </select>
                         </div>
-                        
-                        
-                        
                     </div>
                     {ProfesoriID ==0?
                     <button type="button" onClick={()=>this.createClick()}>Create</button>

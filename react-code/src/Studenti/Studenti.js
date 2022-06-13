@@ -10,19 +10,29 @@ export class Studenti extends Component{
         this.state = {
             studentet:[],
             fakultetet:[],
+            fakultetetFilter:[],
             deget:[],
+            degetFilter:[],
             drejtimet:[],
+            drejtimetFilter:[],
             specializimet:[],
+            specializimetFilter:[],
             shtetet:[],
             qytetet:[],
+            qytetetFilter:[],
             vendbanimet:[],
+            vendbanimetFilter:[],
             StudentiID:0,
             Emri:"",
+            Email:"",
+            Password:"",
             Mbiemri:"",
             Dita:0,
             Muaji:0,
             Viti:0,
             Gjinia: '',
+            Shteti:0,
+            Qyteti:0,
             Vendbanimi: 0,
             Fakulteti:0,
             Dega:0,
@@ -37,32 +47,37 @@ export class Studenti extends Component{
         .then(data=>{this.setState({studentet:data});});
 
         fetch(variables.API_URL+'fakulteti').then(response=>response.json())
-        .then(data=>{this.setState({fakultetet:data});});
+        .then(data=>{this.setState({fakultetet:data}); this.setState({fakultetetFilter:data});});
 
         fetch(variables.API_URL+'dega').then(response=>response.json())
-        .then(data=>{this.setState({deget:data});});
+        .then(data=>{this.setState({deget:data}); this.setState({degetFilter:data});});
 
         fetch(variables.API_URL+'drejtimi').then(response=>response.json())
-        .then(data=>{this.setState({drejtimet:data});});
+        .then(data=>{this.setState({drejtimet:data}); this.setState({drejtimetFilter:data});});
 
         fetch(variables.API_URL+'specializimi').then(response=>response.json())
-        .then(data=>{
-            this.setState({specializimet:data});});
+        .then(data=>{this.setState({specializimet:data}); this.setState({specializimetFilter:data});});
 
         fetch(variables.API_URL+'qyteti').then(response=>response.json())
-        .then(data=>{this.setState({qytetet:data}); this.setState({filterQyteti:data});});
+        .then(data=>{this.setState({qytetet:data}); this.setState({qytetetFilter:data});});
 
         fetch(variables.API_URL+'shteti').then(response=>response.json())
         .then(data=>{this.setState({shtetet:data});});
 
         fetch(variables.API_URL+'vendbanimi').then(response=>response.json())
-        .then(data=>{this.setState({vendbanimet:data});});
+        .then(data=>{this.setState({vendbanimet:data}); this.setState({vendbanimetFilter:data});});
     }
     componentDidMount(){
         this.refreshList();
     }
     changeEmri = (e) =>{
         this.setState({Emri:e.target.value});
+    }
+    changeEmail = (e) =>{
+        this.setState({Email:e.target.value});
+    }
+    changePassword = (e) =>{
+        this.setState({Password:e.target.value});
     }
     changeMbiemri= (e) =>{
         this.setState({Mbiemri:e.target.value});
@@ -79,17 +94,40 @@ export class Studenti extends Component{
     changeGjinia = (e) =>{
         this.setState({Gjinia:e.target.value});
     }
+    changeShteti = (e) =>{
+        this.setState({Shteti:e.target.value});
+        
+
+        var selFakulteti = this.state.fakultetet.filter(fakulteti => fakulteti.Shteti == e.target.value);
+        var selQyteti = this.state.qytetet.filter(qyteti => qyteti.Shteti == e.target.value);
+        this.setState({fakultetetFilter: selFakulteti});
+        this.setState({qytetetFilter: selQyteti});
+    }
+    changeQyteti = (e) =>{
+        this.setState({Qyteti: e.target.value});
+
+        var selVendbanimi = this.state.vendbanimet.filter(vendbanimi => vendbanimi.Qyteti == e.target.value);
+        this.setState({vendbanimetFilter: selVendbanimi})
+    }
     changeVendbanimi = (e) =>{
         this.setState({Vendbanimi:e.target.value});
     }
     changeFakulteti = (e) =>{
         this.setState({Fakulteti:e.target.value});
+
+        var selDega = this.state.deget.filter(dega => dega.Fakulteti == e.target.value);
+        var selDrejtimi = this.state.drejtimet.filter(drejtimi => drejtimi.Fakulteti == e.target.value);
+        this.setState({degetFilter: selDega});
+        this.setState({drejtimetFilter: selDrejtimi});
     }
     changeDega = (e) =>{
         this.setState({Dega:e.target.value});
     }
     changeDrejtimi = (e) =>{
         this.setState({Drejtimi:e.target.value});
+
+        var selSpecializimi = this.state.specializimet.filter(specializimi => specializimi.Drejtimi == e.target.value && specializimi.Fakulteti == this.state.Fakulteti);
+        this.setState({specializimetFilter: selSpecializimi});
     }
     changeSpecializimi = (e) =>{
         this.setState({Specializimi:e.target.value});
@@ -105,6 +143,8 @@ export class Studenti extends Component{
             },
             body:JSON.stringify({
                 Emri:emri,
+                Email:this.state.Email,
+                Password:this.state.Password,
                 Datelindja:ditelindja,
                 Gjinia:this.state.Gjinia,
                 Vendbanimi:this.state.Vendbanimi,
@@ -135,6 +175,8 @@ export class Studenti extends Component{
             body:JSON.stringify({
                 StudentiID:this.state.StudentiID,
                 Emri:emri,
+                Email:this.state.Email,
+                Password:this.state.Password,
                 Datelindja:ditelindja,
                 Gjinia:this.state.Gjinia,
                 Vendbanimi:this.state.Vendbanimi,
@@ -170,15 +212,19 @@ export class Studenti extends Component{
         }
     }
     editClick(studentet){
-        let fullname = this.state.Emri.split(" ");
+        let fullname = studentet.Emri.split(" ");
         let emri = fullname[0];
         let mbiemri = fullname[1];
         this.setState({
             StudentiID:studentet.StudentiID,
             Emri:emri,
             Mbiemri:mbiemri,
+            Email:studentet.Email,
+            Password:studentet.Password,
             Datelindja:studentet.Datelindja,
             Gjinia:studentet.Gjinia,
+            Shteti:0,
+            Qyteti:0,
             Vendbanimi:studentet.Vendbanimi,
             Fakulteti:studentet.Fakulteti,
             Dega:studentet.Dega,
@@ -192,11 +238,15 @@ export class Studenti extends Component{
             StudentiID:0,
             Emri:"",
             Mbiemri:"",
+            Email:"",
+            Password:"",
             Dita:0,
             Muaji:0,
             Viti:0,
             Datelindja:"",
             Gjinia: '',
+            Shteti:0,
+            Qyteti:0,
             Vendbanimi: 0,
             Fakulteti:0,
             Dega:0,
@@ -215,19 +265,29 @@ export class Studenti extends Component{
         const{
             studentet,
             fakultetet,
+            fakultetetFilter,
             deget,
+            degetFilter,
             drejtimet,
+            drejtimetFilter,
             specializimet,
+            specializimetFilter,
             shtetet,
             qytetet,
+            qytetetFilter,
             vendbanimet,
+            vendbanimetFilter,
             StudentiID,
             Emri,
             Mbiemri,
+            Email,
+            Password,
             Dita,
             Muaji,
             Viti,
             Gjinia,
+            Shteti,
+            Qyteti,
             Vendbanimi,
             Fakulteti,
             Dega,
@@ -284,6 +344,12 @@ export class Studenti extends Component{
                             <input type="text" value={Emri} onChange={this.changeEmri} placeholder="Emri"/>
                             <input type="text" value={Mbiemri} onChange={this.changeMbiemri} placeholder="Mbiemri"/>
                         </div>
+                        <div id={stylist.emailInputDiv}>
+                            <input type="text" value={Email} onChange={this.changeEmail} placeholder="Email"/>
+                        </div>
+                        <div id={stylist.passwordInputDiv}>
+                            <input type="password" value={Password} onChange={this.changePassword} placeholder="Email"/>
+                        </div>
                         <div id={stylist.date}>
                             <select id="dayInput" onChange={this.changeDita} value={Dita}>
                                 <option value="0">Dita</option>
@@ -316,10 +382,24 @@ export class Studenti extends Component{
                                 <option value="F">Femer</option>
                             </select>
                         </div>
+                        <div id={stylist.shtetiInputDiv}>
+                            <select onChange={this.changeShteti} value={Shteti}>
+                                <option value="0">Shteti</option>
+                                {shtetet.map(shteti=>
+                                    <option value={shteti.ShtetiID}>{shteti.Emri}</option>
+                                    )}
+                            </select>
+                            <select onChange={this.changeQyteti} value={Qyteti}>
+                                <option value="0">Qyteti</option>
+                                {qytetetFilter.map(qyteti=>
+                                    <option value={qyteti.QytetiID}>{qyteti.Emri}</option>
+                                    )}
+                            </select>
+                        </div>
                         <div id={stylist.vendbanimiInputDiv}>
                             <select onChange={this.changeVendbanimi} value={Vendbanimi}>
                                 <option value="0">Vendbanimi</option>
-                                {vendbanimet.map(vendbanimet =>
+                                {vendbanimetFilter.map(vendbanimet =>
                                     <option value={vendbanimet.VendbanimiID}>{vendbanimet.Adresa}</option>
                                     )}
                             </select>
@@ -327,7 +407,7 @@ export class Studenti extends Component{
                         <div id={stylist.vendbanimiInputDiv}>
                             <select onChange={this.changeFakulteti} value={Fakulteti}>
                                 <option value="0">Fakulteti</option>
-                                {fakultetet.map(fakulteti =>
+                                {fakultetetFilter.map(fakulteti =>
                                     <option value={fakulteti.FakultetiID}>{fakulteti.Emri}</option>
                                     )}
                             </select>
@@ -335,7 +415,7 @@ export class Studenti extends Component{
                         <div id={stylist.degaInputDiv}>
                             <select onChange={this.changeDega} value={Dega}>
                                 <option value="0">Dega</option>
-                                {deget.map(deget =>
+                                {degetFilter.map(deget =>
                                     <option value={deget.DegaID}>{qytetet.find(qyteti => qyteti.QytetiID===deget.Qyteti).Emri}</option>
                                     )}
                             </select>
@@ -343,15 +423,15 @@ export class Studenti extends Component{
                         <div id={stylist.drejtimiInputDiv}>
                             <select onChange={this.changeDrejtimi} value={Drejtimi}>
                                 <option value="0">Drejtimi</option>
-                                {drejtimet.map(drejtimet =>
+                                {drejtimetFilter.map(drejtimet =>
                                     <option value={drejtimet.DrejtimiID}>{drejtimet.Emri}</option>
                                     )}
                             </select>
                         </div>
-                        <div id={stylist.drejtimiInputDiv}>
+                        <div id={stylist.specializimiInputDiv}>
                             <select onChange={this.changeSpecializimi} value={Specializimi}>
                                 <option value="0">Specializimi</option>
-                                {specializimet.map(specializimi =>
+                                {specializimetFilter.map(specializimi =>
                                     <option value={specializimi.SpecializimiID}>{specializimi.EmriSpecializimit}</option>
                                     )}
                             </select>

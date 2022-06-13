@@ -44,7 +44,7 @@ namespace Laboratori1.Controllers
         [HttpPost]
         public JsonResult Post(Studenti studentet)
         {
-            string query = @"insert into Studenti values(@Emri,CONVERT(DATE,@Datelindja,103),@Gjinia,@Vendbanimi,@Fakulteti,@Dega,@Drejtimi,@Specializimi)";
+            string query = @"insert into Studenti values(@Emri,@Email,@Password,CONVERT(DATE,@Datelindja,103),@Gjinia,@Vendbanimi,@Fakulteti,@Dega,@Drejtimi,@Specializimi)";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("SMISAppCon");
             SqlDataReader myReader;
@@ -54,6 +54,8 @@ namespace Laboratori1.Controllers
                 using (SqlCommand myCommand = new SqlCommand(query, myCon))
                 {
                     myCommand.Parameters.AddWithValue("@Emri", studentet.Emri);
+                    myCommand.Parameters.AddWithValue("@Email", studentet.Email);
+                    myCommand.Parameters.AddWithValue("@Password", studentet.Password);
                     myCommand.Parameters.AddWithValue("@Datelindja", studentet.Datelindja);
                     myCommand.Parameters.AddWithValue("@Gjinia", studentet.Gjinia);
                     myCommand.Parameters.AddWithValue("@Vendbanimi", studentet.Vendbanimi);
@@ -73,7 +75,7 @@ namespace Laboratori1.Controllers
         [HttpPut]
         public JsonResult Put(Studenti studentet)
         {
-            string query = @"update Studenti set Emri = @Emri, Datelindja = CONVERT(DATE,@Datelindja,103), Gjinia = @Gjinia, Vendbanimi = @Vendbanimi, Fakulteti = @Fakulteti, Dega = @Dega, Drejtimi = @Drejtimi, Specializimi = @Specializimi where StudentiID = @StudentiID";
+            string query = @"update Studenti set Emri = @Emri, Email = @Email, Password = @Password Datelindja = CONVERT(DATE,@Datelindja,103), Gjinia = @Gjinia, Vendbanimi = @Vendbanimi, Fakulteti = @Fakulteti, Dega = @Dega, Drejtimi = @Drejtimi, Specializimi = @Specializimi where StudentiID = @StudentiID";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("SMISAppCon");
             SqlDataReader myReader;
@@ -84,6 +86,8 @@ namespace Laboratori1.Controllers
                 {
                     myCommand.Parameters.AddWithValue("@StudentiID", studentet.StudentiID);
                     myCommand.Parameters.AddWithValue("@Emri", studentet.Emri);
+                    myCommand.Parameters.AddWithValue("@Email", studentet.Email);
+                    myCommand.Parameters.AddWithValue("@Password", studentet.Password);
                     myCommand.Parameters.AddWithValue("@Datelindja", studentet.Datelindja);
                     myCommand.Parameters.AddWithValue("@Gjinia", studentet.Gjinia);
                     myCommand.Parameters.AddWithValue("@Vendbanimi", studentet.Vendbanimi);

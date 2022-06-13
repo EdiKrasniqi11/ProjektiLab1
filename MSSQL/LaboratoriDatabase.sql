@@ -56,14 +56,16 @@ create table Specializimi(
 create table Studenti(
 	StudentiID int not null identity(1,1) primary key,
 	Emri varchar(50) not null,
+	Email varchar(255) not null,
+	Password varchar(20) not null,
 	Datelindja Date not null,
 	Gjinia char not null,
 	check (Gjinia in ('M','F')),
-	Vendbanimi int not null foreign key references Vendbanimi(VendbanimiID),
-	Fakulteti int not null foreign key references Fakulteti(FakultetiID),
-	Dega int not null foreign key references Dega(DegaID),
-	Drejtimi int not null foreign key references Drejtimi(DrejtimiID),
-	Specializimi int not null foreign key references Specializimi(SpecializimiID)
+	Vendbanimi int not null foreign key references Vendbanimi(VendbanimiID) on delete cascade,
+	Fakulteti int not null foreign key references Fakulteti(FakultetiID) on delete cascade,
+	Dega int not null foreign key references Dega(DegaID) on delete cascade,
+	Drejtimi int not null foreign key references Drejtimi(DrejtimiID) on delete cascade,
+	Specializimi int not null foreign key references Specializimi(SpecializimiID) on delete cascade
 )
 create table Galeria(
 	GaleriaID int identity(1,1) primary key,
