@@ -34,7 +34,7 @@ create table Fakulteti(
 create table Dega(
 	DegaID int identity(1,1) primary key,
 	Qyteti int foreign key references Qyteti(QytetiID) on delete cascade,
-	Fakulteti int foreign key references Fakulteti(FakultetiID) on delete cascade
+	Fakulteti int foreign key references Fakulteti(FakultetiID)
 )
 create table Drejtimi(
 	DrejtimiID int identity(1,1) primary key,
@@ -63,7 +63,7 @@ create table Studenti(
 	check (Gjinia in ('M','F')),
 	Vendbanimi int not null foreign key references Vendbanimi(VendbanimiID) on delete cascade,
 	Fakulteti int not null foreign key references Fakulteti(FakultetiID) on delete cascade,
-	Dega int not null foreign key references Dega(DegaID) on delete cascade,
+	Dega int not null foreign key references Dega(DegaID),
 	Drejtimi int not null foreign key references Drejtimi(DrejtimiID) on delete cascade,
 	Specializimi int not null foreign key references Specializimi(SpecializimiID) on delete cascade
 )
@@ -95,6 +95,12 @@ create table Lenda(
 	Drejtimi int not null foreign key references Drejtimi(DrejtimiID),
 	ECTS varchar(255) not null
 )
+create table Provimi(
+	Profesori int not null foreign key references Profesori(ProfesoriID),
+	Lenda int not null foreign key references Lenda(LendaID),
+	Studenti int not null foreign key references Studenti(StudentiID),
+	primary key(Studenti,Lenda)
+)
 
 DBCC CHECKIDENT ('Njoftimet', RESEED, 0);
 DBCC CHECKIDENT ('Lajmet', RESEED, 0);
@@ -109,3 +115,4 @@ DBCC CHECKIDENT ('Studenti', RESEED, 20210000);
 DBCC CHECKIDENT ('Galeria', RESEED, 0);
 DBCC CHECKIDENT ('Profesori', RESEED, 0);
 DBCC CHECKIDENT ('Lenda', RESEED, 0);
+

@@ -15,6 +15,7 @@ import Galeria from "./Galeria/Galeria";
 import Profesori from "./Profesori/Profesori";
 import Lenda from "./Lenda/Lenda";
 import Provimi from "./Provimi/Provimi";
+import Waitlist from "./Waitlist/Waitlist";
 
 import {
   BrowserRouter as Router,
@@ -44,6 +45,7 @@ function App() {
           <Route path="/profesoret" element={<Profesori />} />
           <Route path="/lendet" element={<Lenda />} />
           <Route path="/provimet" element={<Provimi />} />
+          <Route path="/waitlistet" element={<Waitlist />} />
 
         </Routes>
       </div>

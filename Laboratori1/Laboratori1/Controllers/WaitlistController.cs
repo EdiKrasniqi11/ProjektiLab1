@@ -13,10 +13,10 @@ namespace Laboratori1.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProvimiController : ControllerBase
+    public class WaitlistController : ControllerBase
     {
         private readonly IConfiguration _configuration;
-        public ProvimiController(IConfiguration configuration)
+        public WaitlistController(IConfiguration configuration)
         {
             _configuration = configuration;
         }
@@ -24,7 +24,7 @@ namespace Laboratori1.Controllers
         [HttpGet]
         public JsonResult Get()
         {
-            string query = @"select * from Provimi";
+            string query = @"select * from Waitlist";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("SMISAppCon");
             SqlDataReader myReader;
@@ -42,9 +42,9 @@ namespace Laboratori1.Controllers
             return new JsonResult(table);
         }
         [HttpPost]
-        public JsonResult Post(Provimi provimet)
+        public JsonResult Post(Waitlist waitlistet)
         {
-            string query = @"insert into Provimi values(@Provimi,@Lenda,@Studenti)";
+            string query = @"insert into Waitlist values(@Studenti)";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("SMISAppCon");
             SqlDataReader myReader;
@@ -53,9 +53,7 @@ namespace Laboratori1.Controllers
                 myCon.Open();
                 using (SqlCommand myCommand = new SqlCommand(query, myCon))
                 {
-                    myCommand.Parameters.AddWithValue("@Provimi", provimet.Profesori);
-                    myCommand.Parameters.AddWithValue("@Lenda", provimet.Lenda);
-                    myCommand.Parameters.AddWithValue("@Studenti", provimet.Studenti);
+                    myCommand.Parameters.AddWithValue("@Studenti", waitlistet.Studenti);
 
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
@@ -67,9 +65,9 @@ namespace Laboratori1.Controllers
         }
 
         [HttpPut]
-        public JsonResult Put(Provimi provimet)
+        public JsonResult Put(Waitlist waitlistet)
         {
-            string query = @"update Provimi set Profesori = @Profesori where Lenda = @Lenda and Studenti = @Studenti";
+            string query = @"update Waitlist set Studenti = @Studenti where Studenti = @Studenti ";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("SMISAppCon");
             SqlDataReader myReader;
@@ -78,9 +76,7 @@ namespace Laboratori1.Controllers
                 myCon.Open();
                 using (SqlCommand myCommand = new SqlCommand(query, myCon))
                 {
-                    myCommand.Parameters.AddWithValue("@Studenti", provimet.Studenti);
-                    myCommand.Parameters.AddWithValue("@Lenda", provimet.Lenda);
-                    myCommand.Parameters.AddWithValue("@Profesori", provimet.Profesori);
+                    myCommand.Parameters.AddWithValue("@Studenti", waitlistet.Studenti);
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
                     myReader.Close();
@@ -90,10 +86,10 @@ namespace Laboratori1.Controllers
             return new JsonResult("Successful Update");
         }
 
-        [HttpDelete("{studenti}/{lenda}")]
-        public JsonResult Delete(int studenti, int lenda)
+        [HttpDelete("{studenti}")]
+        public JsonResult Delete(int studenti)
         {
-            string query = @"delete from Provimi where Lenda = @Lenda and Studenti = @Studenti";
+            string query = @"delete from Waitlist where Studenti = @Studenti";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("SMISAppCon");
             SqlDataReader myReader;
@@ -103,7 +99,6 @@ namespace Laboratori1.Controllers
                 using (SqlCommand myCommand = new SqlCommand(query, myCon))
                 {
                     myCommand.Parameters.AddWithValue("@Studenti", studenti);
-                    myCommand.Parameters.AddWithValue("@Lenda", lenda);
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
                     myReader.Close();

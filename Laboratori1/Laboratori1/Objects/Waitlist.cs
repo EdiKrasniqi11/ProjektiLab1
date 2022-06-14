@@ -5,23 +5,12 @@ using System.Threading.Tasks;
 
 namespace Laboratori1.Objects
 {
-    public class Provimi
+    public class Waitlist
     {
-        public int Lenda
-        {
-            get;
-            set;
-        }
-        public int Profesori
-        {
-            get;
-            set;
-        }
         public int Studenti
         {
             get;
             set;
         }
-
     }
 }
