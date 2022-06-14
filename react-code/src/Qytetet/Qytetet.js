@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import variables  from "../Variables";
 import QytetiCSS from "../Qytetet/Qytetet.module.css";
 import  render  from "react-dom";
+import Modal from '../AnyUseComponents/Modal'
 
 export class Qytetet extends Component{
 
@@ -14,7 +15,9 @@ export class Qytetet extends Component{
             modalTitle:"",
             Emri:"",
             Shteti:1,
-            QytetiID:0
+            QytetiID:0,
+            insertModal:false,
+            dataModal:false
         }
     }
     refreshList(){
@@ -62,13 +65,17 @@ export class Qytetet extends Component{
                 alert('Failed');
             
         })
+        this.setState({
+            insertModal:false
+        })
     }
     addClick() {
         this.setState({
           modalTitle: "",
           QytetiID: 0,
           Emri: "",
-          Shteti:1
+          Shteti:1,
+          insertModal:true
         });
       }
     deleteClick(id){
@@ -111,13 +118,17 @@ export class Qytetet extends Component{
                 alert('Failed');
             
         })
+        this.setState({
+            insertModal:false
+        })
     }
     editClick(qytetet){
         this.setState({
             modalTitle:"Edit Emri",
             QytetiID:qytetet.QytetiID,
             Emri:qytetet.Emri,
-            Shteti:qytetet.Shteti
+            Shteti:qytetet.Shteti,
+            insertModal:true
         });
     }
     selectShteti(shtetet, id){
@@ -134,7 +145,8 @@ export class Qytetet extends Component{
                 modalTitle,
                 QytetiID,
                 Emri,
-                Shteti
+                Shteti,
+                insertModal
             }=this.state;
 
     return(
@@ -181,11 +193,12 @@ export class Qytetet extends Component{
                     </tr>
                     )}</tbody>
                     </table>
-                    <div id={QytetiCSS.formShteti}>
+                    {insertModal && <Modal modalSwitch={()=>this.setState({insertModal:false})}>
+                    <div id={QytetiCSS.formQyteti}>
                         <span id={QytetiCSS.inputText}>Qyteti</span>
-                      <div id={QytetiCSS.inputShteti}><input type="text" id={QytetiCSS.emriQytetit} value={Emri} onChange={this.changeEmri}/>
+                      <div id={QytetiCSS.inputQyteti}><input type="text" id={QytetiCSS.emriQytetit} value={Emri} onChange={this.changeEmri}/>
                       
-                      <select className="form-select"
+                      <select className="inputShteti"
             onChange={this.changeShteti}
             value={Shteti}>
                 {shtetet.map(shtetet=><option value={shtetet.ShtetiID}>
@@ -193,15 +206,16 @@ export class Qytetet extends Component{
                 </option>)}
             </select>
             </div>
-
+            </div>
                         {QytetiID ==0?
                         <button type="button" id={QytetiCSS.button1} onClick={()=>this.createClick()}>Create</button>
                         :null}
                         {QytetiID !=0?
                         <button type="button" id={QytetiCSS.button1} onClick={()=>this.updateClick()}>Update</button>
                         :null}
+                        </Modal>}
                     </div>
-        </div>
+       
     )
 }
 }

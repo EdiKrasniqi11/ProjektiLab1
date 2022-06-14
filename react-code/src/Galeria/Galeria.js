@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import variables  from "../Variables";
 import stylist from "./Galeria.module.css";
 import  render  from "react-dom";
+import Modal from '../AnyUseComponents/Modal'
 
 export class Galeria extends Component{
 
@@ -14,7 +15,9 @@ export class Galeria extends Component{
             Pershkrimi:"",
             Foto:"anonymous.png",
             Photopath:variables.PHOTO_URL,
-            GaleriaID:0
+            GaleriaID:0,
+            insertModal:false,
+            dataModal:false
         }
     }
     refreshList(){
@@ -36,7 +39,8 @@ export class Galeria extends Component{
           modalTitle: "",
           GaleriaID: 0,
           Pershkrimi: "",
-          Foto:""
+          Foto:"",
+          insertModal:true
         });
       }
     createClick(){
@@ -59,6 +63,9 @@ export class Galeria extends Component{
             },(error)=>{
                 alert('Failed');
             
+        })
+        this.setState({
+            insertModal:false
         })
     }
     deleteClick(id){
@@ -101,13 +108,17 @@ export class Galeria extends Component{
                 alert('Failed');
             
         })
+        this.setState({
+            insertModal:false
+        })
     }
     editClick(galerite){
         this.setState({
             modalTitle:"",
             GaleriaID:galerite.GaleriaID,
             Pershkrimi:galerite.Pershkrimi,
-            Foto:galerite.Foto
+            Foto:galerite.Foto,
+            insertModal:true
         });
     }
     imageUpload=(e)=>{
@@ -133,7 +144,9 @@ export class Galeria extends Component{
                 GaleriaID,
                 Pershkrimi,
                 Photopath,
-                Foto
+                Foto,
+                insertModal,
+                dataModal
             }=this.state;
 
     return(
@@ -182,22 +195,22 @@ export class Galeria extends Component{
                     </tr>
                     )}</tbody>
                     </table>
-
+                    {insertModal && <Modal modalSwitch={()=>this.setState({insertModal:false})}>
                     <div id={stylist.formGaleria}>
                         <span id={stylist.inputText}>Galeria</span>
-                      <div id={stylist.inputGaleria}><input type="text" id={stylist.Pershkrimi} value={Pershkrimi} onChange={this.changePershkrimi}/></div>
-                      <div id={stylist.inputGaleria}> <input type="file" id={stylist.Foto}  onChange={this.imageUpload}/></div>
- 
+                      <div id={stylist.inputPershkrimi}><input type="text" id={stylist.Pershkrimi} value={Pershkrimi} onChange={this.changePershkrimi}/></div>
+                      <div id={stylist.inputFoto}> <input type="file" id={stylist.Foto}  onChange={this.imageUpload}/></div>
+                        </div>
                         {GaleriaID ==0?
-                        <button type="button" id={stylist.button1} onClick={()=>this.createClick()}>Create</button>
+                        <button type="button" onClick={()=>this.createClick()}>Create</button>
                         :null}
                         {GaleriaID !=0?
                         <button type="button" id={stylist.button1} onClick={()=>this.updateClick()}>Update</button>
                         :null}
+                        </Modal>}
 
                     </div>
-        </div>
-    )
+    );
 }
 }
 export default Galeria;

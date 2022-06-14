@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import variables  from "../Variables";
 import ShtetiCSS from "../Shtetet/Shtetet.module.css";
 import  render  from "react-dom";
+import Modal from '../AnyUseComponents/Modal'
 
 export class Shtetet extends Component{
 
@@ -12,7 +13,9 @@ export class Shtetet extends Component{
             shtete:[],
             modalTitle:"",
             Emri:"",
-            ShtetiID:0
+            ShtetiID:0,
+            insertModal:false,
+            dataModal:false
         }
     }
     refreshList(){
@@ -47,12 +50,16 @@ export class Shtetet extends Component{
                 alert('Failed');
             
         })
+        this.setState({
+            insertModal:false
+        })
     }
     addClick() {
         this.setState({
           modalTitle: "Shto Shtetin",
           ShtetiID: 0,
-          Emri: ""
+          Emri: "",
+          insertModal:true
         });
       }
     deleteClick(id){
@@ -94,12 +101,16 @@ export class Shtetet extends Component{
                 alert('Failed');
             
         })
+        this.setState({
+            insertModal:false
+        })
     }
     editClick(shtetet){
         this.setState({
             modalTitle:"Edit Emri",
             ShtetiID:shtetet.ShtetiID,
-            Emri:shtetet.Emri
+            Emri:shtetet.Emri,
+            insertModal:true
         });
     }
 
@@ -108,6 +119,7 @@ export class Shtetet extends Component{
                 shtete,
                 modalTitle,
                 ShtetiID,
+                insertModal,
                 Emri
             }=this.state;
 
@@ -151,17 +163,20 @@ export class Shtetet extends Component{
                     </tr>
                     )}</tbody>
                     </table>
+                    {insertModal && <Modal modalSwitch={()=>this.setState({insertModal:false})}>
                     <div id={ShtetiCSS.formShteti}>
                         <span id={ShtetiCSS.inputText}>Shteti</span>
                       <div id={ShtetiCSS.inputShteti}><input type="text" id={ShtetiCSS.emriShtetit} value={Emri} onChange={this.changeEmri}/></div>
-                        {ShtetiID ==0?
+                               </div>
+                                {ShtetiID ==0?
                         <button type="button" id={ShtetiCSS.button1} onClick={()=>this.createClick()}>Create</button>
                         :null}
                         {ShtetiID !=0?
                         <button type="button" id={ShtetiCSS.button1} onClick={()=>this.updateClick()}>Update</button>
                         :null}
+                         </Modal>}
                     </div>
-        </div>
+
     )
 }
 }
