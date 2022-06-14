@@ -101,6 +101,7 @@ selectStudenti(studentet, id){
             }
         }
     }
+    
     addClick() {
         this.setState({
             StudentiStatus:0,
@@ -121,7 +122,7 @@ selectStudenti(studentet, id){
 
         return(
             <div className={stylist.waitlistDiv}>
-                <button type="button" onClick={() => this.addClick()} id={stylist.addButton}>Shto Paraqitjen</button>
+                <button type="button" onClick={() => this.addClick()} id={stylist.addButton}>Shto Studentin</button>
                 <table>
                     <tr>
 			            <th>Studenti</th>
