@@ -145,7 +145,7 @@ export class Lajmet extends Component{
             }=this.state;
 
     return(
-        <div id={stylist.lajmetDiv}>
+        <div className={stylist.lajmetDiv}>
             <button
           type="button"
           data-bs-toggle="modal"

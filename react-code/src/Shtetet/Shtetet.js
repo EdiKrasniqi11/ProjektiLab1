@@ -124,7 +124,7 @@ export class Shtetet extends Component{
             }=this.state;
 
     return(
-        <div id={ShtetiCSS.shtetetDiv}>
+        <div className={ShtetiCSS.shtetetDiv}>
              <button
           type="button"
           data-bs-toggle="modal"

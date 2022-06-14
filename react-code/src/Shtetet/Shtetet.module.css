@@ -1,5 +1,5 @@
 .shtetetDiv{
-    height:80vh;
+    min-height:80vh;
 }
 #formShteti h2{
     font-family: 'Playfair Display', serif;

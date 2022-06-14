@@ -164,7 +164,7 @@ export class Lenda extends Component{
         }=this.state;
 
         return(
-            <div className={stylist.LendaDiv}>
+            <div className={stylist.lendaDiv}>
                 <button type="button" onClick={() => this.addClick()} id={stylist.addButton}>Shto Lenden</button>
                 <table>
                     <tr>

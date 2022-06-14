@@ -73,7 +73,7 @@ create table Galeria(
 	Foto varchar(255) not null
 )
 
-	create table Profesori(
+create table Profesori(
 	ProfesoriID int identity(1,1) primary  key,
 	Emri varchar(255),
 	Datelindja date,
@@ -85,8 +85,7 @@ create table Galeria(
 	Email varchar(255),
 	Password varchar(20) not null,
 	Vendbanimi int not null foreign key references Vendbanimi(VendbanimiID)
-	)
-	
+)
 
 create table Lenda(	
 	LendaID int identity(1,1) primary key,
@@ -100,6 +99,11 @@ create table Provimi(
 	Lenda int not null foreign key references Lenda(LendaID),
 	Studenti int not null foreign key references Studenti(StudentiID),
 	primary key(Studenti,Lenda)
+)
+
+create table Shkembimi(
+	Studenti int not null foreign key references Studenti(StudentiID) primary key,
+	Fakulteti int not null foreign key references Fakulteti(FakultetiID) on delete cascade,
 )
 
 DBCC CHECKIDENT ('Njoftimet', RESEED, 0);

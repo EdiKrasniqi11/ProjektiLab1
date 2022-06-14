@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import variables  from "../Variables";
 import QytetiCSS from "../Qytetet/Qytetet.module.css";
-import  render  from "react-dom";
 import Modal from '../AnyUseComponents/Modal'
 
 export class Qytetet extends Component{
@@ -150,7 +149,7 @@ export class Qytetet extends Component{
             }=this.state;
 
     return(
-        <div className={QytetiCSS.qytetetDiv}>
+        <div className={QytetiCSS.qytetiDiv}>
              <button
           type="button"
           data-bs-toggle="modal"

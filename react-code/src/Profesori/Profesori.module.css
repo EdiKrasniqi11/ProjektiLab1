@@ -1,9 +1,6 @@
 .profesoriDiv{
     min-height:80vh;
 }
-#extraButton{
-    cursor:pointer
-}
 #inputDiv h2{
     font-family: 'Playfair Display', serif;
     color:rgb(72, 72, 72);

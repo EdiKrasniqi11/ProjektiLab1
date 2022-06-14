@@ -150,7 +150,7 @@ export class Galeria extends Component{
             }=this.state;
 
     return(
-        <div id={stylist.galeriaDiv}>
+        <div className={stylist.galeriaDiv}>
             <button
           type="button"
           data-bs-toggle="modal"

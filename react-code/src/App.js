@@ -16,6 +16,7 @@ import Profesori from "./Profesori/Profesori";
 import Lenda from "./Lenda/Lenda";
 import Provimi from "./Provimi/Provimi";
 import Waitlist from "./Waitlist/Waitlist";
+import Shkembimi from "./Shkembimi/Shkembimi";
 
 import {
   BrowserRouter as Router,
@@ -46,7 +47,7 @@ function App() {
           <Route path="/lendet" element={<Lenda />} />
           <Route path="/provimet" element={<Provimi />} />
           <Route path="/waitlistet" element={<Waitlist />} />
-
+          <Route path="/shkembimet" element={<Shkembimi />} />
         </Routes>
       </div>
     </Router>

@@ -22,8 +22,8 @@ function Header() {
         <li><NavLink to="/profesoret">PROFESORET</NavLink></li>
         <li><NavLink to="/lendet">LENDET</NavLink></li>
         <li><NavLink to="/provimet">PROVIMET</NavLink></li>
-        <li><NavLink to="/waitlistet">WAITLIST</NavLink></li>
-
+        {/* <li><NavLink to="/waitlistet">WAITLIST</NavLink></li> */}
+        <li><NavLink to="/shkembimet">SHKEMBIMET</NavLink></li>
       </ul>
     </div>
   );

@@ -1,32 +1,26 @@
-.galeriaDiv{
+.shkembimiDiv{
     min-height:80vh;
 }
-#formGaleria h2{
-    font-family: 'Playfair Display', serif;
-    color:rgb(72, 72, 72);
-    margin-bottom:2%;
+#buttonDiv {
+    text-align: right;
+    padding-right: 8%;
 }
-#inputPershkrimi{
-    display:flex;
-    justify-content:space-between
+#addButton{
+    margin-top:2%;
 }
-#inputPershkrimi input{
-    width:400px;
+#studentiInputDiv select{
+    width:250px;
     height:25px;
     border-radius:5px;
-    text-align: left;
-    padding-left:5%;
     border: 1px solid rgb(186, 186, 186);
     box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
     margin-bottom: 5%;
 }
-#inputFotos{
-    width:350px;
+#fakultetiInputDiv select{
+    width:250px;
     height:25px;
     border-radius:5px;
-    text-align: left;
-    padding-left:5%;
     border: 1px solid rgb(186, 186, 186);
     box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
-    margin-bottom: 5%;
+    margin-bottom:5%;
 }
