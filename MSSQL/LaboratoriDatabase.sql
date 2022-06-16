@@ -106,6 +106,15 @@ create table Shkembimi(
 	Fakulteti int not null foreign key references Fakulteti(FakultetiID) on delete cascade,
 )
 
+create table Vleresimi(
+	Studenti int not null,
+	Lenda int not null,
+	Nota int not null,
+	check (Nota in (0,5,6,7,8,9,10)),
+	foreign key (Studenti, Lenda) references Provimi(Studenti, Lenda),
+	primary key(Studenti, Lenda)
+)
+
 DBCC CHECKIDENT ('Njoftimet', RESEED, 0);
 DBCC CHECKIDENT ('Lajmet', RESEED, 0);
 DBCC CHECKIDENT ('Shteti', RESEED, 0);
