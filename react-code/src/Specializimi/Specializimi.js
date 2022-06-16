@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import stylist from "./Specializimi.module.css";
 import variables from "../Variables";
+import Modal from '../AnyUseComponents/Modal'
 
 export class Specializimi extends Component{
     constructor(props){
@@ -14,7 +15,10 @@ export class Specializimi extends Component{
             Drejtimi:1,
             Fakulteti:1,
             SpecializimiID:0,
-            EmriSpecializimit:""
+            LajmiID:0,
+            EmriSpecializimit:"",
+            insertModal:false,
+            dataModal:false
         }
     }
     refreshList(){
@@ -62,6 +66,9 @@ export class Specializimi extends Component{
             },(error)=>{
                 alert('Failed');  
         })
+        this.setState({
+            insertModal:false
+        })
     }
     deleteClick(id){
         if(window.confirm('Are you sure?')){
@@ -100,14 +107,18 @@ export class Specializimi extends Component{
             },(error)=>{
                 alert('Failed');
         })
+        this.setState({
+            insertModal:false
+        })
     }
     editClick(specializimet){
         this.setState({
             SpecializimiID:specializimet.SpecializimiID,
              Fakulteti:specializimet.Fakulteti,
              Drejtimi:specializimet.Drejtimi,
-             EmriSpecializimit:specializimet.EmriSpecializimit
-           
+             EmriSpecializimit:specializimet.EmriSpecializimit,
+             insertModal:true
+
         });
     }
     addClick() {
@@ -115,7 +126,9 @@ export class Specializimi extends Component{
           SpecializimiID: 0,
           Fakulteti:1,
           Drejtimi:1,
-          EmriSpecializimit:""
+          EmriSpecializimit:"",
+          insertModal:true
+
         });
     }
     
@@ -142,7 +155,9 @@ export class Specializimi extends Component{
             Drejtimi,
             Fakulteti,
             EmriSpecializimit,
-            SpecializimiID
+            SpecializimiID,
+            insertModal,
+            dataModal
         }=this.state;
         return(
             <div className={stylist.specializimiDiv}>
@@ -173,8 +188,9 @@ export class Specializimi extends Component{
                     </tr>
                     )}
                     </table>
-                <div>
-                    
+                
+                    {insertModal && <Modal modalSwitch={()=>this.setState({insertModal:false})}>
+                        <div>
                         <div id={stylist.fakultetiInputDiv}>
                             <span>Fakulteti</span><br></br>
                             <select className="form-select" onChange={this.changeFakulteti} value={Fakulteti}>
@@ -206,6 +222,7 @@ export class Specializimi extends Component{
                     <button type="button" onClick={()=>this.updateClick()}>Update</button>
                     :null}
                 </div>
+            </Modal>}
             </div>
         )
     }

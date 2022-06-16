@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import variables  from "../Variables";
 import stylist from "./Lajmet.module.css";
 import  render  from "react-dom";
+import Modal from '../AnyUseComponents/Modal'
+
 
 export class Lajmet extends Component{
 
@@ -15,7 +17,10 @@ export class Lajmet extends Component{
             Pershkrimi:"",
             Foto:"anonymous.png",
             Photopath:variables.PHOTO_URL,
-            LajmiID:0
+            LajmiID:0,
+            insertModal:false,
+            dataModal:false
+            
         }
     }
     refreshList(){
@@ -40,7 +45,8 @@ export class Lajmet extends Component{
           LajmiID: 0,
           Titulli: "",
           Pershkrimi: "",
-          Foto:""
+          Foto:"",
+          insertModal:true
         });
       }
     createClick(){
@@ -64,6 +70,9 @@ export class Lajmet extends Component{
             },(error)=>{
                 alert('Failed');
             
+        })
+        this.setState({
+            insertModal:false
         })
     }
     deleteClick(id){
@@ -107,6 +116,9 @@ export class Lajmet extends Component{
                 alert('Failed');
             
         })
+        this.setState({
+            insertModal:false
+        })
     }
     editClick(lajmet){
         this.setState({
@@ -114,7 +126,8 @@ export class Lajmet extends Component{
             LajmiID:lajmet.LajmiID,
             Titulli:lajmet.Titulli,
             Pershkrimi:lajmet.Pershkrimi,
-            Foto:lajmet.Foto
+            Foto:lajmet.Foto,
+            insertModal:true
         });
     }
     imageUpload=(e)=>{
@@ -141,11 +154,14 @@ export class Lajmet extends Component{
                 Titulli,
                 Pershkrimi,
                 Photopath,
-                Foto
+                Foto,
+                insertModal,
+                dataModal
+
             }=this.state;
 
     return(
-        <div className={stylist.lajmetDiv}>
+        <div id={stylist.lajmetDiv}>
             <button
           type="button"
           data-bs-toggle="modal"
@@ -194,11 +210,13 @@ export class Lajmet extends Component{
                     </tr>
                     )}</tbody>
                     </table>
+                    
+                    {insertModal && <Modal modalSwitch={()=>this.setState({insertModal:false})}>
 
                     <div id={stylist.formLajmi}>
                         <span id={stylist.inputText}>Lajmi</span>
-                      <div id={stylist.inputLajmi}><input type="text" id={stylist.Titulli} value={Titulli} onChange={this.changeTitulli}/></div>
-                      <div id={stylist.inputLajmi}><input type="text" id={stylist.Pershkrimi} value={Pershkrimi} onChange={this.changePershkrimi}/></div>
+                      <div id={stylist.inputLajmi}><input type="text" id={stylist.Titulli} value={Titulli} onChange={this.changeTitulli} placeholder="Titulli i lajmit"/></div>
+                      <div id={stylist.inputPershkrimi}><textarea id={stylist.Pershkrimi} value={Pershkrimi} onChange={this.changePershkrimi} placeholder="Pershkrimi i lajmit"></textarea></div>
                       <div id={stylist.inputLajmi}> <input type="file" id={stylist.Foto}  onChange={this.imageUpload}/></div>
  
                         {LajmiID ==0?
@@ -209,7 +227,9 @@ export class Lajmet extends Component{
                         :null}
 
                     </div>
+                    </Modal>}
         </div>
+        
     )
 }
 }
