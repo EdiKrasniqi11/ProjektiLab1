@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import stylist from "./Vendbanimi.module.css";
 import variables from "../Variables";
+import Modal from '../AnyUseComponents/Modal'
+
 
 export class Vendbanimi extends Component{
     constructor(props){
@@ -12,9 +14,11 @@ export class Vendbanimi extends Component{
             qytetet:[],
             filterQyteti: [],
             Adresa:"",
-            ShtetiID:1,
-            QytetiID:1,
-            VendbanimiID:0
+            ShtetiID:0,
+            QytetiID:0,
+            VendbanimiID:0,
+            insertModal:false,
+            dataModal:false
         }
     }
     refreshList(){
@@ -66,13 +70,17 @@ export class Vendbanimi extends Component{
             },(error)=>{
                 alert('Failed');  
         })
+        this.setState({
+            insertModal:false
+        })
     }
     addClick() {
         this.setState({
           VendbanimiID: 0,
-          Shteti:1,
-          Qyteti:1,
-          Adresa:""
+          Shteti:0,
+          Qyteti:0,
+          Adresa:"",
+          insertModal:true
           
         });
     }
@@ -113,13 +121,17 @@ export class Vendbanimi extends Component{
             },(error)=>{
                 alert('Failed');
         })
+        this.setState({
+            insertModal:false
+        })
     }
     editClick(vendbanimet){
         this.setState({
             VendbanimiID:vendbanimet.VendbanimiID,
             Shteti:vendbanimet.Shteti,
             Qyteti:vendbanimet.Qyteti,
-            Adresa:vendbanimet.Adresa
+            Adresa:vendbanimet.Adresa,
+            insertModal:true
         });
     }
     selectShteti(shtetet, id){
@@ -145,7 +157,9 @@ export class Vendbanimi extends Component{
             VendbanimiID,
             Shteti,
             Qyteti,
-            Adresa
+            Adresa,
+            insertModal,
+            dataModal
             
         }=this.state;
         return(
@@ -178,11 +192,13 @@ export class Vendbanimi extends Component{
                     </tr>
                     )}
                 </table>
-                <div>
+                {insertModal && <Modal modalSwitch={()=>this.setState({insertModal:false})}>
+
                     <div id={stylist.shtetiInputDiv}>
                             <span>Shteti</span><br></br>
                             <select className="form-select" onChange={this.changeShteti} value={Shteti}>
-                                {shtetet.map(shtetet=><option value={shtetet.ShtetiID}>
+                            <option value="0"> Zgjedh Shtetin</option>
+                             {shtetet.map(shtetet=><option value={shtetet.ShtetiID}>
                                     {shtetet.Emri}
                                 </option>)}
                             </select>
@@ -191,7 +207,7 @@ export class Vendbanimi extends Component{
                     <div id={stylist.qytetiInputDiv}>
                             <span>Qyteti</span><br></br>
                             <select id="qytetiSelectTag" onChange={this.changeQyteti} value={Qyteti}>
-                                <option value="0">Qyteti</option>
+                                <option value="0"> Zgjedh Qytetin</option>
                                 {filterQyteti.map(qytetet=><option value={qytetet.QytetiID}>
                                     {qytetet.Emri}
                                 </option>)}
@@ -211,7 +227,7 @@ export class Vendbanimi extends Component{
                     {VendbanimiID !=0?
                     <button type="button" onClick={()=>this.updateClick()}>Update</button>
                     :null}
-                </div>
+                  </Modal>}
             </div>
         )
     }
