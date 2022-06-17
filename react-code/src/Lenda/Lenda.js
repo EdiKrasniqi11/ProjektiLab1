@@ -27,10 +27,10 @@ export class Lenda extends Component{
         .then(data=>{this.setState({lendet:data});});
 
         fetch(variables.API_URL+'profesori').then(response=>response.json())
-        .then(data=>{this.setState({profesoret:data});});
+        .then(data=>{this.setState({profesoret:data}); this.setState({filterProfesori:data});});
 
         fetch(variables.API_URL+'drejtimi').then(response=>response.json())
-        .then(data=>{this.setState({drejtimet:data}); this.setState({filterProfesori:data});});
+        .then(data=>{this.setState({drejtimet:data});});
     }
     componentDidMount(){
         this.refreshList();

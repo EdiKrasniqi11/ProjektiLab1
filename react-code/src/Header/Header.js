@@ -24,6 +24,7 @@ function Header() {
         <li><NavLink to="/provimet">PROVIMET</NavLink></li>
         {/* <li><NavLink to="/waitlistet">WAITLIST</NavLink></li> */}
         <li><NavLink to="/shkembimet">SHKEMBIMET</NavLink></li>
+        <li><NavLink to="/vleresimet">VLERESIMET</NavLink></li>
       </ul>
     </div>
   );
