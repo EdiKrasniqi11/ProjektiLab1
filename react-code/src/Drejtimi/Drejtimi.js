@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import stylist from "./Drejtimi.module.css";
 import variables from "../Variables";
+import Modal from '../AnyUseComponents/Modal'
 
 export class Drejtimi extends Component{cd
     constructor(props){
@@ -10,8 +11,9 @@ export class Drejtimi extends Component{cd
             drejtimet:[],
             fakultetet:[],
             Emri:"",
-            Fakulteti:1,
-            DrejtimiID:0
+            Fakulteti:0,
+            DrejtimiID:0,
+            insertModal:false
         }
     }
     refreshList(){
@@ -49,14 +51,9 @@ export class Drejtimi extends Component{cd
             },(error)=>{
                 alert('Failed');  
         })
+        this.setState({insertModal:false})
     }
-    addClick() {
-        this.setState({
-          DrejtimiID: 0,
-          Emri: "",
-          Fakulteti:1
-        });
-    }
+    
     deleteClick(id){
         if(window.confirm('Are you sure?')){
             fetch(variables.API_URL+'drejtimi/'+id,{
@@ -93,12 +90,22 @@ export class Drejtimi extends Component{cd
             },(error)=>{
                 alert('Failed');
         })
+        this.setState({insertModal: false})
+    }
+    addClick() {
+        this.setState({
+          DrejtimiID: 0,
+          Emri: "",
+          Fakulteti:0,
+          insertModal:true
+        });
     }
     editClick(drejtimet){
         this.setState({
             DrejtimiID:drejtimet.DrejtimiID,
             Emri:drejtimet.Emri,
-            Fakulteti:drejtimet.Fakulteti
+            Fakulteti:drejtimet.Fakulteti,
+            insertModal:true
         });
     }
     selectFakulteti(fakultetet, id){
@@ -114,11 +121,14 @@ export class Drejtimi extends Component{cd
             fakultetet,
             DrejtimiID,
             Emri,
-            Fakulteti
+            Fakulteti,
+            insertModal
         }=this.state;
         return(
             <div className={stylist.drejtimiDiv}>
-                <button type="button" onClick={() => this.addClick()} id={stylist.addButton}>Shto Drejtimin</button>
+                <div id={stylist.buttonDiv}>
+                    <button type="button" onClick={() => this.addClick()} id={stylist.addButton}><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 12"><path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/></svg></button>
+                </div>
                 <table>
                     <tr>
                         <th>DrejtimiID</th>
@@ -143,14 +153,13 @@ export class Drejtimi extends Component{cd
                     </tr>
                     )}
                 </table>
-                <div>
+                {insertModal?<Modal modalSwitch={() => this.setState({insertModal:false})}>
                     <div className={stylist.inputDiv}>
+                        <h2>Drejtimi</h2>
                         <div id={stylist.nameInputDiv}>
-                            <span>Emri i Drejtimit</span><br></br>
-                            <input type="text" value={Emri} onChange={this.changeEmri}/>
+                            <input type="text" value={Emri} onChange={this.changeEmri} placeholder="Emri"/>
                         </div>
                         <div id={stylist.fakultetiInputDiv}>
-                            <span>Fakulteti</span><br></br>
                             <select className="form-select" onChange={this.changeFakulteti} value={Fakulteti}>
                             <option value="0">Fakulteti</option>
                                 {fakultetet.map(fakultetet=><option value={fakultetet.FakultetiID}>
@@ -165,9 +174,8 @@ export class Drejtimi extends Component{cd
                     {DrejtimiID !=0?
                     <button type="button" onClick={()=>this.updateClick()}>Update</button>
                     :null}
-                </div>
-            </div>
-        )
-    }
+                </Modal>:null}
+            </div>)
+        }
 }
 export default  Drejtimi;

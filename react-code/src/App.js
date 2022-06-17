@@ -47,7 +47,7 @@ function App() {
           <Route path="/profesoret" element={<Profesori />} />
           <Route path="/lendet" element={<Lenda />} />
           <Route path="/provimet" element={<Provimi />} />
-          <Route path="/waitlistet" element={<Waitlist />} />
+          <Route path="/waitlist" element={<Waitlist />} />
           <Route path="/shkembimet" element={<Shkembimi />} />
           <Route path="/vleresimet" element={<Vleresimi />} />
         </Routes>

@@ -19,8 +19,6 @@ export class Lajmet extends Component{
             Photopath:variables.PHOTO_URL,
             LajmiID:0,
             insertModal:false,
-            dataModal:false
-            
         }
     }
     refreshList(){
@@ -156,19 +154,14 @@ export class Lajmet extends Component{
                 Photopath,
                 Foto,
                 insertModal,
-                dataModal
 
             }=this.state;
 
     return(
         <div id={stylist.lajmetDiv}>
-            <button
-          type="button"
-          data-bs-toggle="modal"
-          data-bs-target="#exampleModal"
-          onClick={() => this.addClick()}>
-          Shto Lajmin
-        </button>
+            <div id={stylist.buttonDiv}>
+                    <button type="button" onClick={() => this.addClick()} id={stylist.addButton}><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 12"><path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/></svg></button>
+            </div>
             <table>
                 <thead>
                 <tr>
@@ -214,10 +207,10 @@ export class Lajmet extends Component{
                     {insertModal && <Modal modalSwitch={()=>this.setState({insertModal:false})}>
 
                     <div id={stylist.formLajmi}>
-                        <span id={stylist.inputText}>Lajmi</span>
+                        <h2>Lajmi</h2>
                       <div id={stylist.inputLajmi}><input type="text" id={stylist.Titulli} value={Titulli} onChange={this.changeTitulli} placeholder="Titulli i lajmit"/></div>
                       <div id={stylist.inputPershkrimi}><textarea id={stylist.Pershkrimi} value={Pershkrimi} onChange={this.changePershkrimi} placeholder="Pershkrimi i lajmit"></textarea></div>
-                      <div id={stylist.inputLajmi}> <input type="file" id={stylist.Foto}  onChange={this.imageUpload}/></div>
+                      <div id={stylist.inputFoto}> <input type="file" id={stylist.Foto}  onChange={this.imageUpload}/></div>
  
                         {LajmiID ==0?
                         <button type="button" id={stylist.button1} onClick={()=>this.createClick()}>Create</button>

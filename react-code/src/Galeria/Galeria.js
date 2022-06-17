@@ -151,13 +151,9 @@ export class Galeria extends Component{
 
     return(
         <div className={stylist.galeriaDiv}>
-            <button
-          type="button"
-          data-bs-toggle="modal"
-          data-bs-target="#exampleModal"
-          onClick={() => this.addClick()}>
-          Shto Foton
-        </button>
+            <div id={stylist.buttonDiv}>
+                    <button type="button" onClick={() => this.addClick()} id={stylist.addButton}><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 12"><path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/></svg></button>
+            </div>
             <table>
                 <thead>
                 <tr>
@@ -197,8 +193,8 @@ export class Galeria extends Component{
                     </table>
                     {insertModal && <Modal modalSwitch={()=>this.setState({insertModal:false})}>
                     <div id={stylist.formGaleria}>
-                        <span id={stylist.inputText}>Galeria</span>
-                      <div id={stylist.inputPershkrimi}><input type="text" id={stylist.Pershkrimi} value={Pershkrimi} onChange={this.changePershkrimi}/></div>
+                        <h2>Galeria</h2>
+                      <div id={stylist.inputPershkrimi}><input type="text" id={stylist.Pershkrimi} value={Pershkrimi} onChange={this.changePershkrimi} placeholder="Pershkrimi"/></div>
                       <div id={stylist.inputFoto}> <input type="file" id={stylist.Foto}  onChange={this.imageUpload}/></div>
                         </div>
                         {GaleriaID ==0?

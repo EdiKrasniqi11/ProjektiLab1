@@ -2,6 +2,7 @@ import {tsConstructorType} from '@babel/types';
 import React, { Component } from "react";
 import stylist from "./Njoftimet.module.css";
 import variables from "../Variables";
+import Modal from '../AnyUseComponents/Modal'
 
 export class Njoftimet extends Component {
   constructor(props) {
@@ -12,6 +13,7 @@ export class Njoftimet extends Component {
       NjoftimiID: 0,
       Titulli: "",
       Pershkrimi: "",
+      insertModal:false
     };
   }
 
@@ -37,6 +39,7 @@ export class Njoftimet extends Component {
       NjoftimiID: 0,
       Titulli: "",
       Pershkrimi: "",
+      insertModal:true
     });
   }
   editClick(njoft) {
@@ -45,6 +48,7 @@ export class Njoftimet extends Component {
       NjoftimiID: njoft.NjoftimiID,
       Titulli: njoft.Titulli,
       Pershkrimi: njoft.Pershkrimi,
+      insertModal:true
     });
   }
   createClick() {
@@ -69,6 +73,7 @@ export class Njoftimet extends Component {
           alert("Insertion Failed");
         }
       );
+      this.setState({insertModal:false});
   }
   updateClick() {
     fetch(variables.API_URL + "njoftimet", {
@@ -93,6 +98,7 @@ export class Njoftimet extends Component {
           alert("Update Failed");
         }
       );
+      this.setState({insertModal:false});
   }
   deleteClick(id) {
     if (window.confirm("Are you sure?")) {
@@ -115,17 +121,12 @@ export class Njoftimet extends Component {
     }
   }
   render() {
-    const { njoftimet, modalTitle, Titulli, Pershkrimi, NjoftimiID } = this.state;
+    const { njoftimet, modalTitle, Titulli, Pershkrimi, NjoftimiID, insertModal } = this.state;
     return (
       <div className={stylist.njoftimetDiv}>
-        <button
-          type="button"
-          id={stylist.addButton}
-          data-bs-toggle="modal"
-          data-bs-target="#exampleModal"
-          onClick={() => this.addClick()}>
-          Shto Njoftimin
-        </button>
+              <div id={stylist.buttonDiv}>
+                    <button type="button" onClick={() => this.addClick()} id={stylist.addButton}><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 12"><path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/></svg></button>
+              </div>
         <table>
           <tr>
             <th>NjoftimiID</th>
@@ -178,58 +179,21 @@ export class Njoftimet extends Component {
             </tr>
           ))}
         </table>
-        <div
-          className="modal fade"
-          id="#exampleModal"
-          tabIndex="-1"
-          aria-hidden="true"
-        >
-          <div className="modal-dialog modal-lg modal-dialog-centered">
-            <div className="modal-content">
-              <div className="modal-body">
+        {insertModal?<Modal modalSwitch={()=>this.setState({insertModal:false})}>
+                <h2>Njoftimi</h2>
                 <div id={stylist.insertionDivs}>
-                  <div>
-                    <span>Titulli</span>
-                    <br></br>
-                    <input
-                      type="text"
-                      className="form-control"
-                      value={Titulli}
-                      onChange={this.ndryshoTitullin}
-                    ></input>
-                  </div>
-                  <div>
-                    <span>Pershkrimi</span><br></br>
-                    <input
-                      type="text"
-                      className="form-control"
-                      value={Pershkrimi}
-                      onChange={this.ndryshoPershkrimin}
-                    ></input>
-                  </div>
+                    <div id={stylist.titulliInput}>
+                        <input type="text" value={Titulli} onChange={this.ndryshoTitullin} placeholder="Titulli"/>
+                    </div>
+                    <div id={stylist.pershkrimiInput}>
+                        <input type="text" value={Pershkrimi}onChange={this.ndryshoPershkrimin} placeholder="Pershkrimi"/>
+                    </div>
                 </div>
                 {NjoftimiID === 0 ? (
-                  <button
-                    type="button"
-                    className="btn btn-primary float-start"
-                    onClick={() => this.createClick()}
-                  >
-                    Create
-                  </button>
-                ) : null}
+                  <button type="button" onClick={() => this.createClick()}>Create</button>) : null}
                 {NjoftimiID !== 0 ? (
-                  <button
-                    type="button"
-                    className="btn btn-primary float-start"
-                    onClick={() => this.updateClick()}
-                  >
-                    Update
-                  </button>
-                ) : null}
-              </div>
-            </div>
-          </div>
-        </div>
+                  <button type="button" onClick={() => this.updateClick()}>Update</button>) : null}
+          </Modal>:null}
       </div>
     );
   }

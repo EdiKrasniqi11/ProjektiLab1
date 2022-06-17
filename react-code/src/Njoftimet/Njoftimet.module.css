@@ -1,3 +1,9 @@
+*{
+    text-align: center;
+}
+body{
+    font-family: 'Playfair Display', serif;
+}
 table{
     margin-top:1%;
     margin-right: auto;
@@ -19,10 +25,7 @@ table td{
     padding-bottom: 1%;
     text-align:center;
 }
-.njoftimetDiv{
-    min-height:80vh;
-}
-.njoftimetDiv button{
+button{
     color:red;
     background-color: white;
     border:1px solid #b6b6b6;
@@ -33,15 +36,32 @@ table td{
     cursor: pointer;
     box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
 }
-.njoftimetDiv #formNjoftimet{
-    text-align: center;
+.njoftimetDiv{
+    min-height:80vh;
 }
-.njoftimetDiv #insertionDivs{
-    display:flex;
-    justify-content: center;
+#titulliInput input{
+    width:236px;
+    height:25px;
+    border-radius:5px;
+    text-align: left;
+    padding-left:5%;
+    border: 1px solid rgb(186, 186, 186);
+    box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
+    margin-bottom: 5%;
 }
-.njoftimetDiv #insertionDivs div{
-    margin-right:1%;
+#pershkrimiInput input{
+    width:236px;
+    height:25px;
+    border-radius:5px;
+    text-align: left;
+    padding-left:5%;
+    border: 1px solid rgb(186, 186, 186);
+    box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
+    margin-bottom: 5%;
+}
+#buttonDiv {
+    text-align: right;
+    padding-right: 8%;
 }
 #addButton{
     margin-top:2%;

@@ -161,7 +161,9 @@ export class Specializimi extends Component{
         }=this.state;
         return(
             <div className={stylist.specializimiDiv}>
-                <button type="button" onClick={() => this.addClick()} id={stylist.addButton}>Shto Specializimin</button>
+                <div id={stylist.buttonDiv}>
+                    <button type="button" onClick={() => this.addClick()} id={stylist.addButton}><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 12"><path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/></svg></button>
+                </div>
                 <table>
                     <tr>
                         <th>SpecializimiID</th>
@@ -190,39 +192,27 @@ export class Specializimi extends Component{
                     </table>
                 
                     {insertModal && <Modal modalSwitch={()=>this.setState({insertModal:false})}>
-                        <div>
-                        <div id={stylist.fakultetiInputDiv}>
-                            <span>Fakulteti</span><br></br>
+                        <h2>Specializimi</h2>
+                        <div id={stylist.inputDiv}>
                             <select className="form-select" onChange={this.changeFakulteti} value={Fakulteti}>
                                 {fakultetet.map(fakultetet=><option value={fakultetet.FakultetiID}>
                                     {fakultetet.Emri}
                                 </option>)}
-                            </select>
-                        </div>
-
-                        <div className={stylist.inputDiv}>
-                            <div id={stylist.drejtimiInputDiv}>
-                            <span>Drejtimi</span><br></br>
+                            </select><br></br>
                             <select className="form-select" onChange={this.changeDrejtimi} value={Drejtimi}>
                                 {filterDrejtimi.map(drejtimet=><option value={drejtimet.DrejtimiID}>
                                     {drejtimet.Emri}
                                 </option>)}
-                            </select>
+                            </select><br></br>
+                            <input type="text" value={EmriSpecializimit} onChange={this.changeEmriSpecializimit} placeholder="Emri"/>
                         </div>
-
-                        <div id={stylist.nameInputDiv}>
-                            <span>Emri i specializit</span><br></br>
-                            <input type="text" value={EmriSpecializimit} onChange={this.changeEmriSpecializimit}/>
-                        </div>
-                    </div>
-                    {SpecializimiID ==0?
-                    <button type="button" onClick={()=>this.createClick()}>Create</button>
-                    :null}
-                    {SpecializimiID !=0?
-                    <button type="button" onClick={()=>this.updateClick()}>Update</button>
-                    :null}
-                </div>
-            </Modal>}
+                        {SpecializimiID ==0?
+                            <button type="button" onClick={()=>this.createClick()}>Create</button>
+                        :null}
+                        {SpecializimiID !=0?
+                            <button type="button" onClick={()=>this.updateClick()}>Update</button>
+                        :null}
+                    </Modal>}
             </div>
         )
     }

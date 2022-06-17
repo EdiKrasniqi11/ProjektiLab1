@@ -154,7 +154,9 @@ export class Dega extends Component{
         }=this.state;
         return(
             <div className={stylist.degaDiv}>
-                <button type="button" onClick={() => this.addClick()} id={stylist.addButton}>Shto Degen</button>
+                <div id={stylist.buttonDiv}>
+                    <button type="button" onClick={() => this.addClick()} id={stylist.addButton}><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 12"><path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/></svg></button>
+                </div>
                 <table>
                     <tr>
                         <th>DegaID</th>
@@ -180,20 +182,19 @@ export class Dega extends Component{
                     )}
                 </table>
                 {openModal && <Modal modalSwitch={()=>this.setState({openModal:false})}>
+                    <h2>Dega</h2>
                     <div className={stylist.inputDiv}>
                         <div id={stylist.fakultetiInputDiv}>
-                            <span>Fakulteti</span><br></br>
-                            <select className="form-select" onChange={this.changeFakulteti} value={Fakulteti}>
-                                <option value="0">Selekto Fakultetin</option>
+                            <select onChange={this.changeFakulteti} value={Fakulteti}>
+                                <option value="0">Fakulteti</option>
                                 {fakultetet.map(fakultetet=><option value={fakultetet.FakultetiID}>
                                     {fakultetet.Emri}
                                 </option>)}
                             </select>
                         </div>
                         <div id={stylist.qytetiInputDiv}>
-                            <span>Qyteti</span><br></br>
-                            <select className="form-select" onChange={this.changeQyteti} value={Qyteti}>
-                                <option value="0">Selekto Qytetin</option>
+                            <select onChange={this.changeQyteti} value={Qyteti}>
+                                <option value="0">Qyteti</option>
                                 {filterQyteti.map(qytetet=><option value={qytetet.QytetiID}>
                                     {qytetet.Emri}
                                 </option>)}

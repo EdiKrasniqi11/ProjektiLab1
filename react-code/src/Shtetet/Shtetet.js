@@ -125,13 +125,9 @@ export class Shtetet extends Component{
 
     return(
         <div className={ShtetiCSS.shtetetDiv}>
-             <button
-          type="button"
-          data-bs-toggle="modal"
-          data-bs-target="#exampleModal"
-          onClick={() => this.addClick()}>
-          Shto Shtetin
-        </button>
+            <div id={ShtetiCSS.buttonDiv}>
+                    <button type="button" onClick={() => this.addClick()} id={ShtetiCSS.addButton}><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 12"><path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/></svg></button>
+            </div>
             <table>
                 <thead>
                 <tr>
@@ -145,8 +141,8 @@ export class Shtetet extends Component{
                         Options
                     </th>
                 </tr>
-</thead>
-<tbody>
+            </thead>
+            <tbody>
                 {shtete.map(shtetet=>
                     <tr key={shtetet.ShtetiID}>
                         <td>{shtetet.ShtetiID}</td>
@@ -164,17 +160,17 @@ export class Shtetet extends Component{
                     )}</tbody>
                     </table>
                     {insertModal && <Modal modalSwitch={()=>this.setState({insertModal:false})}>
-                    <div id={ShtetiCSS.formShteti}>
-                        <span id={ShtetiCSS.inputText}>Shteti</span>
-                      <div id={ShtetiCSS.inputShteti}><input type="text" id={ShtetiCSS.emriShtetit} value={Emri} onChange={this.changeEmri}/></div>
-                               </div>
-                                {ShtetiID ==0?
+                        <h2>Shteti</h2>
+                        <div id={ShtetiCSS.inputShteti}>
+                            <input type="text" id={ShtetiCSS.emriShtetit} value={Emri} onChange={this.changeEmri} placeholder="Emri"/>
+                        </div>
+                        {ShtetiID ==0?
                         <button type="button" id={ShtetiCSS.button1} onClick={()=>this.createClick()}>Create</button>
                         :null}
                         {ShtetiID !=0?
                         <button type="button" id={ShtetiCSS.button1} onClick={()=>this.updateClick()}>Update</button>
                         :null}
-                         </Modal>}
+                     </Modal>}
                     </div>
 
     )

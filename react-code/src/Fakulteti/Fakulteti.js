@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import stylist from "./Fakulteti.module.css";
 import variables from "../Variables";
+import Modal from '../AnyUseComponents/Modal'
 
 export class Fakulteti extends Component{
     constructor(props){
@@ -10,8 +11,9 @@ export class Fakulteti extends Component{
             fakultetet:[],
             shtetet:[],
             Emri:"",
-            Shteti:1,
-            FakultetiID:0
+            Shteti:0,
+            FakultetiID:0,
+            insertModal:false
         }
     }
     refreshList(){
@@ -49,14 +51,9 @@ export class Fakulteti extends Component{
             },(error)=>{
                 alert('Failed');  
         })
+        this.setState({insertModal:false})
     }
-    addClick() {
-        this.setState({
-          FakultetiID: 0,
-          Emri: "",
-          Shteti:1
-        });
-    }
+    
     deleteClick(id){
         if(window.confirm('Are you sure?')){
             fetch(variables.API_URL+'fakulteti/'+id,{
@@ -93,12 +90,22 @@ export class Fakulteti extends Component{
             },(error)=>{
                 alert('Failed');
         })
+        this.setState({insertModal:false})
+    }
+    addClick() {
+        this.setState({
+          FakultetiID: 0,
+          Emri: "",
+          Shteti:0,
+          insertModal:true
+        });
     }
     editClick(fakultetet){
         this.setState({
             FakultetiID:fakultetet.FakultetiID,
             Emri:fakultetet.Emri,
-            Shteti:fakultetet.Shteti
+            Shteti:fakultetet.Shteti,
+            insertModal:true
         });
     }
     selectShteti(shtetet, id){
@@ -114,11 +121,14 @@ export class Fakulteti extends Component{
             shtetet,
             FakultetiID,
             Emri,
-            Shteti
+            Shteti,
+            insertModal
         }=this.state;
         return(
             <div className={stylist.fakultetiDiv}>
-                <button type="button" onClick={() => this.addClick()} id={stylist.addButton}>Shto Fakultetin</button>
+                <div id={stylist.buttonDiv}>
+                    <button type="button" onClick={() => this.addClick()} id={stylist.addButton}><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 12"><path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/></svg></button>
+                </div>
                 <table>
                     <tr>
                         <th>FakultetiID</th>
@@ -143,21 +153,18 @@ export class Fakulteti extends Component{
                     </tr>
                     )}
                 </table>
-                <div>
-                    <div className={stylist.inputDiv}>
-                        <div id={stylist.nameInputDiv}>
-                            <span>Emri i Universitetit</span><br></br>
-                            <input type="text" value={Emri} onChange={this.changeEmri}/>
-                        </div>
-                        <div id={stylist.shtetiInputDiv}>
-                            <span>Shteti</span><br></br>
+                {insertModal?<Modal modalSwitch={() => this.setState({insertModal: false})}>
+                    <h2>Fakulteti</h2>
+                    <div id={stylist.nameInputDiv}>
+                        <input type="text" value={Emri} onChange={this.changeEmri} placeholder="Emri"/>
+                    </div>
+                    <div id={stylist.shtetiInputDiv}>
+                        <select onChange={this.changeShteti} value={Shteti}>
                             <option value="0">Shteti</option>
-                            <select className="form-select" onChange={this.changeShteti} value={Shteti}>
-                                {shtetet.map(shtetet=><option value={shtetet.ShtetiID}>
-                                    {shtetet.Emri}
-                                </option>)}
-                            </select>
-                        </div>
+                            {shtetet.map(shtetet=><option value={shtetet.ShtetiID}>
+                                {shtetet.Emri}
+                            </option>)}
+                        </select>
                     </div>
                     {FakultetiID ==0?
                     <button type="button" onClick={()=>this.createClick()}>Create</button>
@@ -165,7 +172,7 @@ export class Fakulteti extends Component{
                     {FakultetiID !=0?
                     <button type="button" onClick={()=>this.updateClick()}>Update</button>
                     :null}
-                </div>
+                </Modal>:null}
             </div>
         )
     }

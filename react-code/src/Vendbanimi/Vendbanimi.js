@@ -164,7 +164,9 @@ export class Vendbanimi extends Component{
         }=this.state;
         return(
             <div className={stylist.vendbanimiDiv}>
-                <button type="button" onClick={() => this.addClick()} id={stylist.addButton}>Shto Vendbanimin</button>
+                <div id={stylist.buttonDiv}>
+                    <button type="button" onClick={() => this.addClick()} id={stylist.addButton}><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 12"><path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/></svg></button>
+                </div>
                 <table>
                     <tr>
                         <th>VendbanimiID</th>
@@ -193,33 +195,25 @@ export class Vendbanimi extends Component{
                     )}
                 </table>
                 {insertModal && <Modal modalSwitch={()=>this.setState({insertModal:false})}>
-
+                    <h2>Vendbanimi</h2>
                     <div id={stylist.shtetiInputDiv}>
-                            <span>Shteti</span><br></br>
                             <select className="form-select" onChange={this.changeShteti} value={Shteti}>
-                            <option value="0"> Zgjedh Shtetin</option>
+                            <option value="0">Shteti</option>
                              {shtetet.map(shtetet=><option value={shtetet.ShtetiID}>
                                     {shtetet.Emri}
                                 </option>)}
                             </select>
-                        </div>
-
+                    </div>
                     <div id={stylist.qytetiInputDiv}>
-                            <span>Qyteti</span><br></br>
                             <select id="qytetiSelectTag" onChange={this.changeQyteti} value={Qyteti}>
-                                <option value="0"> Zgjedh Qytetin</option>
+                                <option value="0">Qyteti</option>
                                 {filterQyteti.map(qytetet=><option value={qytetet.QytetiID}>
                                     {qytetet.Emri}
                                 </option>)}
                             </select>
                     </div>
-
-                    <div className={stylist.inputDiv}>
-                        <div id={stylist.nameInputDiv}>
-                            <span>Adresa e vendbanimit</span><br></br>
-                            <input type="text" value={Adresa} onChange={this.changeAdresa}/>
-                        </div>
-                        
+                    <div id={stylist.nameInputDiv}>
+                        <input type="text" value={Adresa} onChange={this.changeAdresa} placeholder="Adresa"/>
                     </div>
                     {VendbanimiID ==0?
                     <button type="button" onClick={()=>this.createClick()}>Create</button>
