@@ -132,8 +132,7 @@ create table Waitlist(
 	Drejtimi int not null foreign key references Drejtimi(DrejtimiID) on delete cascade,
 	Specializimi int not null foreign key references Specializimi(SpecializimiID) on delete cascade
 )
-
-
+drop table Waitlist
 create table Termini(
 	Studenti int not null,
 	Orari varchar(30) not null,

@@ -1,21 +1,132 @@
-.waitlistDiv{
-    height:80vh;
+.studentiDiv{
+    min-height:80vh;
 }
-#formWaitlist h2{
+#buttonDiv {
+    text-align: right;
+    padding-right: 8%;
+}
+#addButton{
+    margin-top:2%;
+}
+h2{
     font-family: 'Playfair Display', serif;
     color:rgb(72, 72, 72);
     margin-bottom:2%;
 }
-#StudentiInputDiv{
+#emriInputDiv{
     display:flex;
     justify-content:space-between
 }
-#StudentiInputDiv select{
-    width:350px;
+#emriInputDiv input{
+    width:110px;
     height:25px;
     border-radius:5px;
     text-align: left;
     padding-left:5%;
+    border: 1px solid rgb(186, 186, 186);
+    box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
+    margin-bottom: 5%;
+}
+#emailInputDiv input{
+    width:236px;
+    height:25px;
+    border-radius:5px;
+    text-align: left;
+    padding-left:5%;
+    border: 1px solid rgb(186, 186, 186);
+    box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
+    margin-bottom: 5%;
+}
+#passwordInputDiv{
+    width:249px;
+    height:25px;
+    border-radius:5px;
+    padding-left:0%;
+    text-align:left;
+    align-items:center;
+    border: 1px solid rgb(186, 186, 186);
+    box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
+    margin-bottom: 5%;
+}
+#passwordInputDiv input{
+    border:none;
+    text-align: left;
+    padding-left:5%;
+    height:23px;
+    width:215px
+}
+#showPassword{
+    cursor:pointer;
+    -webkit-user-select: none;       
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+#date select{
+    width:75px;
+    height:25px;
+    border-radius:5px;
+    border: 1px solid rgb(186, 186, 186);
+    box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
+    margin-bottom: 5%;
+}
+#date{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+}
+#gjiniaInputDiv select{
+    width:250px;
+    height:25px;
+    border-radius:5px;
+    border: 1px solid rgb(186, 186, 186);
+    box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
+    margin-bottom: 5%;
+}
+#shtetiInputDiv select{
+    width:125px;
+    height:25px;
+    border-radius:5px;
+    border: 1px solid rgb(186, 186, 186);
+    box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
+    margin-bottom: 5%;
+}
+#vendbanimiInputDiv select{
+    width:250px;
+    height:25px;
+    border-radius:5px;
+    border: 1px solid rgb(186, 186, 186);
+    box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
+    margin-bottom: 5%;
+}
+#fakultetiInputDiv select{
+    width:250px;
+    height:25px;
+    border-radius:5px;
+    border: 1px solid rgb(186, 186, 186);
+    box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
+    margin-bottom: 5%;
+}
+#degaInputDiv select{
+    width:250px;
+    height:25px;
+    border-radius:5px;
+    border: 1px solid rgb(186, 186, 186);
+    box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
+    margin-bottom: 5%;
+}
+#drejtimiInputDiv select{
+    width:250px;
+    height:25px;
+    border-radius:5px;
+    border: 1px solid rgb(186, 186, 186);
+    box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
+    margin-bottom: 5%;
+}
+#specializimiInputDiv select{
+    width:250px;
+    height:25px;
+    border-radius:5px;
     border: 1px solid rgb(186, 186, 186);
     box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
     margin-bottom: 5%;
