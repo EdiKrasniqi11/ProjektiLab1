@@ -44,7 +44,7 @@ namespace Laboratori1.Controllers
         [HttpPost]
         public JsonResult Post(Termini terminet)
         {
-            string query = @"insert into Termini values(@Studenti,@Terminet)";
+            string query = @"insert into Termini values(@Studenti,@Orari)";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("SMISAppCon");
             SqlDataReader myReader;
@@ -54,7 +54,7 @@ namespace Laboratori1.Controllers
                 using (SqlCommand myCommand = new SqlCommand(query, myCon))
                 {
                     myCommand.Parameters.AddWithValue("@Studenti", terminet.Studenti);
-                    myCommand.Parameters.AddWithValue("@Terminet", terminet.Terminet);
+                    myCommand.Parameters.AddWithValue("@Orari", terminet.Orari);
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
                     myReader.Close();
@@ -67,7 +67,7 @@ namespace Laboratori1.Controllers
         [HttpPut]
         public JsonResult Put(Termini terminet)
         {
-            string query = @"update Termini set Termini = @Termini where  Studenti = @Studenti";
+            string query = @"update Termini set Orari = @Orari where  Studenti = @Studenti";
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("SMISAppCon");
             SqlDataReader myReader;
@@ -78,7 +78,7 @@ namespace Laboratori1.Controllers
                 {
 
                     myCommand.Parameters.AddWithValue("@Studenti", terminet.Studenti);
-                    myCommand.Parameters.AddWithValue("@Terminet", terminet.Terminet);
+                    myCommand.Parameters.AddWithValue("@Orari", terminet.Orari);
                     myReader = myCommand.ExecuteReader();
                     table.Load(myReader);
                     myReader.Close();

@@ -132,14 +132,15 @@ create table Waitlist(
 	Drejtimi int not null foreign key references Drejtimi(DrejtimiID) on delete cascade,
 	Specializimi int not null foreign key references Specializimi(SpecializimiID) on delete cascade
 )
+
+
 create table Termini(
 	Studenti int not null,
-	Terminet varchar(30) not null,
+	Orari varchar(30) not null,
+	check (Orari not like ''),
 	foreign key (Studenti) references Studenti(StudentiID),
 	primary key(Studenti) 
 )
-
-
 
 DBCC CHECKIDENT ('Njoftimet', RESEED, 0);
 DBCC CHECKIDENT ('Lajmet', RESEED, 0);

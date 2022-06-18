@@ -12,7 +12,7 @@ namespace Laboratori1.Objects
             get;
             set;
         }
-        public string Terminet
+        public string Orari
         {
             get;
             set;
