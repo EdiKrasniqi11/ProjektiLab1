@@ -19,7 +19,7 @@ import Waitlist from "./Waitlist/Waitlist";
 import Shkembimi from "./Shkembimi/Shkembimi";
 import Vleresimi from "./Vleresimi/Vleresimi";
 import Termini from "./Termini/Termini";
-
+import Home from './Home/Home'
 
 import {
   BrowserRouter as Router,
@@ -35,6 +35,7 @@ function App() {
       <div className="headerDiv">
         <Header />
         <Routes>
+          <Route path="/" element={<Home />} />
           <Route path="/lajmet" element={<Lajmet />} />
           <Route path="/njoftimet" element={<Njoftimet />} />
           <Route path="/shtetet" element={<Shtetet />} />

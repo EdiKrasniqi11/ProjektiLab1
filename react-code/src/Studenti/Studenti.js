@@ -2,6 +2,7 @@ import React,{Component} from 'react'
 import stylist from './Studenti.module.css'
 import variables from '../Variables'
 import Modal from '../AnyUseComponents/Modal'
+import StudentData from '../AnyUseComponents/StudentData'
 
 export class Studenti extends Component{
     constructor(props){
@@ -268,6 +269,30 @@ export class Studenti extends Component{
             passwordShown:false
         });
     }
+    viewData(studentet){
+        let fullname = studentet.Emri.split(" ");
+        let emri = fullname[0];
+        let mbiemri = fullname[1];
+        let shteti = this.state.vendbanimet.find(element => element.VendbanimiID == studentet.Vendbanimi).Shteti;
+        let qyteti = this.state.vendbanimet.find(element => element.VendbanimiID == studentet.Vendbanimi).Shteti;
+        this.setState({
+            StudentiID:studentet.StudentiID,
+            Emri:emri,
+            Mbiemri:mbiemri,
+            Email:studentet.Email,
+            Password:studentet.Password,
+            Datelindja:studentet.Datelindja,
+            Gjinia:studentet.Gjinia,
+            Shteti:shteti,
+            Qyteti:qyteti,
+            Vendbanimi:studentet.Vendbanimi,
+            Fakulteti:studentet.Fakulteti,
+            Dega:studentet.Dega,
+            Drejtimi:studentet.Drejtimi,
+            Specializimi:studentet.Specializimi,
+            dataModal:true
+        });
+    }
     formatDate(date){
         let dateArray = date.split("T")
         let dateComponents = dateArray[0].split("-")
@@ -336,7 +361,7 @@ export class Studenti extends Component{
                             <td>{studentet.Emri}</td>
                             <td>{this.formatDate(studentet.Datelindja)}</td>
                             <td>
-                            <button type="button" onClick={()=>this.viewData()}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+                            <button type="button" onClick={()=>this.viewData(studentet)}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
                                 <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
                                 <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
                             </svg></button>
@@ -458,6 +483,19 @@ export class Studenti extends Component{
                     <button type="button" onClick={()=>this.updateClick()}>Update</button>
                     :null}
                 </Modal>}
+                {dataModal?<StudentData modalSwitch={()=>this.setState({dataModal:false})}>
+                    <p>{this.state.StudentiID}</p>
+                    <p>{this.state.Emri} {this.state.Mbiemri}</p>
+                    <p>{this.state.Email}</p>
+                    <p>{this.state.Password}</p>
+                    <p>{this.formatDate(this.state.Datelindja)}</p>
+                    <p>{this.state.Gjinia}</p>
+                    <p>{this.state.shtetet.find(element => element.ShtetiID == Shteti).Emri}, {this.state.qytetet.find(element => element.QytetiID == Qyteti).Emri}, {this.state.vendbanimet.find(element => element.VendbanimiID == Vendbanimi).Adresa}</p>
+                    <p>{this.state.fakultetet.find(element => element.FakultetiID == Fakulteti).Emri}</p>
+                    <p>{this.state.qytetet.find(element => element.QytetiID == this.state.deget.find(element => element.DegaID == Dega).Qyteti).Emri}</p>
+                    <p>{this.state.drejtimet.find(element => element.DrejtimiID == Drejtimi).Emri}</p>
+                    <p>{this.state.specializimet.find(element => element.SpecializimiID == Specializimi).EmriSpecializimit}</p>
+                </StudentData>:null}
             </div>
         );
     }

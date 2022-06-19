@@ -11,6 +11,10 @@
     align-items: center;
 }
 .formWindow{
+    width:400px;
+    padding-left:40px;
+    padding-right:40px;
+    padding-bottom:40px;
     background-color:white;
     border-radius:5px;
 }
@@ -19,6 +23,18 @@
     padding-right:80px;
     padding-bottom:3%;
 }
+.dataDiv{
+    display:flex;
+}
+#titles{
+    width:24%
+}
+#titles p{
+    text-align:right;
+}
+#studentData p{
+    text-align:left;
+}
 .modalHeader{
     text-align:right;
 }
@@ -26,4 +42,5 @@
     background-color:transparent;
     box-shadow:none;
     border:none;
+    margin-right:-30px;
 }
