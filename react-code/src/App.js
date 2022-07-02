@@ -1,24 +1,25 @@
 import React from "react";
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
-import Shtetet from "../src/Shtetet/Shtetet";
-import Qytetet from "../src/Qytetet/Qytetet";
-import Lajmet from "../src/Lajmet/Lajmet";
-import Njoftimet from "./Njoftimet/Njoftimet";
-import Fakulteti from "./Fakulteti/Fakulteti";
-import Dega from "./Dega/Dega";
-import Drejtimi from "./Drejtimi/Drejtimi";
-import Vendbanimi from "./Vendbanimi/Vendbanimi";
-import Specializimi from "./Specializimi/Specializimi";
-import Studenti from "./Studenti/Studenti";
-import Galeria from "./Galeria/Galeria";
-import Profesori from "./Profesori/Profesori";
-import Lenda from "./Lenda/Lenda";
-import Provimi from "./Provimi/Provimi";
-import Waitlist from "./Waitlist/Waitlist";
-import Shkembimi from "./Shkembimi/Shkembimi";
-import Vleresimi from "./Vleresimi/Vleresimi";
-import Termini from "./Termini/Termini";
+import Shtetet from "./CRUDs/Shtetet/Shtetet";
+import Qytetet from "./CRUDs/Qytetet/Qytetet";
+import Lajmet from "./CRUDs/Lajmet/Lajmet";
+import Njoftimet from "./CRUDs/Njoftimet/Njoftimet";
+import Fakulteti from "./CRUDs/Fakulteti/Fakulteti";
+import Dega from "./CRUDs/Dega/Dega";
+import Drejtimi from "./CRUDs/Drejtimi/Drejtimi";
+import Vendbanimi from "./CRUDs/Vendbanimi/Vendbanimi";
+import Specializimi from "./CRUDs/Specializimi/Specializimi";
+import Studenti from "./CRUDs/Studenti/Studenti";
+import Galeria from "./CRUDs/Galeria/Galeria";
+import Profesori from "./CRUDs/Profesori/Profesori";
+import Lenda from "./CRUDs/Lenda/Lenda";
+import Provimi from "./CRUDs/Provimi/Provimi";
+import Waitlist from "./CRUDs/Waitlist/Waitlist";
+import Shkembimi from "./CRUDs/Shkembimi/Shkembimi";
+import Vleresimi from "./CRUDs/Vleresimi/Vleresimi";
+import Termini from "./CRUDs/Termini/Termini";
+import Login from "./Login/Login";
 import Home from './Home/Home'
 
 import {
@@ -54,7 +55,7 @@ function App() {
           <Route path="/shkembimet" element={<Shkembimi />} />
           <Route path="/vleresimet" element={<Vleresimi />} />
           <Route path="/terminet" element={<Termini />} />
-
+          <Route path="/login" element={<Login />} />
         </Routes>
       </div>
     </Router>

@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import stylist from './Home.module.css'
-import variables from '../Variables'
+import variables from '../CRUDs/Variables'
 import StudentData from '../AnyUseComponents/StudentData'
 
 export class Home extends Component{
@@ -18,6 +18,15 @@ export class Home extends Component{
         fetch(variables.API_URL+'lajmet')
         .then(response=>response.json()).then(data=>{this.setState({lajmet:data});});
     }
+    selectUserName(){
+        if(localStorage.getItem("user")==""){
+            return ""
+        }else{
+            var user = JSON.parse(localStorage.getItem("user"));
+            var username = user.Emri;
+            return username
+        }
+    }
     componentDidMount(){
         this.refreshList();
     }
@@ -29,7 +38,7 @@ export class Home extends Component{
         return(
             <div className={stylist.homeDiv}>
                 <div id={stylist.titleDiv}>
-                    <h1>Welcome to Prishtina University</h1>
+                    <h1>Welcome to Prishtina University {this.selectUserName()}</h1>
                 </div>
                 <div id={stylist.galeryDiv}>
                     <h3>Galeria</h3>

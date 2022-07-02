@@ -8,12 +8,15 @@
     padding-bottom:1%;
 }
 #titleDiv{
+    margin-top:1%;
+    padding:0.2% 2% 0.2% 2%;
+    background-color:rgba(255, 255, 255, 0.721);
     vertical-align: center;
-    color:white;
     font-size:large;
+    border-radius:5px;
 }
 #galeryDiv{
-    height:30vh;
+    height:27vh;
     width:80%;
     margin-top:1%;
     padding: 20px 0px 20px 0px;

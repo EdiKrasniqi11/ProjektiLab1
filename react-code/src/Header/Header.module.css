@@ -24,3 +24,10 @@ a:-webkit-any-link{
     color: white;
     font-family: 'Playfair Display',serif;
 }
+#logoutButton{
+    cursor:pointer;
+    -webkit-user-select: none;       
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
