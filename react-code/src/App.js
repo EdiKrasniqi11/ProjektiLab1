@@ -19,6 +19,7 @@ import Waitlist from "./CRUDs/Waitlist/Waitlist";
 import Shkembimi from "./CRUDs/Shkembimi/Shkembimi";
 import Vleresimi from "./CRUDs/Vleresimi/Vleresimi";
 import Termini from "./CRUDs/Termini/Termini";
+import MyTranscript from "./StudentPages/MyTranscript/MyTranscript";
 import Login from "./Login/Login";
 import Home from './Home/Home'
 
@@ -55,6 +56,7 @@ function App() {
           <Route path="/shkembimet" element={<Shkembimi />} />
           <Route path="/vleresimet" element={<Vleresimi />} />
           <Route path="/terminet" element={<Termini />} />
+          <Route path="/transkripta" element={<MyTranscript />} />
           <Route path="/login" element={<Login />} />
         </Routes>
       </div>
