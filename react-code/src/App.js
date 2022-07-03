@@ -20,9 +20,9 @@ import Shkembimi from "./CRUDs/Shkembimi/Shkembimi";
 import Vleresimi from "./CRUDs/Vleresimi/Vleresimi";
 import Termini from "./CRUDs/Termini/Termini";
 import MyTranscript from "./StudentPages/MyTranscript/MyTranscript";
+import ParaqitProvimet from "./StudentPages/ParaqitProvimet/ParaqitProvimet";
 import Login from "./Login/Login";
 import Home from './Home/Home'
-
 import {
   BrowserRouter as Router,
   Route,
@@ -57,6 +57,7 @@ function App() {
           <Route path="/vleresimet" element={<Vleresimi />} />
           <Route path="/terminet" element={<Termini />} />
           <Route path="/transkripta" element={<MyTranscript />} />
+          <Route path="/paraqit-provimet" element={<ParaqitProvimet />} />
           <Route path="/login" element={<Login />} />
         </Routes>
       </div>

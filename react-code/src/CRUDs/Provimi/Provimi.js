@@ -120,27 +120,6 @@ export class Provimi extends Component{
             insertModal:true
         });
     }
- selectProfesori(profesoret, id){
-        for(let i=0;i<profesoret.length;i++){
-            if(profesoret[i].ProfesoriID === id){
-                return profesoret[i].Emri;
-            }
-        }
-    }
-selectLenda(lendet, id){
-        for(let i=0;i<lendet.length;i++){
-            if(lendet[i].LendaID === id){
-                return lendet[i].Emri;
-            }
-        }
-    }
-selectStudenti(studentet, id){
-        for(let i=0;i<studentet.length;i++){
-            if(studentet[i].StudentiID === id){
-                return studentet[i].Emri;
-            }
-        }
-    }
     addClick() {
         this.setState({
             ProvimiStatus:0,
@@ -149,6 +128,27 @@ selectStudenti(studentet, id){
 	        Profesori:0,
             insertModal:true
         });
+    }
+    selectProfesori(profesoret, id){
+        for(let i=0;i<profesoret.length;i++){
+            if(profesoret[i].ProfesoriID === id){
+                return profesoret[i].Emri;
+            }
+        }
+    }
+    selectLenda(lendet, id){
+        for(let i=0;i<lendet.length;i++){
+            if(lendet[i].LendaID === id){
+                return lendet[i].Emri;
+            }
+        }
+    }
+    selectStudenti(studentet, id){
+        for(let i=0;i<studentet.length;i++){
+            if(studentet[i].StudentiID === id){
+                return studentet[i].Emri;
+            }
+        }
     }
     
     render(){

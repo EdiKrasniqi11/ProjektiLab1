@@ -24,6 +24,9 @@ a:-webkit-any-link{
     color: white;
     font-family: 'Playfair Display',serif;
 }
+li:hover, a:hover{
+    color:rgba(255, 255, 255, 0.755);
+}
 #logoutButton{
     cursor:pointer;
     -webkit-user-select: none;       

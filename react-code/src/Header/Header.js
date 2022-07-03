@@ -28,6 +28,7 @@ function Header() {
         {localStorage.getItem("role")=="professor"?<li><NavLink to="/vleresimet">VLERESIMET</NavLink></li>:null}
         {localStorage.getItem("role")=="professor"?<li><NavLink to="/terminet">TERMINET</NavLink></li>:null}
         {localStorage.getItem("role")=="student"?<li><NavLink to="/transkripta">TRANSKRIPTA</NavLink></li>:null}
+        {localStorage.getItem("role")=="student"?<li><NavLink to="/paraqit-provimet">PARAQITJA E PROVIMEVE</NavLink></li>:null}
         {localStorage.getItem("user")==""?<li><NavLink to ="/login">LOGIN</NavLink></li>:
         <li id={HeaderCSS.logoutButton} onClick={() => {localStorage.setItem("user",""); localStorage.setItem("role",""); window.location.href = '../'}}>LOG OUT</li>}
       </ul>
