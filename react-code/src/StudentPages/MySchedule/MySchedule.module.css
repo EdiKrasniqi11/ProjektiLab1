@@ -1,0 +1,51 @@
+.myScheduleDiv{
+    display:flex;
+    min-height:80vh;
+    width:100%;
+    justify-content:center;
+    align-items:center;
+}
+#ekzistonDiv{
+    width:60%;
+    height:40%;
+    display:flex;
+    border:1px solid rgb(255, 171, 171);
+    border-radius:8px;
+    box-shadow: rgb(0 0 0 / 7%) 0px 5px 7px 0px, rgb(0 0 0 / 6%) 0px 5px 5px -0px, rgb(0 0 0 / 10%) 0px 3px 10px 0px;
+    justify-content:center;
+    align-items:center;
+    flex-direction: column;
+}
+#ekzistonDiv h2{
+    margin-bottom:0;
+}
+#ekzistonDiv p{
+    margin-bottom:1%;
+}
+.myScheduleDiv button{
+    border-radius:2px;
+    background-color:rgb(211, 48, 48);
+    color:white;
+    margin-top:0;
+}
+.myScheduleDiv button:hover{
+    background-color:rgb(212, 21, 21);
+    box-shadow: rgb(0 0 0 / 7%) 0px 5px 7px 0px, rgb(0 0 0 / 6%) 0px 5px 5px -0px, rgb(0 0 0 / 10%) 0px 3px 10px 0px;
+}
+#ekzistonDiv select{
+    width:20%;
+    height:25px;
+    border-radius:5px;
+    text-align: left;
+    border: 1px solid rgb(191, 119, 119);
+    box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
+    margin-bottom: 1.5%;
+    transition: width 0.5s
+}
+#ekzistonDiv select:hover{
+    cursor:pointer;
+    width:25%;
+}
+#ekzistonDiv select:focus{
+    width:25%;
+}

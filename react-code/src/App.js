@@ -19,10 +19,15 @@ import Waitlist from "./CRUDs/Waitlist/Waitlist";
 import Shkembimi from "./CRUDs/Shkembimi/Shkembimi";
 import Vleresimi from "./CRUDs/Vleresimi/Vleresimi";
 import Termini from "./CRUDs/Termini/Termini";
+import SMIS from './StudentPages/SMIS/Smis'
 import MyTranscript from "./StudentPages/MyTranscript/MyTranscript";
 import ParaqitProvimet from "./StudentPages/ParaqitProvimet/ParaqitProvimet";
+import MySchedule from "./StudentPages/MySchedule/MySchedule";
 import Login from "./Login/Login";
 import Home from './Home/Home'
+
+
+
 import {
   BrowserRouter as Router,
   Route,
@@ -56,8 +61,11 @@ function App() {
           <Route path="/shkembimet" element={<Shkembimi />} />
           <Route path="/vleresimet" element={<Vleresimi />} />
           <Route path="/terminet" element={<Termini />} />
-          <Route path="/transkripta" element={<MyTranscript />} />
-          <Route path="/paraqit-provimet" element={<ParaqitProvimet />} />
+          <Route path="/smis" element={<SMIS />}>
+            <Route path="/smis/transkripta" element={<MyTranscript />} />
+            <Route path="/smis/paraqit-provimet" element={<ParaqitProvimet />} />
+            <Route path="/smis/my-schedule" element={<MySchedule />} />
+          </Route>
           <Route path="/login" element={<Login />} />
         </Routes>
       </div>
