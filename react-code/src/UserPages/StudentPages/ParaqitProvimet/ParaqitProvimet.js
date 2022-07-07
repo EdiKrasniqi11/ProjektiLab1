@@ -1,6 +1,6 @@
 import react,{Component} from 'react'
 import stylist from './ParaqitProvimet.module.css'
-import variables from '../../CRUDs/Variables'
+import variables from '../../../CRUDs/Variables'
 
 export default class ParaqitProvimet extends Component{
     constructor(props){

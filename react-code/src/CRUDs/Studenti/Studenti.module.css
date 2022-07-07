@@ -1,5 +1,6 @@
 .studentiDiv{
     min-height:80vh;
+    width:100%;
 }
 #buttonDiv {
     text-align: right;

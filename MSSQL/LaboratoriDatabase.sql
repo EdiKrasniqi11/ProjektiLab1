@@ -68,6 +68,17 @@ create table Studenti(
 	Drejtimi int not null foreign key references Drejtimi(DrejtimiID) on delete cascade,
 	Specializimi int not null foreign key references Specializimi(SpecializimiID) on delete cascade
 )
+create table Administrator(
+	AdminID int not null identity(1,1) primary key,
+	Emri varchar(50) not null,
+	Email varchar(255) not null unique,
+	check (Email like '%@%.%'),
+	Password varchar(20) not null,
+	Datelindja Date not null,
+	Gjinia char not null,
+	check(Gjinia in ('M','F')),
+	Vendbanimi int not null foreign key references Vendbanimi(VendbanimiID) on delete cascade,
+)
 
 create table Galeria(
 	GaleriaID int identity(1,1) primary key,

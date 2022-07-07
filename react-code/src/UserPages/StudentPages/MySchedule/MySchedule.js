@@ -1,6 +1,6 @@
 import react,{Component} from 'react'
 import stylist from './MySchedule.module.css'
-import variables from '../../CRUDs/Variables'
+import variables from '../../../CRUDs/Variables'
 
 export default class MySchedule extends Component{
     constructor(props){
@@ -40,26 +40,24 @@ export default class MySchedule extends Component{
         })
             .then(res=>res.json())
             .then((result)=>{
-                alert(result);
+                alert("Orari eshte Selektuar me Sukses: "+this.state.Orari);
                 this.refreshList();
             })
     }
     deleteClick(studenti){
-        if(window.confirm('Are you sure?')){
-            fetch(variables.API_URL+'termini/'+studenti,{
-                method:'DELETE',
-                headers:{
-                    'Accept':'application/json',
-                    'Content-Type':'application/json'
-                }
-            }).then(res=>res.json())
-            .then((result)=>{
-                alert(result);
-                this.refreshList();
-            },(error)=>{
-                alert('Failed');
-            })
-        }
+        fetch(variables.API_URL+'termini/'+studenti,{
+            method:'DELETE',
+            headers:{
+                'Accept':'application/json',
+                'Content-Type':'application/json'
+            }
+        }).then(res=>res.json())
+        .then((result)=>{
+            alert("Orari eshte Anuluar me Sukses");
+            this.refreshList();
+        },(error)=>{
+            alert('Failed');
+        })
     }
     render(){
         const{

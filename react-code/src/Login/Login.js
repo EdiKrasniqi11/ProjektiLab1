@@ -10,6 +10,7 @@ export default class Login extends Component {
         this.state ={
             studentet:[],
             profesoret:[],
+            administratoret: [],
             Email:"",
             Password:"",
             passwordShown:false
@@ -21,6 +22,9 @@ export default class Login extends Component {
 
         fetch(variables.API_URL+'profesori')
         .then(response=>response.json()).then(data=>{this.setState({profesoret:data});});
+
+        fetch(variables.API_URL+'administrator')
+        .then(response=>response.json()).then(data=>{this.setState({administratoret:data});});
     }
     componentDidMount(){
         this.refreshList();
@@ -36,7 +40,13 @@ export default class Login extends Component {
         if(user == null){
             user = this.state.profesoret.find(profesori => profesori.Email == email && profesori.Password == password);
             if(user == null){
-                return alert("Login was unsuccessful!")
+                user = this.state.administratoret.find(admini => admini.Email == email && admini.Password == password)
+                if(user == null){
+                    alert("Login was Unsuccessful");
+                }else{
+                    localStorage.setItem("user", JSON.stringify(user));
+                    localStorage.setItem("role", "admin")
+                }
             }else{
                 localStorage.setItem("user", JSON.stringify(user));
                 localStorage.setItem("role", "professor")

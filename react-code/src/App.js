@@ -19,10 +19,12 @@ import Waitlist from "./CRUDs/Waitlist/Waitlist";
 import Shkembimi from "./CRUDs/Shkembimi/Shkembimi";
 import Vleresimi from "./CRUDs/Vleresimi/Vleresimi";
 import Termini from "./CRUDs/Termini/Termini";
-import SMIS from './StudentPages/SMIS/Smis'
-import MyTranscript from "./StudentPages/MyTranscript/MyTranscript";
-import ParaqitProvimet from "./StudentPages/ParaqitProvimet/ParaqitProvimet";
-import MySchedule from "./StudentPages/MySchedule/MySchedule";
+import Administrator from "./CRUDs/Administrator/Administrator"
+import SMIS from './UserPages/StudentPages/SMIS/Smis'
+import MyTranscript from "./UserPages/StudentPages/MyTranscript/MyTranscript";
+import ParaqitProvimet from "./UserPages/StudentPages/ParaqitProvimet/ParaqitProvimet";
+import MySchedule from "./UserPages/StudentPages/MySchedule/MySchedule";
+import Staff from "./UserPages/AdminPages/Staff/Staff"
 import Login from "./Login/Login";
 import Home from './Home/Home'
 
@@ -54,7 +56,6 @@ function App() {
           <Route path="/specializimet" element={<Specializimi />} />
           <Route path="/studentet" element={<Studenti />} />
           <Route path="/galerite" element={<Galeria />} />
-          <Route path="/profesoret" element={<Profesori />} />
           <Route path="/lendet" element={<Lenda />} />
           <Route path="/provimet" element={<Provimi />} />
           <Route path="/waitlist" element={<Waitlist />} />
@@ -65,6 +66,12 @@ function App() {
             <Route path="/smis/transkripta" element={<MyTranscript />} />
             <Route path="/smis/paraqit-provimet" element={<ParaqitProvimet />} />
             <Route path="/smis/my-schedule" element={<MySchedule />} />
+          </Route>
+          <Route path="/staff" element={<Staff />}>
+            <Route path="/staff/studentet" element={<Studenti />} />
+            <Route path="/staff/profesoret" element={<Profesori />} />
+            <Route path="/staff/administratoret" element={<Administrator />} />
+            <Route path="/staff/waitlist" element={<Waitlist />} />
           </Route>
           <Route path="/login" element={<Login />} />
         </Routes>

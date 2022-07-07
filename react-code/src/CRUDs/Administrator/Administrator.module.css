@@ -1,6 +1,13 @@
-.profesoriDiv{
+.studentiDiv{
     min-height:80vh;
     width:100%;
+}
+#buttonDiv {
+    text-align: right;
+    padding-right: 8%;
+}
+#addButton{
+    margin-top:2%;
 }
 #inputDiv h2{
     font-family: 'Playfair Display', serif;
@@ -31,22 +38,13 @@
     box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
     margin-bottom: 5%;
 }
-#nrTelefonitInputDiv input{
-    width:236px;
-    height:25px;
-    border-radius:5px;
-    text-align: left;
-    padding-left:5%;
-    border: 1px solid rgb(186, 186, 186);
-    box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
-    margin-bottom: 5%;
-}
 #passwordInputDiv{
     width:249px;
     height:25px;
     border-radius:5px;
     padding-left:0%;
     text-align:left;
+    display: flex;
     align-items:center;
     border: 1px solid rgb(186, 186, 186);
     box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
@@ -87,14 +85,6 @@
     box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
     margin-bottom: 5%;
 }
-#gradaInputDiv select{
-    width:250px;
-    height:25px;
-    border-radius:5px;
-    border: 1px solid rgb(186, 186, 186);
-    box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
-    margin-bottom: 5%;
-}
 #shtetiInputDiv select{
     width:125px;
     height:25px;
@@ -111,7 +101,22 @@
     box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
     margin-bottom: 5%;
 }
-
+#fakultetiInputDiv select{
+    width:250px;
+    height:25px;
+    border-radius:5px;
+    border: 1px solid rgb(186, 186, 186);
+    box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
+    margin-bottom: 5%;
+}
+#degaInputDiv select{
+    width:250px;
+    height:25px;
+    border-radius:5px;
+    border: 1px solid rgb(186, 186, 186);
+    box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
+    margin-bottom: 5%;
+}
 #drejtimiInputDiv select{
     width:250px;
     height:25px;
@@ -120,11 +125,11 @@
     box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
     margin-bottom: 5%;
 }
-
-#buttonDiv {
-    text-align: right;
-    padding-right: 8%;
-}
-#addButton{
-    margin-top:2%;
+#specializimiInputDiv select{
+    width:250px;
+    height:25px;
+    border-radius:5px;
+    border: 1px solid rgb(186, 186, 186);
+    box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
+    margin-bottom: 5%;
 }
