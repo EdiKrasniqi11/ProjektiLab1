@@ -1,0 +1,246 @@
+.loginDiv{
+    min-height:80vh;
+    width:100%;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+}
+#loginForm{
+    width: 30%;
+    height:300px;
+    border:1px solid rgb(188, 188, 188);
+    box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
+    border-radius:5px;
+}
+#inputDiv{
+    display:flex;
+    flex-direction:column;
+    width:100%;
+    height:75%;
+    align-items:center;
+    justify-content: center;
+}
+#emailInput input{
+    width:300px;
+    height:35px;
+    border-radius:5px;
+    text-align: left;
+    padding-left: 2%;
+    border: 1px solid rgb(186, 186, 186);
+    box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
+    margin-bottom: 5%;
+}
+#emailInput{
+    display: flex;
+    justify-content: center;
+}
+#passwordInput{
+    display: flex;
+    width:73%;
+    height:35px;
+    border-radius:5px;
+    text-align:left;
+    align-items:center;
+    border: 1px solid rgb(186, 186, 186);
+    box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
+    margin-bottom: 5%;
+}
+#passwordInput input{
+    border:none;
+    text-align: left;
+    padding-left: 2%;
+    height:23px;
+    width:275px;
+}
+#passwordInput input:focus{
+    outline:none;
+}
+#emailInput input:focus{
+    outline:none;
+}
+#showPassword{
+    cursor:pointer;
+    -webkit-user-select: none;       
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+#inputDiv button{
+    width:300px;
+    border-radius:5px;
+    background-color:rgb(211, 48, 48);
+    color:white;
+}
+
+#inputDiv button:hover{
+    background-color:rgb(212, 21, 21);
+    box-shadow: rgb(0 0 0 / 7%) 0px 5px 7px 0px, rgb(0 0 0 / 6%) 0px 5px 5px -0px, rgb(0 0 0 / 10%) 0px 3px 10px 0px;
+}
+#loginForm p{
+    margin-left:5%;
+    text-align:left;
+    font-size: 90%;
+}
+#loginForm a{
+    color:red
+}
+#loginForm a:hover{
+    text-decoration:underline
+}
+/* register */
+#registerInputDiv{
+    display:flex;
+    flex-direction:column;
+    width:100%;
+    height:75%;
+    align-items:center;
+    justify-content: center;
+    margin-top: 7%;
+}
+#registerInputDiv button{
+    width:61%;
+    border-radius:5px;
+    background-color:rgb(211, 48, 48);
+    color:white;
+}
+
+#registerInputDiv button:hover{
+    background-color:rgb(212, 21, 21);
+    box-shadow: rgb(0 0 0 / 7%) 0px 5px 7px 0px, rgb(0 0 0 / 6%) 0px 5px 5px -0px, rgb(0 0 0 / 10%) 0px 3px 10px 0px;
+}
+#registerForm{
+    width: 30%;
+    height:450px;
+    border:1px solid rgb(188, 188, 188);
+    box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
+    border-radius:5px;
+    text-align: center;
+}
+#registerForm h2{
+    margin-top: 3%;
+}
+#emriInputDiv{
+    display:flex;
+    justify-content:space-between;
+    width: 61%;
+}
+#emriInputDiv input{
+    width:45%;
+    height:25px;
+    border-radius:5px;
+    border: 1px solid rgb(186, 186, 186);
+    box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
+    margin-bottom: 5%;
+    text-align: left;
+    padding-left: 2%;
+}
+#emailInputDiv input{
+    width:236px;
+    height:25px;
+    border-radius:5px;
+    text-align: left;
+    padding-left:5%;
+    border: 1px solid rgb(186, 186, 186);
+    box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
+    margin-bottom: 5%;
+}
+#emailInputDiv{
+    margin-right: 2.8%;
+}
+#passwordInputDiv{
+    display: flex;
+    width:249px;
+    height:25px;
+    border-radius:5px;
+    text-align:left;
+    align-items:center;
+    border: 1px solid rgb(186, 186, 186);
+    box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
+    margin-bottom: 3%;
+}
+#passwordInputDiv input{
+    border:none;
+    text-align: left;
+    padding-left: 5%;
+    height:23px;
+    width:215px
+}
+#passwordInputDiv input:focus{
+    outline:none;
+}
+#showPassword{
+    cursor:pointer;
+    -webkit-user-select: none;       
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+#date select{
+    width:75px;
+    height:25px;
+    border-radius:5px;
+    border: 1px solid rgb(186, 186, 186);
+    box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
+    margin-bottom: 5%;
+}
+#date{
+    width:61%;
+    display:flex;
+    justify-content:space-between;
+}
+#gjiniaInputDiv select{
+    width:250px;
+    height:25px;
+    border-radius:5px;
+    border: 1px solid rgb(186, 186, 186);
+    box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
+    margin-bottom: 5%;
+}
+#shtetiInputDiv select{
+    width:125px;
+    height:25px;
+    border-radius:5px;
+    border: 1px solid rgb(186, 186, 186);
+    box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
+    margin-bottom: 5%;
+}
+#vendbanimiInputDiv select{
+    width:250px;
+    height:25px;
+    border-radius:5px;
+    border: 1px solid rgb(186, 186, 186);
+    box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
+    margin-bottom: 5%;
+}
+#fakultetiInputDiv select{
+    width:250px;
+    height:25px;
+    border-radius:5px;
+    border: 1px solid rgb(186, 186, 186);
+    box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
+    margin-bottom: 5%;
+}
+#degaInputDiv select{
+    width:250px;
+    height:25px;
+    border-radius:5px;
+    border: 1px solid rgb(186, 186, 186);
+    box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
+    margin-bottom: 5%;
+}
+#drejtimiInputDiv select{
+    width:250px;
+    height:25px;
+    border-radius:5px;
+    border: 1px solid rgb(186, 186, 186);
+    box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
+    margin-bottom: 5%;
+}
+#specializimiInputDiv select{
+    width:250px;
+    height:25px;
+    border-radius:5px;
+    border: 1px solid rgb(186, 186, 186);
+    box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
+    margin-bottom: 5%;
+}

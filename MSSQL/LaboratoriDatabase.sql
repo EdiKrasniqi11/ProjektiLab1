@@ -151,6 +151,7 @@ create table Termini(
 	foreign key (Studenti) references Studenti(StudentiID),
 	primary key(Studenti) 
 )
+insert into Administrator values ('Rreze','rr51155@ubt-uni.net','1234567',convert(DATE,'27/04/2002',103),'F',1);
 
 DBCC CHECKIDENT ('Njoftimet', RESEED, 0);
 DBCC CHECKIDENT ('Lajmet', RESEED, 0);

@@ -19,12 +19,12 @@ export class Home extends Component{
         .then(response=>response.json()).then(data=>{this.setState({lajmet:data});});
     }
     selectUserName(){
-        if(localStorage.getItem("user")==""){
-            return ""
+        if(localStorage.getItem("user")==null){
+            return null;
         }else{
             var user = JSON.parse(localStorage.getItem("user"));
             var username = user.Emri;
-            return username
+            return username;
         }
     }
     componentDidMount(){

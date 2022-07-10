@@ -26,8 +26,9 @@ import ParaqitProvimet from "./UserPages/StudentPages/ParaqitProvimet/ParaqitPro
 import MySchedule from "./UserPages/StudentPages/MySchedule/MySchedule";
 import Staff from "./UserPages/AdminPages/Staff/Staff"
 import University from "./UserPages/AdminPages/University/University"
-import Login from "./Login/Login";
+import Login from "./Login-Register/Login";
 import Home from './Home/Home'
+import Register from "./Login-Register/Register";
 
 
 
@@ -77,6 +78,7 @@ function App() {
             <Route path="/university/fakultetet" element={<Fakulteti />} />
           </Route>
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
       </div>
     </Router>

@@ -21,8 +21,8 @@ function Header() {
         {localStorage.getItem("role")=="student"?<li><NavLink to="/smis/transkripta">SMIS</NavLink></li>:null}
         {localStorage.getItem("role")=="admin"?<li><NavLink to="/staff/profesoret">STAFF</NavLink></li>:null}
         {localStorage.getItem("role")=="admin"?<li><NavLink to="/university/shtetet">UNIVERISTY</NavLink></li>:null}
-        {localStorage.getItem("user")==""?<li><NavLink to ="/login">LOGIN</NavLink></li>:
-        <li id={HeaderCSS.logoutButton} onClick={() => {localStorage.setItem("user",""); localStorage.setItem("role",""); window.location.href = '../'}}>LOG OUT</li>}
+        {localStorage.getItem("user")==null?<li><NavLink to ="/login">LOGIN</NavLink></li>:
+        <li id={HeaderCSS.logoutButton} onClick={() => {localStorage.removeItem("user"); localStorage.removeItem("role"); window.location.href = '../'}}>LOG OUT</li>}
       </ul>
     </div>
   );
