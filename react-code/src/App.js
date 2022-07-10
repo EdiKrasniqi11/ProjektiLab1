@@ -25,6 +25,7 @@ import MyTranscript from "./UserPages/StudentPages/MyTranscript/MyTranscript";
 import ParaqitProvimet from "./UserPages/StudentPages/ParaqitProvimet/ParaqitProvimet";
 import MySchedule from "./UserPages/StudentPages/MySchedule/MySchedule";
 import Staff from "./UserPages/AdminPages/Staff/Staff"
+import University from "./UserPages/AdminPages/University/University"
 import Login from "./Login/Login";
 import Home from './Home/Home'
 
@@ -47,15 +48,11 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/lajmet" element={<Lajmet />} />
           <Route path="/njoftimet" element={<Njoftimet />} />
-          <Route path="/shtetet" element={<Shtetet />} />
-          <Route path="/qytetet" element={<Qytetet />} />
-          <Route path="/fakultetet" element={<Fakulteti />} />
           <Route path="/deget" element={<Dega />} />
           <Route path="/drejtimet" element={<Drejtimi />} />
-          <Route path="/vendbanimet" element={<Vendbanimi />} />
           <Route path="/specializimet" element={<Specializimi />} />
           <Route path="/studentet" element={<Studenti />} />
-          <Route path="/galerite" element={<Galeria />} />
+          <Route path="/galeria" element={<Galeria />} />
           <Route path="/lendet" element={<Lenda />} />
           <Route path="/provimet" element={<Provimi />} />
           <Route path="/waitlist" element={<Waitlist />} />
@@ -72,6 +69,12 @@ function App() {
             <Route path="/staff/profesoret" element={<Profesori />} />
             <Route path="/staff/administratoret" element={<Administrator />} />
             <Route path="/staff/waitlist" element={<Waitlist />} />
+          </Route>
+          <Route path="/university" element={<University />}>
+            <Route path="/university/shtetet" element={<Shtetet />} />
+            <Route path="/university/qytetet/:id" element={<Qytetet />} />
+            <Route path="/university/vendbanimet/:shteti/:qyteti" element={<Vendbanimi />} />
+            <Route path="/university/fakultetet" element={<Fakulteti />} />
           </Route>
           <Route path="/login" element={<Login />} />
         </Routes>

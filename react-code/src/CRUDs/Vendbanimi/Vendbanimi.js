@@ -8,14 +8,16 @@ export class Vendbanimi extends Component{
     constructor(props){
         super(props);
 
+        let URLcomponents = window.location.href.split('/');
+
         this.state = {
             vendbanimet:[],
             shtetet:[],
             qytetet:[],
             filterQyteti: [],
             Adresa:"",
-            ShtetiID:0,
-            QytetiID:0,
+            Shteti:URLcomponents[5],
+            Qyteti:URLcomponents[6],
             VendbanimiID:0,
             insertModal:false,
             dataModal:false
@@ -35,17 +37,6 @@ export class Vendbanimi extends Component{
     }
     componentDidMount(){
         this.refreshList();
-    }
-    changeShteti = (e) =>{
-        this.setState({Shteti:e.target.value});
-
-        var shteti = this.state.shtetet.find(element => element.ShtetiID == e.target.value).ShtetiID
-        var selQyteti = this.state.qytetet.filter(item => item.Shteti === shteti)
-        this.setState({filterQyteti: selQyteti})
-        this.setState({QytetiID: selQyteti[0].QytetiID})
-    }
-    changeQyteti = (e) =>{
-        this.setState({Qyteti:e.target.value});
     }
     changeAdresa = (e) =>{
         this.setState({Adresa:e.target.value});
@@ -77,8 +68,6 @@ export class Vendbanimi extends Component{
     addClick() {
         this.setState({
           VendbanimiID: 0,
-          Shteti:0,
-          Qyteti:0,
           Adresa:"",
           insertModal:true
           
@@ -175,7 +164,7 @@ export class Vendbanimi extends Component{
                         <th>Adresa</th>
                         <th>Options</th>
                     </tr>
-                    {vendbanimet.map(vendbanimet=>
+                    {vendbanimet.filter(vendbanimi => vendbanimi.Qyteti == Qyteti).map(vendbanimet=>
                     <tr key={vendbanimet.VendbanimiID}>
                         <td>{vendbanimet.VendbanimiID}</td>
                         <td>{this.selectShteti(shtetet, vendbanimet.Shteti)}</td>
@@ -196,22 +185,6 @@ export class Vendbanimi extends Component{
                 </table>
                 {insertModal && <Modal modalSwitch={()=>this.setState({insertModal:false})}>
                     <h2>Vendbanimi</h2>
-                    <div id={stylist.shtetiInputDiv}>
-                            <select className="form-select" onChange={this.changeShteti} value={Shteti}>
-                            <option value="0">Shteti</option>
-                             {shtetet.map(shtetet=><option value={shtetet.ShtetiID}>
-                                    {shtetet.Emri}
-                                </option>)}
-                            </select>
-                    </div>
-                    <div id={stylist.qytetiInputDiv}>
-                            <select id="qytetiSelectTag" onChange={this.changeQyteti} value={Qyteti}>
-                                <option value="0">Qyteti</option>
-                                {filterQyteti.map(qytetet=><option value={qytetet.QytetiID}>
-                                    {qytetet.Emri}
-                                </option>)}
-                            </select>
-                    </div>
                     <div id={stylist.nameInputDiv}>
                         <input type="text" value={Adresa} onChange={this.changeAdresa} placeholder="Adresa"/>
                     </div>

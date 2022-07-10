@@ -1,12 +1,13 @@
+.qytetiDiv{
+    min-height:80vh;
+    width:100%;
+}
 #buttonDiv {
     text-align: right;
     padding-right: 8%;
 }
 #addButton{
     margin-top:2%;
-}
-.qytetiDiv{
-    min-height:80vh
 }
 #emriQytetit{
     width:236px;

@@ -12,12 +12,12 @@ import {
 
 export default function Staff(){
     return (
-        <div className={stylist.smisDiv}>
+        <div className={stylist.staffDiv}>
             <div id={stylist.sidebar}>
-                <NavLink to="/staff/profesoret"><button>PROFESORET</button></NavLink><br />
+                <NavLink to="/staff/profesoret"><button autoFocus>PROFESORET</button></NavLink><br />
                 <NavLink to="/staff/administratoret"><button>ADMINISTRATORET</button></NavLink><br />
-                <NavLink to="/staff/studentet"><button autoFocus>STUDENTET</button></NavLink>
-                <NavLink to="/staff/waitlist"><button autoFocus>WAITLIST</button></NavLink>
+                <NavLink to="/staff/studentet"><button>STUDENTET</button></NavLink>
+                <NavLink to="/staff/waitlist"><button>WAITLIST</button></NavLink>
             </div>
             <Outlet />
         </div>
