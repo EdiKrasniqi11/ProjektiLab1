@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import variables  from "../Variables";
 import QytetiCSS from "../Qytetet/Qytetet.module.css";
-import Modal from '../../AnyUseComponents/Modal'
+import Modal from '../../AnyUseComponents/Modal/Modal'
 import {NavLink} from 'react-router-dom'
 
 export class Qytetet extends Component{

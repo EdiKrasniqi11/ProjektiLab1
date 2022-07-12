@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "./Header/Header";
-import Footer from "./Footer/Footer";
+import Header from './Header-Footer/Header/Header';
+import Footer from "./Header-Footer/Footer/Footer";
 import Shtetet from "./CRUDs/Shtetet/Shtetet";
 import Qytetet from "./CRUDs/Qytetet/Qytetet";
 import Lajmet from "./CRUDs/Lajmet/Lajmet";
@@ -26,9 +26,9 @@ import ParaqitProvimet from "./UserPages/StudentPages/ParaqitProvimet/ParaqitPro
 import MySchedule from "./UserPages/StudentPages/MySchedule/MySchedule";
 import Staff from "./UserPages/AdminPages/Staff/Staff"
 import University from "./UserPages/AdminPages/University/University"
-import Login from "./Login-Register/Login";
-import Home from './Home/Home'
-import Register from "./Login-Register/Register";
+import Login from "./MainPages/Login-Register/Login";
+import Home from './MainPages/Home/Home';
+import Register from "./MainPages/Login-Register/Register";
 
 
 

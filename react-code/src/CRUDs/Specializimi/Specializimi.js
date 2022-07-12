@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import stylist from "./Specializimi.module.css";
 import variables from "../Variables";
-import Modal from '../../AnyUseComponents/Modal'
+import Modal from '../../AnyUseComponents/Modal/Modal'
 
 export class Specializimi extends Component{
     constructor(props){

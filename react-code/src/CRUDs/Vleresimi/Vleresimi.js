@@ -1,7 +1,7 @@
 import React,{Component} from 'react'
 import stylist from './Vleresimi.module.css'
 import variables from '../Variables'
-import Modal from '../../AnyUseComponents/Modal'
+import Modal from '../../AnyUseComponents/Modal/Modal'
 
 export class Vleresimi extends Component{
     constructor(props){

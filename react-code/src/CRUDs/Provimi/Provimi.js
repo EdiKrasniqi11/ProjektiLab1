@@ -1,7 +1,7 @@
 import React,{Component} from 'react'
 import stylist from './Provimi.module.css'
 import variables from '../Variables'
-import Modal from '../../AnyUseComponents/Modal'
+import Modal from '../../AnyUseComponents/Modal/Modal'
 
 export class Provimi extends Component{
     constructor(props){

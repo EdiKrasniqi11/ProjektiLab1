@@ -1,8 +1,8 @@
 import React,{Component} from 'react'
 import stylist from './Profesori.module.css'
 import variables from '../Variables'
-import Modal from '../../AnyUseComponents/Modal'
-import ProfesorData from '../../AnyUseComponents/ProfesorData'
+import Modal from '../../AnyUseComponents/Modal/Modal'
+import ProfesorData from '../../AnyUseComponents/UserData/ProfesorData'
 
 export class Profesori extends Component{
     constructor(props){

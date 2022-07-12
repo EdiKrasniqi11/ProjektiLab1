@@ -1,6 +1,5 @@
 import react,{Component} from 'react';
-import StudentData from '../AnyUseComponents/StudentData';
-import variables from '../CRUDs/Variables';
+import variables from '../../CRUDs/Variables';
 import stylist from './Login.module.css';
 import {NavLink} from 'react-router-dom';
 

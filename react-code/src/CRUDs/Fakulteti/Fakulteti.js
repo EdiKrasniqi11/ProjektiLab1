@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import stylist from "./Fakulteti.module.css";
 import variables from "../Variables";
-import Modal from '../../AnyUseComponents/Modal'
+import Modal from '../../AnyUseComponents/Modal/Modal'
 
 export class Fakulteti extends Component{
     constructor(props){

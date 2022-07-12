@@ -1,8 +1,8 @@
 import React,{Component} from 'react'
 import stylist from './Studenti.module.css'
 import variables from '../Variables'
-import Modal from '../../AnyUseComponents/Modal'
-import StudentData from '../../AnyUseComponents/StudentData'
+import Modal from '../../AnyUseComponents/Modal/Modal'
+import StudentData from '../../AnyUseComponents/UserData/StudentData'
 
 export class Studenti extends Component{
     constructor(props){

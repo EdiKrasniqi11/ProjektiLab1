@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import variables  from "../Variables";
 import stylist from "./Galeria.module.css";
-import  render  from "react-dom";
-import Modal from '../../AnyUseComponents/Modal'
+import Modal from '../../AnyUseComponents/Modal/Modal'
+import MediaHead from "../../AnyUseComponents/MediaHead/MediaHead";
 
 export class Galeria extends Component{
 
@@ -151,9 +151,7 @@ export class Galeria extends Component{
 
     return(
         <div className={stylist.galeriaDiv}>
-            {localStorage.getItem('role') == 'admin' || localStorage.getItem('role') == 'professor'?<div id={stylist.buttonDiv}>
-                <button type="button" onClick={() => this.addClick()} id={stylist.addButton}><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 12"><path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/></svg></button>
-            </div>:<h2>GALERIA</h2>}
+            <MediaHead title="Galeria" />
             <div id={stylist.showDiv}>
                 {galeri.map(galerite=>
                     <div class={stylist.foto} id={galerite.id}>

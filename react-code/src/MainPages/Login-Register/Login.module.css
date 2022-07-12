@@ -6,8 +6,8 @@
     align-items:center;
 }
 #loginForm{
-    width: 30%;
-    height:300px;
+    width: 30vw;
+    height:38vh;
     border:1px solid rgb(188, 188, 188);
     box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
     border-radius:5px;
@@ -20,8 +20,11 @@
     align-items:center;
     justify-content: center;
 }
+#emailInput{
+    width:100%;
+}
 #emailInput input{
-    width:300px;
+    width:63%;
     height:35px;
     border-radius:5px;
     text-align: left;
@@ -36,7 +39,7 @@
 }
 #passwordInput{
     display: flex;
-    width:73%;
+    width:65%;
     height:35px;
     border-radius:5px;
     text-align:left;
@@ -50,7 +53,7 @@
     text-align: left;
     padding-left: 2%;
     height:23px;
-    width:275px;
+    width:90%;
 }
 #passwordInput input:focus{
     outline:none;
@@ -66,7 +69,7 @@
     user-select: none;
 }
 #inputDiv button{
-    width:300px;
+    width:65%;
     border-radius:5px;
     background-color:rgb(211, 48, 48);
     color:white;
@@ -95,10 +98,9 @@
     height:75%;
     align-items:center;
     justify-content: center;
-    margin-top: 7%;
 }
 #registerInputDiv button{
-    width:61%;
+    width:65%;
     border-radius:5px;
     background-color:rgb(211, 48, 48);
     color:white;
@@ -110,23 +112,21 @@
 }
 #registerForm{
     width: 30%;
-    height:450px;
+    height: 100%;
     border:1px solid rgb(188, 188, 188);
     box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
     border-radius:5px;
     text-align: center;
-}
-#registerForm h2{
-    margin-top: 3%;
+    padding:1% 0% 1% 0%
 }
 #emriInputDiv{
     display:flex;
     justify-content:space-between;
-    width: 61%;
+    width: 65%;
 }
 #emriInputDiv input{
     width:45%;
-    height:25px;
+    height:30px;
     border-radius:5px;
     border: 1px solid rgb(186, 186, 186);
     box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
@@ -134,79 +134,81 @@
     text-align: left;
     padding-left: 2%;
 }
-#emailInputDiv input{
-    width:236px;
-    height:25px;
-    border-radius:5px;
-    text-align: left;
-    padding-left:5%;
-    border: 1px solid rgb(186, 186, 186);
-    box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
-    margin-bottom: 5%;
-}
 #emailInputDiv{
-    margin-right: 2.8%;
+    width:100%;
 }
-#passwordInputDiv{
-    display: flex;
-    width:249px;
-    height:25px;
+#emailInputDiv input{
+    width:63.4%;
+    height:30px;
     border-radius:5px;
-    text-align:left;
-    align-items:center;
+    text-align: left;
+    padding-left:1%;
     border: 1px solid rgb(186, 186, 186);
     box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
-    margin-bottom: 3%;
-}
-#passwordInputDiv input{
-    border:none;
-    text-align: left;
-    padding-left: 5%;
-    height:23px;
-    width:215px
-}
-#passwordInputDiv input:focus{
-    outline:none;
-}
-#showPassword{
-    cursor:pointer;
-    -webkit-user-select: none;       
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+    margin-bottom:5%;
 }
 #date select{
-    width:75px;
-    height:25px;
+    width:30%;
+    height:30px;
     border-radius:5px;
     border: 1px solid rgb(186, 186, 186);
     box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
     margin-bottom: 5%;
 }
 #date{
-    width:61%;
+    width:65%;
     display:flex;
     justify-content:space-between;
 }
+#gjiniaInputDiv{
+    width:100%;
+}
 #gjiniaInputDiv select{
-    width:250px;
-    height:25px;
+    width:65%;
+    height:30px;
     border-radius:5px;
     border: 1px solid rgb(186, 186, 186);
     box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
     margin-bottom: 5%;
+}
+#shtetiInputDiv{
+    width:100%;
+}
+#passwordInputDiv{
+    display: flex;
+    width:65%;
+    height:30px;
+    border-radius:5px;
+    text-align:left;
+    align-items:center;
+    border: 1px solid rgb(186, 186, 186);
+    box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
+    margin-bottom: 5%;
+}
+#passwordInputDiv input{
+    border:none;
+    text-align: left;
+    padding-left: 2%;
+    height:23px;
+    width:90%;
+}
+#passwordInputDiv input:focus{
+    outline:none;
 }
 #shtetiInputDiv select{
-    width:125px;
-    height:25px;
+    width:33%;
+    height:30px;
     border-radius:5px;
     border: 1px solid rgb(186, 186, 186);
     box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
     margin-bottom: 5%;
 }
+#vendbanimiInputDiv{
+    width:100%;
+}
 #vendbanimiInputDiv select{
-    width:250px;
-    height:25px;
+    width:65%;
+    height:30px;
     border-radius:5px;
     border: 1px solid rgb(186, 186, 186);
     box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
@@ -214,7 +216,7 @@
 }
 #fakultetiInputDiv select{
     width:250px;
-    height:25px;
+    height:30px;
     border-radius:5px;
     border: 1px solid rgb(186, 186, 186);
     box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
@@ -222,7 +224,7 @@
 }
 #degaInputDiv select{
     width:250px;
-    height:25px;
+    height:30px;
     border-radius:5px;
     border: 1px solid rgb(186, 186, 186);
     box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
@@ -230,7 +232,7 @@
 }
 #drejtimiInputDiv select{
     width:250px;
-    height:25px;
+    height:30px;
     border-radius:5px;
     border: 1px solid rgb(186, 186, 186);
     box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
@@ -238,7 +240,7 @@
 }
 #specializimiInputDiv select{
     width:250px;
-    height:25px;
+    height:30px;
     border-radius:5px;
     border: 1px solid rgb(186, 186, 186);
     box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;

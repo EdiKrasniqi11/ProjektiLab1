@@ -2,7 +2,7 @@ import {tsConstructorType} from '@babel/types';
 import React, { Component } from "react";
 import stylist from "./Njoftimet.module.css";
 import variables from "../Variables";
-import Modal from '../../AnyUseComponents/Modal'
+import Modal from '../../AnyUseComponents/Modal/Modal'
 
 export class Njoftimet extends Component {
   constructor(props) {

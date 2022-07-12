@@ -1,6 +1,6 @@
 import react,{Component} from 'react';
-import StudentData from '../AnyUseComponents/StudentData';
-import variables from '../CRUDs/Variables';
+import StudentData from '../../AnyUseComponents/UserData/StudentData';
+import variables from '../../CRUDs/Variables';
 import stylist from './Login.module.css';
 
 export default class Register extends Component{

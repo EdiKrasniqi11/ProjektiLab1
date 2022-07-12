@@ -1,14 +1,14 @@
 import React,{Component} from 'react';
 import stylist from './Home.module.css'
-import variables from '../CRUDs/Variables'
-import StudentData from '../AnyUseComponents/StudentData'
+import variables from '../../CRUDs/Variables'
 
 export class Home extends Component{
     constructor(props){
         super(props);
         this.state={
             galeria: [],
-            lajmet: []
+            lajmet: [],
+            Photopath: variables.PHOTO_URL
         }
     }
     refreshList(){
@@ -33,7 +33,8 @@ export class Home extends Component{
     render(){
         const{
             galeria,
-            lajmet
+            lajmet,
+            Photopath
         }=this.state;
         return(
             <div className={stylist.homeDiv}>
@@ -45,7 +46,7 @@ export class Home extends Component{
                     <div id={stylist.pictureDiv}>
                         {galeria.slice(0,4).map(item =>
                             <div className={stylist.photo}>
-                                <img src={require('../../../Laboratori1/Laboratori1/Photos/'+item.Foto)} height="80%" width="100%"/>
+                                <img src={Photopath+item.Foto} height="80%" width="100%"/>
                                 <p>{item.Pershkrimi}</p>
                             </div>
                         )}
@@ -56,7 +57,7 @@ export class Home extends Component{
                     <div id={stylist.pictureDiv}>
                         {lajmet.slice(0,4).map(item =>
                             <div className={stylist.photo}>
-                                <img src={require('../../../Laboratori1/Laboratori1/Photos/'+item.Foto)} height="80%" width="100%"/>
+                                <img src={Photopath+item.Foto} height="80%" width="100%"/>
                                 <p>{item.Titulli}</p>
                             </div>
                         )}

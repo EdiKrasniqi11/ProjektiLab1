@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import variables from '../Variables'
 import stylist from './Shkembimi.module.css'
-import Modal from '../../AnyUseComponents/Modal'
+import Modal from '../../AnyUseComponents/Modal/Modal'
 
 export class Shkembimi extends Component{
     constructor(props){

@@ -1,8 +1,8 @@
 import React,{Component} from 'react'
 import stylist from './Administrator.module.css'
 import variables from '../Variables'
-import Modal from '../../AnyUseComponents/Modal'
-import AdministratorData from '../../AnyUseComponents/AdministratorData'
+import Modal from '../../AnyUseComponents/Modal/Modal'
+import AdministratorData from '../../AnyUseComponents/UserData/AdministratorData'
 
 export default class Administrator extends Component{
     constructor(props){
