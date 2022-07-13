@@ -4,13 +4,13 @@ use Laboratori1
 create table Njoftimet(
 	NjoftimiID int identity(1,1) primary key,
 	Titulli varchar(50) not null,
-	Pershkrimi varchar(255) not null
+	Pershkrimi text not null
 )
 
 create table Lajmet(
 	LajmiID int identity(1,1) primary key,
 	Titulli varchar(50) not null,
-	Pershkrimi varchar(255) not null,
+	Pershkrimi text not null,
 	Foto varchar(255) not null
 )
 
@@ -152,6 +152,7 @@ create table Termini(
 	primary key(Studenti) 
 )
 insert into Administrator values ('Rreze','rr51155@ubt-uni.net','1234567',convert(DATE,'27/04/2002',103),'F',1);
+insert into Administrator values ('Adelina','ax52468@ubt-uni.net','7654321',convert(DATE,'01/06/2001',103),'F',1);
 
 DBCC CHECKIDENT ('Njoftimet', RESEED, 0);
 DBCC CHECKIDENT ('Lajmet', RESEED, 0);

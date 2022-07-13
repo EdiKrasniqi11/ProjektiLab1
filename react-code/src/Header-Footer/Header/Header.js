@@ -10,7 +10,8 @@ function Header() {
       <ul id={HeaderCSS.navList}>
         <li><NavLink to="/">HOME</NavLink></li>
         <li><NavLink to="/lajmet">LAJMET</NavLink></li>
-        {localStorage.getItem("role")=="admin"?<li><NavLink to="/njoftimet">NJOFTIMET</NavLink></li>:null}
+        {localStorage.getItem('role') == 'admin' || localStorage.getItem('role') == 'professor' || 
+        localStorage.getItem('role') == 'student'?<li><NavLink to="/njoftimet">NJOFTIMET</NavLink></li>:null}
         <li><NavLink to="/galeria">GALERIA</NavLink></li>
         {localStorage.getItem("role")=="admin"?<li><NavLink to="/shkembimet">SHKEMBIMET</NavLink></li>:null}
         {localStorage.getItem("role")=="admin"?<li><NavLink to="/vleresimet">VLERESIMET</NavLink></li>:null}
