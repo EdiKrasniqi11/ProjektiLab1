@@ -11,11 +11,7 @@ function Header() {
         <li><NavLink to="/">HOME</NavLink></li>
         <li><NavLink to="/lajmet">LAJMET</NavLink></li>
         {localStorage.getItem("role")=="admin"?<li><NavLink to="/njoftimet">NJOFTIMET</NavLink></li>:null}
-        {localStorage.getItem("role")=="admin"?<li><NavLink to="/deget">DEGET</NavLink></li>:null}
-        {localStorage.getItem("role")=="admin"?<li><NavLink to="/drejtimet">DREJTIMET</NavLink></li>:null}
-        {localStorage.getItem("role")=="admin"?<li><NavLink to="/specializimet">SPECIALIZIMET</NavLink></li>:null}
         <li><NavLink to="/galeria">GALERIA</NavLink></li>
-        {localStorage.getItem("role")=="admin"?<li><NavLink to="/lendet">LENDET</NavLink></li>:null}
         {localStorage.getItem("role")=="admin"?<li><NavLink to="/shkembimet">SHKEMBIMET</NavLink></li>:null}
         {localStorage.getItem("role")=="admin"?<li><NavLink to="/vleresimet">VLERESIMET</NavLink></li>:null}
         {localStorage.getItem("role")=="student"?<li><NavLink to="/smis/transkripta">SMIS</NavLink></li>:null}

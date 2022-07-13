@@ -6,6 +6,7 @@ button{
 }
 .lendaDiv{
     min-height:80vh;
+    width: 100%;
 }
 #formLenda{
     text-align: center;

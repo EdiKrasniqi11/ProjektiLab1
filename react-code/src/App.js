@@ -76,6 +76,10 @@ function App() {
             <Route path="/university/qytetet/:id" element={<Qytetet />} />
             <Route path="/university/vendbanimet/:shteti/:qyteti" element={<Vendbanimi />} />
             <Route path="/university/fakultetet" element={<Fakulteti />} />
+            <Route path="/university/drejtimet/:id" element={<Drejtimi />} />
+            <Route path="/university/deget/:id" element={<Dega />} />
+            <Route path="/university/specializimet/:fakulteti/:drejtimi" element={<Specializimi />} />
+            <Route path="/university/lendet/:fakulteti/:drejtimi" element={<Lenda />} />
           </Route>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
