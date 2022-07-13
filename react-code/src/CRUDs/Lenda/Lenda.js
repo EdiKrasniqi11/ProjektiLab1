@@ -7,6 +7,8 @@ export class Lenda extends Component{
     constructor(props){
         super(props);
 
+        let URLcomponents = window.location.href.split('/');
+
         this.state = {
             lendet:[],
             profesoret:[],
@@ -16,7 +18,7 @@ export class Lenda extends Component{
             ECTS:"",
             LendaID:0,
             Profesori: 0,
-            Drejtimi:0,
+            Drejtimi:URLcomponents[6],
 	    insertModal:false,
         dataModal:false
 
@@ -177,7 +179,7 @@ export class Lenda extends Component{
                         <th>ECTS</th>
                         <th>Options</th>
                     </tr>
-                    {lendet.map(lendet=>
+                    {lendet.filter(lenda => lenda.Drejtimi == Drejtimi).map(lendet=>
                         <tr key={lendet.LendaID}>
                             <td>{lendet.LendaID}</td>
 			                <td>{lendet.Emri}</td>

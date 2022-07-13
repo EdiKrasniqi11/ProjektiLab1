@@ -7,13 +7,15 @@ export class Specializimi extends Component{
     constructor(props){
         super(props);
 
+        let URLcomponents = window.location.href.split('/');
+
         this.state = {
             specializimet:[],
             fakultetet:[],
             drejtimet:[],
             filterDrejtimi:[],
-            Drejtimi:1,
-            Fakulteti:1,
+            Drejtimi:URLcomponents[6],
+            Fakulteti:URLcomponents[5],
             SpecializimiID:0,
             LajmiID:0,
             EmriSpecializimit:"",
@@ -172,7 +174,7 @@ export class Specializimi extends Component{
                         <th>Emri i specializimit</th>
                         <th>Options</th>
                     </tr>
-                    {specializimet.map(specializimet=>
+                    {specializimet.filter(specializimi => specializimi.Drejtimi == Drejtimi).map(specializimet=>
                     <tr key={specializimet.SpecializimiID}>
                         <td>{specializimet.SpecializimiID}</td>
                         <td>{this.selectFakulteti(fakultetet, specializimet.Fakulteti)}</td>
@@ -194,16 +196,6 @@ export class Specializimi extends Component{
                     {insertModal && <Modal modalSwitch={()=>this.setState({insertModal:false})}>
                         <h2>Specializimi</h2>
                         <div id={stylist.inputDiv}>
-                            <select className="form-select" onChange={this.changeFakulteti} value={Fakulteti}>
-                                {fakultetet.map(fakultetet=><option value={fakultetet.FakultetiID}>
-                                    {fakultetet.Emri}
-                                </option>)}
-                            </select><br></br>
-                            <select className="form-select" onChange={this.changeDrejtimi} value={Drejtimi}>
-                                {filterDrejtimi.map(drejtimet=><option value={drejtimet.DrejtimiID}>
-                                    {drejtimet.Emri}
-                                </option>)}
-                            </select><br></br>
                             <input type="text" value={EmriSpecializimit} onChange={this.changeEmriSpecializimit} placeholder="Emri"/>
                         </div>
                         {SpecializimiID ==0?

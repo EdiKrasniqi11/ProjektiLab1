@@ -7,6 +7,8 @@ export class Dega extends Component{
     constructor(props){
         super(props);
 
+        let URLcomponents = window.location.href.split('/');
+
         this.state = {
             deget:[],
             fakultetet:[],
@@ -14,7 +16,7 @@ export class Dega extends Component{
             qytetet:[],
             filterQyteti: [],
             Qyteti: 1,
-            Fakulteti:0,
+            Fakulteti:URLcomponents[5],
             DegaID:0,
             Shteti:"",
             openModal:false
@@ -164,7 +166,7 @@ export class Dega extends Component{
                         <th>Qyteti</th>
                         <th>Options</th>
                     </tr>
-                    {deget.map(deget=>
+                    {deget.filter(dega=>dega.Fakulteti == Fakulteti).map(deget=>
                     <tr key={deget.DegaID}>
                         <td>{deget.DegaID}</td>
                         <td>{this.selectFakulteti(fakultetet, deget.Fakulteti)}</td>

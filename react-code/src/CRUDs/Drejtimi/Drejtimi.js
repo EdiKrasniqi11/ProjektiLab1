@@ -4,15 +4,15 @@ import variables from "../Variables";
 import Modal from '../../AnyUseComponents/Modal/Modal'
 import {NavLink} from "react-router-dom"
 
-export class Drejtimi extends Component{cd
+export class Drejtimi extends Component{
     constructor(props){
         super(props);
-
+        let URLcomponents = window.location.href.split('/');
         this.state = {
             drejtimet:[],
             fakultetet:[],
             Emri:"",
-            Fakulteti:0,
+            Fakulteti:URLcomponents[5],
             DrejtimiID:0,
             insertModal:false
         }
@@ -143,7 +143,7 @@ export class Drejtimi extends Component{cd
                         <th>Fakulteti</th>
                         <th>Options</th>
                     </tr>
-                    {drejtimet.map(drejtimet=>
+                    {drejtimet.filter(drejtimi=> drejtimi.Fakulteti == Fakulteti).map(drejtimet=>
                     <tr key={drejtimet.DrejtimiID}>
                         <td>{drejtimet.DrejtimiID}</td>
                         <td>{drejtimet.Emri}</td>
@@ -167,7 +167,7 @@ export class Drejtimi extends Component{cd
                     </tr>
                     )}
                 </table>
-                {insertModal?<Modal modalSwitch={() => this.setState({insertModal:false})}>
+                {insertModal&&<Modal modalSwitch={() => this.setState({insertModal:false})}>
                     <div className={stylist.inputDiv}>
                         <h2>Drejtimi</h2>
                         <div id={stylist.nameInputDiv}>
@@ -188,7 +188,7 @@ export class Drejtimi extends Component{cd
                     {DrejtimiID !=0?
                     <button type="button" onClick={()=>this.updateClick()}>Update</button>
                     :null}
-                </Modal>:null}
+                </Modal>}
             </div>)
         }
 }
