@@ -1,5 +1,5 @@
 .locationsDiv{
-    width:100vw;
+    max-width:100vw;
     min-height:80vh;
     display:flex;
     overflow:hidden;

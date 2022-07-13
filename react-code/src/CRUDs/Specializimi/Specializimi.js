@@ -126,11 +126,8 @@ export class Specializimi extends Component{
     addClick() {
         this.setState({
           SpecializimiID: 0,
-          Fakulteti:1,
-          Drejtimi:1,
           EmriSpecializimit:"",
           insertModal:true
-
         });
     }
     

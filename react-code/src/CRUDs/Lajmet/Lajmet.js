@@ -38,16 +38,6 @@ export class Lajmet extends Component{
     changePershkrimi = (e)=>{
         this.setState({Pershkrimi:e.target.value});
     }
-    addClick() {
-        this.setState({
-          modalTitle: "",
-          LajmiID: 0,
-          Titulli: "",
-          Pershkrimi: "",
-          Foto:"",
-          insertModal:true
-        });
-      }
     createClick(){
         fetch(variables.API_URL+'lajmet',{
             method:'POST',
@@ -127,6 +117,16 @@ export class Lajmet extends Component{
             Pershkrimi:lajmet.Pershkrimi,
             Foto:lajmet.Foto,
             insertModal:true
+        });
+    }
+    addClick() {
+        this.setState({
+          modalTitle: "",
+          LajmiID: 0,
+          Titulli: "",
+          Pershkrimi: "",
+          Foto:"",
+          insertModal:true
         });
     }
     imageUpload=(e)=>{

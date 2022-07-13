@@ -130,7 +130,6 @@ export class Lenda extends Component{
             LendaID:0,
 	        Profesori:0,
             Emri:"",
-            Drejtimi:0,
             ECTS:"",
             insertModal:true
         });
@@ -205,14 +204,6 @@ export class Lenda extends Component{
                         </div>
                         <div id={stylist.emriInputDiv}>
                             <input type="text" value={ECTS} onChange={this.changeECTS} placeholder="ECTS"/>
-                        </div>
-                         <div id={stylist.drejtimiInputDiv}>
-                            <select onChange={this.changeDrejtimi} value={Drejtimi}>
-                                <option value="0">Drejtimi</option>
-                                {drejtimet.map(drejtimet =>
-                                    <option value={drejtimet.DrejtimiID}>{drejtimet.Emri}</option>
-                                    )}
-                            </select>
                         </div>
                         <div id={stylist.profesoriInputDiv}>
                             <select onChange={this.changeProfesori} value={Profesori}>

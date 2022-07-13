@@ -30,9 +30,6 @@ export class Drejtimi extends Component{
     changeEmri = (e) =>{
         this.setState({Emri:e.target.value});
     }
-    changeFakulteti = (e) =>{
-        this.setState({Fakulteti:e.target.value});
-    }
     createClick(){
         fetch(variables.API_URL+'drejtimi',{
             method:'POST',
@@ -97,7 +94,6 @@ export class Drejtimi extends Component{
         this.setState({
           DrejtimiID: 0,
           Emri: "",
-          Fakulteti:0,
           insertModal:true
         });
     }
@@ -172,14 +168,6 @@ export class Drejtimi extends Component{
                         <h2>Drejtimi</h2>
                         <div id={stylist.nameInputDiv}>
                             <input type="text" value={Emri} onChange={this.changeEmri} placeholder="Emri"/>
-                        </div>
-                        <div id={stylist.fakultetiInputDiv}>
-                            <select className="form-select" onChange={this.changeFakulteti} value={Fakulteti}>
-                            <option value="0">Fakulteti</option>
-                                {fakultetet.map(fakultetet=><option value={fakultetet.FakultetiID}>
-                                    {fakultetet.Emri}
-                                </option>)}
-                            </select>
                         </div>
                     </div>
                     {DrejtimiID ==0?

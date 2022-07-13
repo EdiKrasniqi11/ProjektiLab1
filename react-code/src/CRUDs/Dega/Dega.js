@@ -18,16 +18,16 @@ export class Dega extends Component{
             Qyteti: 1,
             Fakulteti:URLcomponents[5],
             DegaID:0,
-            Shteti:"",
+            Shteti:0,
             openModal:false
         }
     }
     refreshList(){
         fetch(variables.API_URL+'fakulteti').then(response=>response.json())
-        .then(data=>{this.setState({fakultetet:data});});
+        .then(data=>{this.setState({fakultetet:data, Shteti: data.find(fakulteti => fakulteti.FakultetiID = this.state.Fakulteti)?.Shteti});});
 
         fetch(variables.API_URL+'qyteti').then(response=>response.json())
-        .then(data=>{this.setState({qytetet:data}); this.setState({filterQyteti:data});});
+        .then(data=>{this.setState({qytetet:data});});
 
         fetch(variables.API_URL+'shteti').then(response=>response.json())
         .then(data=>{this.setState({shtetet:data});});
@@ -123,24 +123,10 @@ export class Dega extends Component{
         this.setState({
           DegaID: 0,
           Qyteti: 0,
-          Fakulteti:0,
-          Shteti:"",
           openModal:true
         });
-    }
-    selectQyteti(qytetet, id){
-        for(let i=0;i<qytetet.length;i++){
-            if(qytetet[i].QytetiID === id){
-                return qytetet[i].Emri;
-            }
-        }
-    }
-    selectFakulteti(fakultetet, id){
-        for(let i=0;i<fakultetet.length;i++){
-            if(fakultetet[i].FakultetiID === id){
-                return fakultetet[i].Emri;
-            }
-        }
+        var selQyteti = this.state.qytetet.filter(item => item.Shteti === this.state.Shteti)
+        this.setState({filterQyteti: selQyteti})
     }
     render(){
         const{
@@ -169,8 +155,8 @@ export class Dega extends Component{
                     {deget.filter(dega=>dega.Fakulteti == Fakulteti).map(deget=>
                     <tr key={deget.DegaID}>
                         <td>{deget.DegaID}</td>
-                        <td>{this.selectFakulteti(fakultetet, deget.Fakulteti)}</td>
-                        <td>{this.selectQyteti(qytetet, deget.Qyteti)}</td>
+                        <td>{fakultetet.find(fakulteti => fakulteti.FakultetiID == Fakulteti)?.Emri}</td>
+                        <td>{qytetet.find(qyteti => qyteti.QytetiID == deget.Qyteti)?.Emri}</td>
                         <td>
                             <button type="button" onClick={()=>this.editClick(deget)}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor">
                                 <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
@@ -186,14 +172,6 @@ export class Dega extends Component{
                 {openModal && <Modal modalSwitch={()=>this.setState({openModal:false})}>
                     <h2>Dega</h2>
                     <div className={stylist.inputDiv}>
-                        <div id={stylist.fakultetiInputDiv}>
-                            <select onChange={this.changeFakulteti} value={Fakulteti}>
-                                <option value="0">Fakulteti</option>
-                                {fakultetet.map(fakultetet=><option value={fakultetet.FakultetiID}>
-                                    {fakultetet.Emri}
-                                </option>)}
-                            </select>
-                        </div>
                         <div id={stylist.qytetiInputDiv}>
                             <select onChange={this.changeQyteti} value={Qyteti}>
                                 <option value="0">Qyteti</option>
