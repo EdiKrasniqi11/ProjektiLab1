@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import stylist from './Home.module.css'
 import variables from '../../CRUDs/Variables'
+import {NavLink} from 'react-router-dom'
 
 export class Home extends Component{
     constructor(props){
@@ -42,18 +43,19 @@ export class Home extends Component{
                     <h1>Welcome to Prishtina University {this.selectUserName()}</h1>
                 </div>
                 <div id={stylist.galeryDiv}>
-                    <h3>Galeria</h3>
+                    <h3>Fotot me te reja ne Galeri</h3>
                     <div id={stylist.pictureDiv}>
-                        {galeria.slice(0,4).map(item =>
+                        {galeria.reverse().slice(0,4).map(item =>
                             <div className={stylist.photo}>
                                 <img src={Photopath+item.Foto} height="80%" width="100%"/>
                                 <p>{item.Pershkrimi}</p>
                             </div>
                         )}
                     </div>
+                    <NavLink to="/galeria"><h4>Kliko per me shume...</h4></NavLink>
                 </div>
                 <div id={stylist.galeryDiv}>
-                    <h3>Lajmet</h3>
+                    <NavLink to="/lajmet"><h3>Lajmet</h3></NavLink>
                     <div id={stylist.pictureDiv}>
                         {lajmet.slice(0,4).map(item =>
                             <div className={stylist.photo}>
@@ -62,6 +64,7 @@ export class Home extends Component{
                             </div>
                         )}
                     </div>
+                    <NavLink to="/lajmet"><h4>Kliko per me shume...</h4></NavLink>
                 </div>
             </div>
         )

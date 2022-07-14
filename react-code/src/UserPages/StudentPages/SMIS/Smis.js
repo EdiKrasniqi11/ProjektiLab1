@@ -1,7 +1,5 @@
 import React from 'react'
 import stylist from './Smis.module.css'
-import MyTranscript from '../MyTranscript/MyTranscript';
-import ParaqitProvimet from '../ParaqitProvimet/ParaqitProvimet';
 
 
 import {

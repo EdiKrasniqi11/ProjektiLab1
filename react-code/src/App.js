@@ -24,8 +24,10 @@ import SMIS from './UserPages/StudentPages/SMIS/Smis'
 import MyTranscript from "./UserPages/StudentPages/MyTranscript/MyTranscript";
 import ParaqitProvimet from "./UserPages/StudentPages/ParaqitProvimet/ParaqitProvimet";
 import MySchedule from "./UserPages/StudentPages/MySchedule/MySchedule";
-import Staff from "./UserPages/AdminPages/Staff/Staff"
-import University from "./UserPages/AdminPages/University/University"
+import Staff from "./UserPages/AdminPages/Staff/Staff";
+import University from "./UserPages/AdminPages/University/University";
+import PMIS from "./UserPages/ProfessorPages/PMIS/Pmis";
+import VleresoStudentet from './UserPages/ProfessorPages/VleresoStudentet/VleresoStudentet';
 import Login from "./MainPages/Login-Register/Login";
 import Home from './MainPages/Home/Home';
 import Register from "./MainPages/Login-Register/Register";
@@ -49,21 +51,15 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/lajmet" element={<Lajmet />} />
           <Route path="/njoftimet" element={<Njoftimet />} />
-          <Route path="/deget" element={<Dega />} />
-          <Route path="/drejtimet" element={<Drejtimi />} />
-          <Route path="/specializimet" element={<Specializimi />} />
-          <Route path="/studentet" element={<Studenti />} />
           <Route path="/galeria" element={<Galeria />} />
-          <Route path="/lendet" element={<Lenda />} />
-          <Route path="/provimet" element={<Provimi />} />
-          <Route path="/waitlist" element={<Waitlist />} />
-          <Route path="/shkembimet" element={<Shkembimi />} />
-          <Route path="/vleresimet" element={<Vleresimi />} />
-          <Route path="/terminet" element={<Termini />} />
           <Route path="/smis" element={<SMIS />}>
             <Route path="/smis/transkripta" element={<MyTranscript />} />
             <Route path="/smis/paraqit-provimet" element={<ParaqitProvimet />} />
             <Route path="/smis/my-schedule" element={<MySchedule />} />
+          </Route>
+          <Route path="/pmis" element={<PMIS />}>
+            <Route path="/pmis/vleresimet" element={<VleresoStudentet />} />
+            <Route path="/pmis/shkembimet" element={<Shkembimi />} />
           </Route>
           <Route path="/staff" element={<Staff />}>
             <Route path="/staff/studentet" element={<Studenti />} />

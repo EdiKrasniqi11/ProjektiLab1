@@ -25,9 +25,22 @@
     border-radius:10px;
     box-shadow: rgb(0 0 0 / 7%) 0px 3px 4px 0px, rgb(0 0 0 / 6%) 0px 3px 3px -2px, rgb(0 0 0 / 10%) 0px 1px 8px 0px;
 }
+.homeDiv a{
+    color:black
+}
 #galeryDiv h3{
     margin-top:-0.5%;
     margin-bottom:7px;
+}
+#galeryDiv h4{
+    margin-top:-0.5%;
+    margin-bottom:7px;
+    color:rgba(255, 0, 0, 0.612);
+    font-weight: lighter;
+}
+#galeryDiv h4:hover{
+    text-decoration: underline;
+    color:rgb(255, 0, 0);
 }
 #pictureDiv{
     height:87%;

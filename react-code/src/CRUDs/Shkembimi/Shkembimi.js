@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import variables from '../Variables'
 import stylist from './Shkembimi.module.css'
 import Modal from '../../AnyUseComponents/Modal/Modal'
+import Profesori from '../Profesori/Profesori';
 
 export class Shkembimi extends Component{
     constructor(props){
@@ -13,6 +14,7 @@ export class Shkembimi extends Component{
             fakultetet: [],
             fakultetetFilter: [],
             Studenti: 0,
+            Profesori: JSON.parse(localStorage.getItem("user")),
             Fakulteti: 0,
             ShkembimiStatus:0,
             insertModal: false
@@ -137,6 +139,7 @@ export class Shkembimi extends Component{
             fakultetet,
             fakultetetFilter,
             Studenti,
+            Profesori,
             Fakulteti,
             insertModal,
             ShkembimiStatus
@@ -177,9 +180,9 @@ export class Shkembimi extends Component{
                         <div id={stylist.studentiInputDiv}>
                             <select onChange={this.changeStudenti} value={Studenti}>
                                 <option value="0">Studenti</option>
-                                       {studentet.map(studentet =>
-                                    <option value={studentet.StudentiID}>{studentet.Emri}</option>
-                           )}
+                                {studentet.filter(studenti => studenti.Drejtimi == Profesori.Drejtimi).map(studentet =>
+                                    <option value={studentet.StudentiID}>{studentet.Emri}
+                                </option>)}
                             </select>
                         </div>:null}
                         <div id={stylist.fakultetiInputDiv}>
