@@ -167,16 +167,18 @@ export default class Administrator extends Component{
         let fullname = administratoret.Emri.split(" ");
         let emri = fullname[0];
         let mbiemri = fullname[1];
-        let dateComponents = this.formatDate(administratoret.Datelindja).split('/')
+
+        let datelindja = administratoret.Datelindja.split('T');
+        let dateComponents = datelindja[0].split('-');
         this.setState({
             AdminID:administratoret.AdminID,
             Emri:emri,
             Mbiemri:mbiemri,
             Email:administratoret.Email,
             Password:administratoret.Password,
-            Dita: dateComponents[1],
-            Muaji: dateComponents[0],
-            Viti: dateComponents[2],
+            Dita: dateComponents[2],
+            Muaji: dateComponents[1],
+            Viti: dateComponents[0],
             Gjinia:administratoret.Gjinia,
             Shteti:0,
             Qyteti:0,

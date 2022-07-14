@@ -228,12 +228,18 @@ export class Studenti extends Component{
         let fullname = studentet.Emri.split(" ");
         let emri = fullname[0];
         let mbiemri = fullname[1];
+
+        let datelindja = studentet.Datelindja.split('T');
+        let dateComponents = datelindja[0].split('-');
         this.setState({
             StudentiID:studentet.StudentiID,
             Emri:emri,
             Mbiemri:mbiemri,
             Email:studentet.Email,
             Password:studentet.Password,
+            Dita: dateComponents[2],
+            Muaji: dateComponents[1],
+            Viti:dateComponents[0],
             Datelindja:studentet.Datelindja,
             Gjinia:studentet.Gjinia,
             Shteti:0,

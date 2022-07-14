@@ -55,7 +55,7 @@ export class Home extends Component{
                     <NavLink to="/galeria"><h4>Kliko per me shume...</h4></NavLink>
                 </div>
                 <div id={stylist.galeryDiv}>
-                    <NavLink to="/lajmet"><h3>Lajmet</h3></NavLink>
+                    <h3>Lajmet</h3>
                     <div id={stylist.pictureDiv}>
                         {lajmet.slice(0,4).map(item =>
                             <div className={stylist.photo}>

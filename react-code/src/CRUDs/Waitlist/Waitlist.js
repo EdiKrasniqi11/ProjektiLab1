@@ -267,6 +267,9 @@ export class Waitlist extends Component{
         let fullname = waitlista.Emri.split(" ");
         let emri = fullname[0];
         let mbiemri = fullname[1];
+
+        let datelindja = waitlista.Datelindja.split('T');
+        let dateComponents = datelindja[0].split('-');
         this.setState({
             StudentiID:waitlista.StudentiID,
             Emri:emri,
@@ -274,6 +277,9 @@ export class Waitlist extends Component{
             Email:waitlista.Email,
             Password:waitlista.Password,
             Datelindja:waitlista.Datelindja,
+            Dita: dateComponents[2],
+            Muaji: dateComponents[1],
+            Viti: dateComponents[0],
             Gjinia:waitlista.Gjinia,
             Shteti:0,
             Qyteti:0,

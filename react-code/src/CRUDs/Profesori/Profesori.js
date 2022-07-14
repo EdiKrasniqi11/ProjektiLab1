@@ -206,11 +206,17 @@ export class Profesori extends Component{
         let fullname = profesoret.Emri.split(" ");
         let emri = fullname[0];
         let mbiemri = fullname[1];
+
+        let datelindja = profesoret.Datelindja.split('T');
+        let dateComponents = datelindja[0].split('-');
         this.setState({
             ProfesoriID:profesoret.ProfesoriID,
-            Emri:profesoret.Emri,
-            Mbiemri:profesoret.Mbiemri,
+            Emri:emri,
+            Mbiemri:mbiemri,
             Datelindja:profesoret.Datelindja,
+            Dita: dateComponents[2],
+            Muaji: dateComponents[1],
+            Viti: dateComponents[0],
             Gjinia:profesoret.Gjinia,
             GradaAkademike:profesoret.GradaAkademike,
             Drejtimi:profesoret.Drejtimi,
