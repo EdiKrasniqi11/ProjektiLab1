@@ -2,6 +2,7 @@ import React from 'react';
 import image from "../../Images/UniversityLogo.jpg";
 import HeaderCSS from "./Header.module.css";
 import {NavLink} from 'react-router-dom';
+import secureLocalStorage from 'react-secure-storage';
 
 function Header() {
   return (
@@ -10,14 +11,14 @@ function Header() {
       <ul id={HeaderCSS.navList}>
         <li><NavLink to="/">HOME</NavLink></li>
         <li><NavLink to="/lajmet">LAJMET</NavLink></li>
-        {localStorage.getItem('role')!=null?<li><NavLink to="/njoftimet">NJOFTIMET</NavLink></li>:null}
+        {secureLocalStorage.getItem('role')!=null?<li><NavLink to="/njoftimet">NJOFTIMET</NavLink></li>:null}
         <li><NavLink to="/galeria">GALERIA</NavLink></li>
-        {localStorage.getItem("role")=="student"?<li><NavLink to="/smis/transkripta">SMIS</NavLink></li>:null}
-        {localStorage.getItem("role")=="admin"?<li><NavLink to="/staff/profesoret">STAFF</NavLink></li>:null}
-        {localStorage.getItem("role")=="professor"?<li><NavLink to="/pmis/vleresimet">PMIS</NavLink></li>:null}
-        {localStorage.getItem("role")=="admin"?<li><NavLink to="/university/shtetet">UNIVERISTY</NavLink></li>:null}
-        {localStorage.getItem("user")==null?<li><NavLink to ="/login">LOGIN</NavLink></li>:
-        <li id={HeaderCSS.logoutButton} onClick={() => {localStorage.removeItem("user"); localStorage.removeItem("role"); window.location.href = '../'}}>LOG OUT</li>}
+        {secureLocalStorage.getItem("role")=="student"?<li><NavLink to="/smis/transkripta">SMIS</NavLink></li>:null}
+        {secureLocalStorage.getItem("role")=="admin"?<li><NavLink to="/staff/profesoret">STAFF</NavLink></li>:null}
+        {secureLocalStorage.getItem("role")=="professor"?<li><NavLink to="/pmis/vleresimet">PMIS</NavLink></li>:null}
+        {secureLocalStorage.getItem("role")=="admin"?<li><NavLink to="/university/shtetet">UNIVERISTY</NavLink></li>:null}
+        {secureLocalStorage.getItem("user")==null?<li><NavLink to ="/login">LOGIN</NavLink></li>:
+        <li id={HeaderCSS.logoutButton} onClick={() => {secureLocalStorage.clear(); window.location.href = '../'}}>LOG OUT</li>}
       </ul>
     </div>
   );

@@ -1,6 +1,7 @@
 import react,{Component} from 'react'
 import stylist from './MyTranscript.module.css'
 import variables from '../../../CRUDs/Variables'
+import secureLocalStorage from 'react-secure-storage'
 
 export default class MyTranscript extends Component{
     constructor(props){
@@ -43,7 +44,7 @@ export default class MyTranscript extends Component{
             vleresimet,
             lendet
         }=this.state
-        const studenti = JSON.parse(localStorage.getItem("user"));
+        const studenti = JSON.parse(secureLocalStorage.getItem("user"));
         var index = 0
         var ectsTotal = 0
         var gradesTotal = 0

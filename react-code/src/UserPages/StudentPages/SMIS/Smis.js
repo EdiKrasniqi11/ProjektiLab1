@@ -1,6 +1,6 @@
 import React from 'react'
 import stylist from './Smis.module.css'
-
+import secureLocalStorage from 'react-secure-storage';
 
 import {
     BrowserRouter as Router,
@@ -13,7 +13,7 @@ import {
 function SMIS(){
     return (
         <div>
-            {localStorage.getItem('role')=='student'?
+            {secureLocalStorage.getItem('role')=='student'?
             <div className={stylist.smisDiv}>
                 <div id={stylist.sidebar}>
                     <NavLink to="/smis/transkripta"><button autoFocus>TRANSKRIPTA</button></NavLink><br />

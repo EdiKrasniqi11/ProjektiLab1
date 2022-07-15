@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import stylist from './Home.module.css'
 import variables from '../../CRUDs/Variables'
 import {NavLink} from 'react-router-dom'
+import secureLocalStorage from 'react-secure-storage';
 
 export class Home extends Component{
     constructor(props){
@@ -20,10 +21,10 @@ export class Home extends Component{
         .then(response=>response.json()).then(data=>{this.setState({lajmet:data});});
     }
     selectUserName(){
-        if(localStorage.getItem("user")==null){
+        if(secureLocalStorage.getItem("user")==null){
             return null;
         }else{
-            var user = JSON.parse(localStorage.getItem("user"));
+            var user = JSON.parse(secureLocalStorage.getItem("user"));
             var username = user.Emri;
             return username;
         }

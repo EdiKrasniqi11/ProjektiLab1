@@ -2,6 +2,7 @@ import react,{Component} from 'react';
 import variables from '../../CRUDs/Variables';
 import stylist from './Login.module.css';
 import {NavLink} from 'react-router-dom';
+import secureLocalStorage from 'react-secure-storage'
 
 export default class Login extends Component {
     constructor(props){
@@ -43,16 +44,16 @@ export default class Login extends Component {
                 if(user == null){
                     alert("Login was Unsuccessful");
                 }else{
-                    localStorage.setItem("user", JSON.stringify(user));
-                    localStorage.setItem("role", "admin")
+                    secureLocalStorage.setItem("user", JSON.stringify(user));
+                    secureLocalStorage.setItem("role", "admin")
                 }
             }else{
-                localStorage.setItem("user", JSON.stringify(user));
-                localStorage.setItem("role", "professor")
+                secureLocalStorage.setItem("user", JSON.stringify(user));
+                secureLocalStorage.setItem("role", "professor")
             }
         }else{
-            localStorage.setItem("user", JSON.stringify(user));
-            localStorage.setItem("role", "student")
+            secureLocalStorage.setItem("user", JSON.stringify(user));
+            secureLocalStorage.setItem("role", "student")
         }
         window.location.href = '../';
     }

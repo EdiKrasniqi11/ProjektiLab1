@@ -1,6 +1,6 @@
 import React from 'react'
 import stylist from './University.module.css'
-
+import secureLocalStorage from 'react-secure-storage';
 
 import {
     BrowserRouter as Router,
@@ -13,7 +13,7 @@ import {
 export default function University(){
     return (
         <div>
-            {localStorage.getItem('role')=='admin'?
+            {secureLocalStorage.getItem('role')=='admin'?
             <div className={stylist.locationsDiv}>
                 <div id={stylist.sidebar}>
                     <NavLink to="/university/shtetet"><button autoFocus>SHTETET</button></NavLink><br />

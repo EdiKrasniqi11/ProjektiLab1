@@ -1,6 +1,7 @@
 import react,{Component} from 'react'
 import stylist from './ParaqitProvimet.module.css'
 import variables from '../../../CRUDs/Variables'
+import secureLocalStorage from 'react-secure-storage'
 
 export default class ParaqitProvimet extends Component{
     constructor(props){
@@ -11,7 +12,7 @@ export default class ParaqitProvimet extends Component{
             filterLendet:[],
             profesoret: [],
             vleresimet: [],
-            Studenti: JSON.parse(localStorage.getItem("user")),
+            Studenti: JSON.parse(secureLocalStorage.getItem("user")),
             Lenda: 0,
             Profesori: 0
         }

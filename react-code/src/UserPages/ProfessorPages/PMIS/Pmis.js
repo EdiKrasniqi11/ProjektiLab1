@@ -1,6 +1,6 @@
 import React from 'react'
 import stylist from './Pmis.module.css'
-
+import secureLocalStorage from 'react-secure-storage';
 
 import {
     BrowserRouter as Router,
@@ -13,7 +13,7 @@ import {
 export default function PMIS(){
     return (
         <div>
-            {localStorage.getItem('role')=='professor'?
+            {secureLocalStorage.getItem('role')=='professor'?
             <div className={stylist.pmisDiv}>
                 <div id={stylist.sidebar}>
                     <NavLink to="/pmis/vleresimet"><button autoFocus>VLERESIMET</button></NavLink><br />

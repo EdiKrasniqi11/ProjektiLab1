@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import variables from '../Variables'
 import stylist from './Shkembimi.module.css'
 import Modal from '../../AnyUseComponents/Modal/Modal'
-import Profesori from '../Profesori/Profesori';
+import secureLocalStorage from 'react-secure-storage';
 
 export class Shkembimi extends Component{
     constructor(props){
@@ -14,7 +14,7 @@ export class Shkembimi extends Component{
             fakultetet: [],
             fakultetetFilter: [],
             Studenti: 0,
-            Profesori: JSON.parse(localStorage.getItem("user")),
+            Profesori: JSON.parse(secureLocalStorage.getItem("user")),
             Fakulteti: 0,
             ShkembimiStatus:0,
             insertModal: false

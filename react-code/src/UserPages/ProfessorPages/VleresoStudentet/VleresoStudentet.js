@@ -2,6 +2,7 @@ import React,{Component} from 'react'
 import stylist from './VleresoStudentet.module.css'
 import variables from '../../../CRUDs/Variables'
 import Modal from '../../../AnyUseComponents/Modal/Modal'
+import secureLocalStorage from 'react-secure-storage'
 
 export class Vleresimi extends Component{
     constructor(props){
@@ -12,7 +13,7 @@ export class Vleresimi extends Component{
             studentetFilter: [],
             lendet: [],
             provimet: [],
-            Profesori:JSON.parse(localStorage.getItem("user")),
+            Profesori:JSON.parse(secureLocalStorage.getItem("user")),
             Studenti: 0,
             Lenda: 0,
             Nota: 0,

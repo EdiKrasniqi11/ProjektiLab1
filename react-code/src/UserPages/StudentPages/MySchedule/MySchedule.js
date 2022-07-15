@@ -1,13 +1,14 @@
 import react,{Component} from 'react'
 import stylist from './MySchedule.module.css'
 import variables from '../../../CRUDs/Variables'
+import secureLocalStorage from 'react-secure-storage';
 
 export default class MySchedule extends Component{
     constructor(props){
         super(props);
         this.state={
             terminet: [],
-            Studenti: JSON.parse(localStorage.getItem("user")).StudentiID,
+            Studenti: JSON.parse(secureLocalStorage.getItem("user")).StudentiID,
             Orari: ""
         }
     }
